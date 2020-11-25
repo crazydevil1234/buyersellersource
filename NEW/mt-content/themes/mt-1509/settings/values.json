@@ -1,0 +1,34 @@
+{
+    "spacings": {
+        "desktop": {
+            "small": "15px",
+            "medium": "40px",
+            "large": "125px"
+        },
+        "tablet": {
+            "small": "15px",
+            "medium": "35px",
+            "large": "65px"
+        },
+        "mobile-h": {
+            "small": "15px",
+            "medium": 25,
+            "large": "45px"
+        },
+        "mobile-v": {
+            "small": "15px",
+            "medium": "25px",
+            "large": "45px"
+        }
+    },
+    "grid": {
+        "gutter-width": "30px",
+        "fixed-row-width": "1200px"
+    },
+    "headings": {
+        "heading1": "0em",
+        "heading2": "0em",
+        "heading3": "0em",
+        "heading4": "0em"
+    }
+}

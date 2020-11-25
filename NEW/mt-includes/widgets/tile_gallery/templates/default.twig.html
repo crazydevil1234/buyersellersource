@@ -1,0 +1,48 @@
+<div id="{{ currentWidget.getWidgetId() }}" data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-tile-gallery moto-preset-{{ currentWidget.properties.preset }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} {{ currentWidget.getAnimationClasses() }}" data-widget="tile_gallery" data-preset="{{ currentWidget.properties.preset }}">
+    {% if currentWidget.properties.items|length > 0 %}
+        <div class="moto-widget-tile-gallery__wrapper">
+            <div class="moto-widget-tile-gallery__items-wrapper" data-moto-init-lightbox-gallery=""{% if currentWidget.properties.justifyHeight %} data-tile-gallery-justify-height=""{% endif %} {% if currentWidget.properties.showCounter %} data-tile-gallery-show-counter=""{% endif %}>
+                {% for item in currentWidget.properties.items %}
+                    <div class="moto-widget-tile-gallery__item-wrapper">
+                        <div class="moto-widget-tile-gallery__item" data-moto-lightbox-item="">
+                            <a {{ Linker.getLinkAttributes(item.link) }} class="moto-widget-tile-gallery__item-link moto-link" data-moto-lightbox-link="">
+                                <img class="moto-widget-tile-gallery__item-image" src="{{ Linker.img(item.content.path) }}" alt="{{ item.content.alt | default(item.content.name) }}"/>
+                            </a>
+                            <div class="moto-widget-tile-gallery__item-layer">
+                                <span class="moto-widget-tile-gallery__item-layer-icon fa"></span>
+                                {% if item.caption.content %}
+                                    <div class="moto-widget-tile-gallery__item-caption moto-widget-tile-gallery__item-caption_{{ item.caption.type }} {{ currentWidget.getCaptionsVisibleOnClass() }}" data-moto-lightbox-caption="">
+                                        {% if item.caption.type=='html' %}
+                                            <span class="moto-widget-tile-gallery__caption-content moto-widget-text">{% filter page_html_content(item, 'widget:tile_gallery.caption') %}{% include template_from_string(item.caption.content) %}{% endfilter %}</span>
+                                        {% else %}
+                                            <span class="moto-widget-tile-gallery__caption-content">{{ item.caption.content | escape }}</span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <style type="text/css">
+                {% set styles = currentWidget.properties.styles %}
+                {{ StyleHelper.generateLessFromArray(styles.itemsWrapper.desktop.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__items-wrapper') }}
+                {{ StyleHelper.generateLessFromArray(styles.itemWrapper.desktop.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__item-wrapper') }}
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_tablet_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles.itemsWrapper.tablet.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__items-wrapper') }}
+                {{ StyleHelper.generateLessFromArray(styles.itemWrapper.tablet.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__item-wrapper') }}
+                }
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-h_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles.itemsWrapper['mobile-h'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__items-wrapper') }}
+                {{ StyleHelper.generateLessFromArray(styles.itemWrapper['mobile-h'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__item-wrapper') }}
+                }
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-v_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles.itemsWrapper['mobile-v'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__items-wrapper') }}
+                {{ StyleHelper.generateLessFromArray(styles.itemWrapper['mobile-v'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-tile-gallery__item-wrapper') }}
+                }
+            </style>
+        </div>
+    {% else %}
+        {% if isPreview %}<div class="moto-widget-empty"></div>{% endif %}
+    {% endif %}
+</div>

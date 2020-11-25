@@ -1,0 +1,194 @@
+{% import "macros/helper.html.twig" as ContentHelper %}
+<!DOCTYPE html>
+<html lang="{{ currentPage.getContentLocale() }}" {% if not isPreview %}data-ng-app="website"{% endif %}>
+<head>
+    {{ renderHook('head.top') }}
+    {{ renderHook('website.head.top') }}
+    {% block head %}
+        <meta charset="utf-8">
+        <title>{% if WEBSITE.title_format %}{% filter page_html_content(page, '@head:title') %}{% include template_from_string(WEBSITE.title_format) %}{% endfilter %}{% else %}{{ currentPage.title }}{% endif %}</title>
+        {{ pageFavicon() }}
+        {% filter page_html_content(page, '@head:seo_meta_tags') %}
+            {% autoescape false %}
+                {{ currentPage.getSeoHtml() }}
+            {% endautoescape %}
+        {% endfilter %}
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if WEBSITE.google_webmaster_tools_tag %}
+            <meta name="google-site-verification" content="{{ WEBSITE.google_webmaster_tools_tag|trim }}"/>
+        {% endif %}
+        {% if WEBSITE.yandex_webmaster_code %}
+            <meta name="yandex-verification" content="{{ WEBSITE.yandex_webmaster_code|trim }}"/>
+        {% endif %}
+    {% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{{ getFileUrl('@systemIncludes/css/assets.min.css', true) }}"/>
+        <style>{{ getFileContent('@userFontsFile') }}</style>
+        <link rel="stylesheet" href="{{ getFileUrl('@userStylesFile') }}" id="moto-website-style"/>
+        {% if isPreview %}
+            <link rel="stylesheet" href="{{ getFileUrl('@editorStyles/editor.min.css') }}" />
+        {% endif %}
+    {% endblock %}
+
+    {% if not isPreview %}
+
+    {% if WEBSITE.google_tag_manager.id %}
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ WEBSITE.google_tag_manager.id|trim }}');</script>
+        <!-- End Google Tag Manager -->
+    {% endif %}
+
+    {% if WEBSITE.google_analytics.id %}
+        <script type="text/javascript" data-cfasync="false">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '{{ WEBSITE.google_analytics.id|trim }}', 'auto');
+            {% if WEBSITE.google_analytics.options.anonymize_ip %}ga('set', 'anonymizeIp', true);{% endif %}
+            ga('send', 'pageview');
+
+        </script>
+    {% endif %}
+
+    {% if WEBSITE.facebook_pixel.id %}
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '{{ WEBSITE.facebook_pixel.id|trim }}');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ WEBSITE.facebook_pixel.id|trim }}&ev=PageView&noscript=1" /></noscript>
+        <!-- End Facebook Pixel Code -->
+    {% endif %}
+
+    {% if WEBSITE.yandex_metrica_counter.id %}
+        <script type="text/javascript" data-cfasync="false">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter{{ WEBSITE.yandex_metrica_counter.id|trim }} = new Ya.Metrika({
+                            id: {{ WEBSITE.yandex_metrica_counter.id|trim }},
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true
+                            {% if WEBSITE.yandex_metrica_counter.webvisor %},webvisor: true {% endif %}
+                            {% if WEBSITE.yandex_metrica_counter.track_hash %},trackHash: true {% endif %}});
+                    } catch (e) {
+                    }
+                });
+                var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript>
+            <div><img src="https://mc.yandex.ru/watch/{{ WEBSITE.yandex_metrica_counter_id|trim }}" style="position:absolute; left:-9999px;" alt=""/></div>
+        </noscript>
+    {% endif %}
+
+    {% endif %}
+
+    {{ renderHook('website.head.bottom') }}
+    {{ renderHook('head.bottom') }}
+    {{ currentPage.getCodeInjection('header') | raw }}
+</head>
+<body class="{{ currentPage.getBackgroundClass('moto-background') }}{% if isPreview %} moto-preview moto-preview-overlay{% else %} moto-website_live{% endif %}"{% if currentPage.getContentDirection() %} dir="{{ currentPage.getContentDirection() }}"{% endif %}>
+    {% if WEBSITE.google_tag_manager.id %}
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ WEBSITE.google_tag_manager.id|trim }}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    {% endif %}
+    {{ renderHook('body.top') }}
+    {{ renderHook('website.body.top') }}
+    {% filter page_html_content(currentPage, '@body:content') %}
+        {% block content %}{% endblock %}
+    {% endfilter %}
+    {% if WEBSITE.back_to_top_button %}
+        {% include '@websiteWidgets/back_to_top/templates/base.html.twig' %}
+    {% endif %}
+    {% if MotoCallback and MotoCallback.isAllowOnPage(currentPage) or isPreview %}
+        {% include '@websiteWidgets/moto_callback/templates/base.html.twig' %}
+    {% endif %}
+    {% if WEBSITE.cookie_notification.enabled or isPreview %}
+        <div class="moto-cookie-notification" data-content-hash="{{ WEBSITE.cookie_notification.content_hash }}">
+            {% if ('close' in WEBSITE.cookie_notification.controls.visible) or (WEBSITE.cookie_notification.controls is not defined) %}
+            <button type="button" class="moto-cookie-notification__button_close" ng-click="closeNotification()"><span class="fa fa-close"></span></button>
+            {% endif %}
+            <div class="moto-cookie-notification__container">
+                <div class="moto-cookie-notification__content moto-widget-text">
+                    {% include template_from_string(WEBSITE.cookie_notification.content) %}
+                </div>
+                {% if 'accept' in WEBSITE.cookie_notification.controls.visible %}
+                <div class="moto-cookie-notification__accept-button moto-widget moto-widget-button moto-align-center moto-preset-{{ WEBSITE.cookie_notification.controls.accept.preset }}">
+                    <a href="#" class="moto-widget-button-link moto-size-{{ WEBSITE.cookie_notification.controls.accept.size }}" ng-click="closeNotification({{ WEBSITE.cookie_notification.controls.accept.cookie_lifetime }})">
+                        <span class="fa moto-widget-theme-icon"></span>
+                        <span class="moto-widget-button-label">{{ WEBSITE.cookie_notification.controls.accept.label }}</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+    {% block js %}
+    <script src="{{ getFileUrl('@systemIncludes/js/website.assets.min.js') }}" type="text/javascript" data-cfasync="false"></script>
+    <script type="text/javascript" data-cfasync="false">
+        var websiteConfig = websiteConfig || {};
+        websiteConfig.address = '{{ WEBSITE.address }}';
+        websiteConfig.addressHash = '{{ WEBSITE_ADDRESS_HASH }}';
+        websiteConfig.apiUrl = '{{ Linker.relativeUrl('@website/api.php') }}';
+        websiteConfig.preferredLocale = '{{ WEBSITE.language_locale }}';
+        websiteConfig.preferredLanguage = websiteConfig.preferredLocale.substring(0, 2);
+        {% if WEBSITE.back_to_top_button %}
+        websiteConfig.back_to_top_button = {{ WEBSITE.back_to_top_button|json_encode|raw }};
+        {% endif %}
+        websiteConfig.popup_preferences = {{ WEBSITE.popup_preferences|json_encode|raw }};
+        websiteConfig.lazy_loading = {{ WEBSITE.lazy_loading|json_encode|raw }};
+        websiteConfig.cookie_notification = {{ WEBSITE.cookie_notification|json_encode|raw }};
+        {% if LiveChat and LiveChat.isAllowOnPage(currentPage) %}
+        angular.module('website.LiveChat.settings', ['ng']).constant('website.LiveChat.settings',  {{ LiveChat.exportFrontendSettings() }});
+        {% endif %}
+        angular.module('website.plugins', {{ renderHook('website.application.plugins', []) | json_encode | raw }});
+    </script>
+    <script src="{{ getFileUrl('@systemIncludes/js/website.min.js') }}" type="text/javascript" data-cfasync="false"></script>
+    {% if GOOGLE_MAP_API_KEY %}
+    <script type="text/javascript">$.fn.motoGoogleMap.setApiKey('{{ GOOGLE_MAP_API_KEY }}');</script>
+    {% endif %}
+    {% if isPreview %}
+        <script src="{{ getFileUrl('@editorApplication/editor.min.js') }}" type="text/javascript" data-cfasync="false"></script>
+        <script type="text/javascript" data-cfasync="false">
+            var widgetCacheOptions = {};
+            try {
+                {{ exportFrontendWidgetProperties() }}
+            } catch (e) {
+            }
+        </script>
+        <div class="moto-editor__content-overlay"></div>
+    {% endif %}
+    {% endblock %}
+    {{ renderHook('website.body.bottom') }}
+    {{ renderHook('body.bottom') }}
+    {{ currentPage.getCodeInjection('footer') | raw }}
+</body>
+</html>

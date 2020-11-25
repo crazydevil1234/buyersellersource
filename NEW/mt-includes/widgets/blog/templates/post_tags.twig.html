@@ -1,0 +1,16 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-blog-post_tags moto-preset-{{ currentWidget.properties.preset }} {{ currentWidget.getSpacing('classes') }}" data-widget="blog.post_tags" data-preset="{{ currentWidget.properties.preset }}">
+    {% if (currentWidget.getTags()|length > 0) %}
+        <div class="moto-widget-blog-post_tags__content-wrapper">
+            <ul class="moto-widget-blog-post_tags__items">
+                {% if currentWidget.properties.title %}
+                    <li class="moto-widget-blog-post_tags__title {{ currentWidget.properties.titleTextStyle }}">{{ currentWidget.properties.title }}</li>
+                {% endif %}
+                {% for tag in currentWidget.getTags() %}
+                    <li class="moto-widget-blog-post_tags__item"><a {% if isPreview %}href{% else %}href="{{ tag.getRelativeUrl() }}"{% endif %} class="moto-widget-blog-post_tags__item-link"><span class="moto-widget-blog-post_tags__item-text">{{ tag.name }}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="moto-widget-empty"></div>
+    {% endif %}
+</div>

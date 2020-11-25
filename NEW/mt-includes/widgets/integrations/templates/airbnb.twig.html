@@ -1,0 +1,10 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-integrations-airbnb {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-widget="integrations.airbnb">
+    {% if currentWidget.properties.apartmentId|length == 0 %}
+        {% if isPreview %}<div class="moto-widget-empty"></div>{% endif %}
+    {% else %}
+        {% if isPreview %}<div class="moto-widget-cover"></div>{% endif %}
+        <div class="airbnb-embed-frame" data-id="{{ currentWidget.properties.apartmentId }}" data-view="home" {% if currentWidget.properties.hidePrice %}data-hide-price="true" {% endif %}{% if currentWidget.properties.hideReviews %}data-hide-reviews="true" {% endif %}style="width:450px;height:300px;">
+            <a href="https://airbnb.com/rooms/{{ currentWidget.properties.apartmentId }}?s=51" rel="nofollow">View on Airbnb</a>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,43 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-input moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.input">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <div class="moto-form__element moto-form__element_input" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field{% if currentWidget.properties.icon.id %} moto-form__field_with-icon{% endif %}">
+            <input class="moto-form__field-control moto-form__field-control_input"
+                   type="{{ currentWidget.getFieldType() }}"
+                   name="{{ currentWidget.getFieldName() }}"
+                   ng-model="message['{{ currentWidget.getFieldName() }}']"
+                   {% if currentWidget.getFieldType() == 'date' %}ng-model-options="{timezone: 'UTC'}"{% endif %}
+                   ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')"
+                    {% if currentWidget.properties.type == 'number' %}
+                        {% if currentWidget.properties.validation.numberValue.allowMin and currentWidget.properties.validation.numberValue.minValue != null %}
+                            ng-min="{{ currentWidget.properties.validation.numberValue.minValue }}"
+                        {% endif %}
+                        {% if currentWidget.properties.validation.numberValue.allowMax and currentWidget.properties.validation.numberValue.maxValue != null %}
+                            ng-max="{{ currentWidget.properties.validation.numberValue.maxValue }}"
+                        {% endif %}
+                    {% else %}
+                        {% if currentWidget.properties.validation.stringLength.allowMin %}
+                            ng-minlength="{{ currentWidget.properties.validation.stringLength.minValue }}"
+                        {% endif %}
+                        {% if currentWidget.properties.validation.stringLength.allowMax %}
+                            ng-maxlength="{{ currentWidget.properties.validation.stringLength.maxValue }}"
+                        {% endif %}
+                    {% endif %}
+                    {% if currentWidget.properties.placeholder %}placeholder="{{ currentWidget.properties.placeholder }}"{% endif %}
+                    {% if currentWidget.properties.validation.required %} required{% endif %}>
+            {% if currentWidget.properties.icon.id %}<span class="moto-form__field-icon"><span class="fa fa-fw fa-{{ currentWidget.properties.icon.id }}" aria-hidden="true"></span></span>{% endif %}
+        </div>
+        {% if currentWidget.properties.description.text %}<div class="moto-form__field-description {{ currentWidget.properties.description.style }} {{ currentWidget.getAlignClass('moto-align-', 'description.align') }}">{{ currentWidget.properties.description.text }}</div>{% endif %}
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first"
+                 data-field-name="{{ currentWidget.getFieldName() }}"
+                 data-field-type="{{ currentWidget.getFieldType() }}"
+                 data-rules="{{ currentWidget.getValidationRules()|json_encode }}"
+                 data-form="$FORM"></div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-{{ currentWidget.getName() }} moto-widget_interactive {{ currentWidget.getCssClasses() }}" data-widget="{{ currentWidget.getName() }}" data-preset="{{ currentWidget.properties.preset }}" {% if not isPreview %} data-moto-content-slider="{{ currentWidget.exportFrontendSettings() }}"{% endif %}>
+    {% if isPreview %}
+        <div class="moto-widget-empty"></div>
+        <div class="moto-widget-cover"></div>
+    {% else %}
+        <div id="{{ currentWidget.getWidgetId() }}__loader" class="moto-widget-loader">
+            <div class="moto-widget-loader__indicator"></div>
+        </div>
+    {% endif %}
+    <div class="moto-widget__content-wrapper">
+        <div id="{{ currentWidget.getWidgetId() }}__content" class="moto-widget__content">
+            {% for item in currentWidget.children %}
+                {% if isServer %}
+                    {{ widget(item) }}
+                {% else %}
+                    {% widget item %}{% endWidget %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if isPreview %}
+        <div class="bx-controls{% if not currentWidget.properties.options.controls %} bx-controls_controls-hidden{% endif %}{% if not currentWidget.properties.options.pager %} bx-controls_pager-hidden{% endif %}{% if not currentWidget.properties.options.autoControls %} bx-controls_auto-controls-hidden{% endif %}">
+            <div class="bx-controls-direction">
+                <a class="bx-prev" href="">Prev</a>
+                <a class="bx-next" href="">Next</a>
+            </div>
+            <div class="bx-controls-auto">
+                <div class="bx-controls-auto-item"><a class="bx-start" href="">Start</a></div>
+            </div>
+            <div class="bx-pager">
+                <div class="bx-pager-item"><a href="" class="bx-pager-link">1</a></div>
+                <div class="bx-pager-item"><a href="" class="bx-pager-link active">2</a></div>
+                <div class="bx-pager-item"><a href="" class="bx-pager-link">3</a></div>
+                <div class="bx-pager-item"><a href="" class="bx-pager-link">4</a></div>
+                <div class="bx-pager-item"><a href="" class="bx-pager-link">5</a></div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

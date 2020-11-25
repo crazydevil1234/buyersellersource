@@ -1,0 +1,19 @@
+<div id="{{ currentWidget.getWidgetId() }}" data-parent-id="{{ currentWidget.getParent().getWidgetId() }}" class="moto-widget moto-widget-accordion__item moto-widget_with-content-editor moto-widget-accordion__item_collapse-icon-{% if currentWidget.getParent().properties.showCollapseIcon %}{{ currentWidget.getParent().properties.collapseIconAlign }}{% else %}disabled{% endif %} {% if currentWidget.isOpenedByDefault() %}moto-widget-accordion__item_open{% else %}{{ Entertainment.getCssClass('playingDisabled') }}{% endif %}" data-widget="accordion.item">
+    <div class="moto-widget-accordion__header" data-widget-id="{{ currentWidget.getWidgetId() }}">
+        {% if currentWidget.properties.header.icon.unicode %}<span class="moto-widget-accordion__header-item moto-widget-accordion__header-icon"><span class="fa fa-fw" aria-hidden="true">&#x{{ currentWidget.properties.header.icon.unicode }};</span></span>{% endif %}
+        <{{ currentWidget.getParent().properties.headingTag|default('span', true) }} class="moto-widget-accordion__header-item moto-widget-accordion__header-title">{{ currentWidget.properties.header.content }}</{{ currentWidget.getParent().properties.headingTag|default('span', true) }}>
+        {% if currentWidget.getParent().properties.showCollapseIcon %}<span class="moto-widget-accordion__header-item moto-widget-accordion__collapse-icon fa fa-fw" aria-hidden="true"></span>{% endif %}
+    </div>
+    <div class="moto-widget__content-wrapper moto-widget-accordion__content-wrapper" style="display: {% if currentWidget.isOpenedByDefault() %}block{% else %}none{% endif %};">
+        <div id="{{ currentWidget.getWidgetId() }}__content" class="moto-widget__content moto-widget-accordion__content {% if not currentWidget.isOpenedByDefault() %}{{ Entertainment.getCssClass(['animationDisabled', 'animationIgnoring']) }}{% endif %}">
+            {% for item in currentWidget.children %}
+                {% if isServer %}
+                    {{ widget(item) }}
+                {% else %}
+                    {% widget item %}{% endWidget %}
+                {% endif %}
+            {% endfor %}
+            {% if isPreview %}<div class="moto-widget-cover"></div>{% endif %}
+        </div>
+    </div>
+</div>

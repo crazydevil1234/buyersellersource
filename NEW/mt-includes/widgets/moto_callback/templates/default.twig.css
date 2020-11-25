@@ -1,0 +1,79 @@
+{% macro renderOffset(position) %}
+    {# TODO: create new method in StyleHelper ? #}
+    {{ position.direction.vertical }}: {{ position.values.desktop.vertical }};
+    {{ position.direction.horizontal }}: {{ position.values.desktop.horizontal }};
+    {% if position.direction.horizontal == 'left' %}right{% else %}left{% endif %}: auto;
+    {% for device in ['tablet', 'mobile-h', 'mobile-v'] %}
+        {% if position.values[device] != null and position.values[device].vertical != null and position.values[device].horizontal != null %}
+            @media screen and (max-width: @const_media_{{ device }}_max_width) {
+                {{ position.direction.vertical }}: {{ position.values[device].vertical }};
+                {{ position.direction.horizontal }}: {{ position.values[device].horizontal }};
+            }
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-callback', item.class_name) }} {
+    {{ _self.renderOffset(properties.position) }}
+
+    {{ StyleHelper.generateLessFromArray(properties.root.desktop) }}
+    {{ StyleHelper.generateLessFromArray(properties.root_open.desktop, '&.moto-widget-callback_opened, &.moto-widget-callback_opening') }}
+    {{ StyleHelper.generateLessFromArray(properties.root_close.desktop, '&.moto-widget-callback_closed, &.moto-widget-callback_closing') }}
+
+    .moto-widget-callback__agent {
+        {{ StyleHelper.generateLessFromArray(properties.agent.desktop) }}
+        {{ StyleHelper.generateLessFromArray(properties.agent_image.desktop, '.moto-widget-callback__thumbnail_image:not(.moto-widget-callback__thumbnail_empty)') }}
+        {{ StyleHelper.generateLessFromArray(properties.agent_icon.desktop, '.moto-widget-callback__thumbnail_icon:not(.moto-widget-callback__thumbnail_empty)') }}
+    }
+
+    {{ StyleHelper.generateLessFromArray(properties.divider.desktop, '.moto-widget-callback__more-details-divider') }}
+    {{ StyleHelper.generateLessFromArray(properties.open_button.desktop, '.moto-widget-callback__open-button') }}
+    {{ StyleHelper.generateLessFromArray(properties.more_details_button.desktop, '.moto-widget-callback__more-details-button') }}
+    {{ StyleHelper.generateLessFromArray(properties.link.desktop, '.moto-widget-callback__link') }}
+    {{ StyleHelper.generateLessFromArray(properties.close_button.desktop, '.moto-widget-callback__close-button') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.open_button_overlay.desktop.base, '.moto-widget-callback__overlay_open-button') }}
+    {{ StyleHelper.generateLessFromArray(properties.link_overlay.desktop.base, '.moto-widget-callback__overlay_link') }}
+    .moto-widget-callback__open-button:hover {
+        {{ StyleHelper.generateLessFromArray(properties.open_button_overlay.desktop.hover, '.moto-widget-callback__overlay_open-button') }}
+    }
+    .moto-widget-callback__more-details-item:hover {
+        {{ StyleHelper.generateLessFromArray(properties.link_overlay.desktop.hover, '.moto-widget-callback__overlay_link') }}
+    }
+
+{% if properties.open_button_sizes %}
+    {% set open_button_sizes = properties.open_button_sizes %}
+{% else %}
+    {% set open_button_sizes = '{"desktop":{"base":{"width": "80px", "height": "80px", "font-size": "50px"}}}'|json_decode %}
+{% endif %}
+
+    {{ StyleHelper.generateLessFromArray(open_button_sizes.desktop.base, '.moto-widget-callback__thumbnail_image:not(.moto-widget-callback__thumbnail_empty), .moto-widget-callback__open-button .moto-widget-callback__thumbnail_empty') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(open_button_sizes.tablet.base, '.moto-widget-callback__thumbnail_image:not(.moto-widget-callback__thumbnail_empty), .moto-widget-callback__open-button .moto-widget-callback__thumbnail_empty') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(open_button_sizes['mobile-h'].base, '.moto-widget-callback__thumbnail_image:not(.moto-widget-callback__thumbnail_empty), .moto-widget-callback__open-button .moto-widget-callback__thumbnail_empty') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(open_button_sizes['mobile-v'].base, '.moto-widget-callback__thumbnail_image:not(.moto-widget-callback__thumbnail_empty), .moto-widget-callback__open-button .moto-widget-callback__thumbnail_empty') }} }
+    &.moto-widget-callback_closed,
+    &.moto-widget-callback_closing {
+        width: {{ open_button_sizes.desktop.base.width | default('80px') }};
+        {% if open_button_sizes.tablet.base.width %}@media screen and (max-width: @const_media_tablet_max_width) { width: {{ open_button_sizes.tablet.base.width }}; }{% endif %}
+        {% if open_button_sizes['mobile-h'].base.width %}@media screen and (max-width: @const_media_mobile-h_max_width) { width: {{ open_button_sizes['mobile-h'].base.width }}; }{% endif %}
+        {% if open_button_sizes['mobile-v'].base.width %}@media screen and (max-width: @const_media_mobile-v_max_width) { width: {{ open_button_sizes['mobile-v'].base.width }}; }{% endif %}
+    }
+   .moto-widget-callback__open-button .moto-widget-callback__thumbnail_icon:not(.moto-widget-callback__thumbnail_empty) {
+        font-size:  {{ open_button_sizes.desktop.base['font-size'] | default('50px') }};
+        line-height: {{ open_button_sizes.desktop.base.height | default('80px') }};
+        @media screen and (max-width: @const_media_tablet_max_width) {
+            {% if open_button_sizes.tablet.base['font-size'] %}font-size:  {{ open_button_sizes.tablet.base['font-size'] }};{% endif %}
+            {% if open_button_sizes.tablet.base.height %}line-height: {{ open_button_sizes.tablet.base.height }};{% endif %}
+        }
+        @media screen and (max-width: @const_media_mobile-h_max_width) {
+            {% if open_button_sizes['mobile-h'].base['font-size'] %}font-size: {{ open_button_sizes['mobile-h'].base['font-size'] }};{% endif %}
+            {% if open_button_sizes['mobile-h'].base.height %}line-height: {{ open_button_sizes['mobile-h'].base.height }};{% endif %}
+        }
+        @media screen and (max-width: @const_media_mobile-v_max_width) {
+            {% if open_button_sizes['mobile-v'].base['font-size'] %}font-size: {{ open_button_sizes['mobile-v'].base['font-size'] }};{% endif %}
+            {% if open_button_sizes['mobile-v'].base.height %}line-height: {{ open_button_sizes['mobile-v'].base.height }};{% endif %}
+        }
+    }
+}

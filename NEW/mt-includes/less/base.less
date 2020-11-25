@@ -1,0 +1,418 @@
+@import "mt-includes/templates/less/website/constants.less";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color:#337ab7;
+    text-decoration:none;
+}
+
+a:hover, a:focus {
+    color:#23527c;
+    text-decoration:none;
+}
+
+.moto-container_width-fixed,
+.row-fixed .container-fluid {
+    max-width: 1200px;
+    // fixed row reset styles
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.moto-disabling_row-fixed .moto-container_width-fixed,
+.moto-disabling_row-fixed .row-fixed .container-fluid {
+    max-width: none;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+// reload angular class for hide data before app bootstrapping (fix ng-show, ng-hide before init)
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+   display: none !important;
+}
+
+// default styles for all our widgets
+.moto-widget {
+    position: relative;
+}
+
+// hide cover and frame-empty div for all widgets outside admin panel
+.moto-widget-cover, .frame-empty {
+    display: none;
+}
+.moto-widget > .moto-widget__content-wrapper,
+.moto-widget__content-wrapper > .moto-widget__content {
+    position: relative;
+}
+// anchor styles
+.moto-anchor {
+    position: absolute;
+    top: 0;
+}
+
+// all widgets common alignment classes
+.moto-align-left {
+    text-align: left;
+}
+
+.moto-align-center {
+    text-align: center;
+}
+
+.moto-align-right {
+    text-align: right;
+}
+
+// styles for aligning absolute positioned containers
+.moto-absolute-position__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.moto-absolute-position {
+    position: absolute;
+}
+
+.moto-absolute-position_left-top {
+    top: 0;
+    left: 0;
+}
+
+.moto-absolute-position_center-top, .moto-absolute-position_top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.moto-absolute-position_right-top {
+    top: 0;
+    right: 0;
+}
+
+.moto-absolute-position_left-center, .moto-absolute-position_left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.moto-absolute-position_center-center, .moto-absolute-position_center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.moto-absolute-position_right-center, .moto-absolute-position_right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.moto-absolute-position_left-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.moto-absolute-position_center-bottom, .moto-absolute-position_bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.moto-absolute-position_right-bottom {
+    bottom: 0;
+    right: 0;
+}
+
+// styles for non-widgetized back to top button (the first one in our history)
+.moto-back-to-top-button {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 500;
+    &.moto-back-to-top-button_visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    .moto-back-to-top-button-link {
+        display: inline-block;
+    }
+}
+
+// moto popup additional styles
+.moto-popup__content_error {
+    font-family: Verdana, sans-serif;
+    color: #d3d8db;
+    font-size: 16px;
+    text-align: center;
+}
+
+.moto-popup_content {
+    .moto-sticky__attached_top {
+        top: 50px;
+    }
+}
+
+// styles for video backgrounds
+.moto-background-video-container {
+    overflow: hidden;
+    border-radius: inherit;
+    transform: translateZ(0);
+}
+
+.moto-background-video {
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.moto-background-video_fill-by-height {
+    max-height: 100%;
+    max-width: initial;
+}
+
+// default loader animation
+@keyframes defaultLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.moto-widget-loader {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    > .moto-widget-loader__indicator {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        display: block;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        border: 5px solid;
+        border-top-color: fade(#181b27, 20%);
+        border-right-color: fade(#181b27, 20%);
+        border-bottom-color: fade(#181b27, 20%);
+        border-left-color: #181b27;
+        animation: defaultLoader 1.1s infinite linear;
+    }
+}
+
+@media screen and (min-width: @const_media_tablet_max_width) {
+    .moto-visible-on_desktop_hidden {
+        display: none !important;
+    }
+}
+@media screen and (max-width: @const_media_tablet_max_width) and (min-width: @const_media_mobile-h_max_width) {
+    .moto-visible-on_tablet_hidden {
+        display: none !important;
+    }
+}
+@media screen and (max-width: @const_media_mobile-h_max_width) and (min-width: @const_media_mobile-v_max_width) {
+    .moto-visible-on_mobile-h_hidden {
+        display: none !important;
+    }
+}
+@media screen and (max-width: @const_media_mobile-v_max_width) {
+    .moto-visible-on_mobile-v_hidden {
+        display: none !important;
+    }
+}
+
+// all widgets common visibility classes
+@media screen and (max-width: @const_media_tablet_max_width) {
+    .moto-visible-on_desktop {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: @const_media_mobile-h_max_width) {
+    .moto-visible-on_tablet {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: @const_media_mobile-v_max_width) {
+    .moto-visible-on_mobile-h {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: @const_media_tablet_max_width) {
+    .moto-align-left_tablet {
+        text-align: left;
+    }
+    .moto-align-center_tablet{
+        text-align: center;
+    }
+    .moto-align-right_tablet {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: @const_media_mobile-h_max_width) {
+    .moto-align-left_mobile-h {
+        text-align: left;
+    }
+    .moto-align-center_mobile-h {
+        text-align: center;
+    }
+    .moto-align-right_mobile-h {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: @const_media_mobile-v_max_width) {
+    .moto-align-left_mobile-v {
+        text-align: left;
+    }
+    .moto-align-center_mobile-v {
+        text-align: center;
+    }
+    .moto-align-right_mobile-v {
+        text-align: right;
+    }
+}
+
+.moto-widget_flex-alignment {
+    &.moto-align-left .moto-widget__flex-alignment-element {
+        justify-content: flex-start;
+    }
+    &.moto-align-center .moto-widget__flex-alignment-element {
+        justify-content: center;
+    }
+    &.moto-align-right .moto-widget__flex-alignment-element {
+        justify-content: flex-end;
+    }
+
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        &.moto-align-left_tablet .moto-widget__flex-alignment-element {
+            justify-content: flex-start;
+        }
+        &.moto-align-center_tablet .moto-widget__flex-alignment-element {
+            justify-content: center;
+        }
+        &.moto-align-right_tablet .moto-widget__flex-alignment-element {
+            justify-content: flex-end;
+        }
+    }
+
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        &.moto-align-left_mobile-h .moto-widget__flex-alignment-element {
+            justify-content: flex-start;
+        }
+        &.moto-align-center_mobile-h .moto-widget__flex-alignment-element {
+            justify-content: center;
+        }
+        &.moto-align-right_mobile-h .moto-widget__flex-alignment-element {
+            justify-content: flex-end;
+        }
+    }
+
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        &.moto-align-left_mobile-v .moto-widget__flex-alignment-element {
+            justify-content: flex-start;
+        }
+        &.moto-align-center_mobile-v .moto-widget__flex-alignment-element {
+            justify-content: center;
+        }
+        &.moto-align-right_mobile-v .moto-widget__flex-alignment-element {
+            justify-content: flex-end;
+        }
+    }
+}
+
+// moto sticky styles
+.moto-sticky__hidden {
+    display: none;
+}
+
+.moto-sticky__attached,
+.moto-sticky__attached_top,
+.moto-sticky__attached_bottom {
+    position: fixed;
+    z-index: 400;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -moz-transform: none;
+}
+
+.moto-sticky__attached_top {
+    top: 0;
+}
+
+.moto-sticky__attached_bottom {
+    bottom: 0;
+}
+
+.moto-sticky-pseudo-element {
+    position: static;
+}
+
+@media screen and (max-width: @const_media_mobile-h_max_width) {
+    .moto-widget:not(.moto-sticky__mobile) + .moto-sticky-pseudo-element,
+    .moto-section:not(.moto-sticky__mobile) + .moto-sticky-pseudo-element,
+    .moto-widget.moto-sticky__hidden {
+        display: none !important;
+    }
+    .moto-widget.moto-sticky__attached:not(.moto-sticky__mobile),
+    .moto-section.moto-sticky__attached:not(.moto-sticky__mobile) {
+        position: static !important;
+        width: auto !important;
+        -webkit-transform: initial;
+        transform: initial;
+    }
+}
+
+// fix for bug MOTOCMS-5766
+// we can remove this fix when issue will be resolved
+// https://github.com/aFarkas/lazysizes/issues/483
+.lazyload {
+    min-height: 1px;
+    display: block;
+}
+
+.moto-min-height_100vh {
+    min-height: 100vh !important;
+}
+
+.moto-justify-content_center {
+    justify-content: center;
+}
+.moto-justify-content_bottom {
+    justify-content: flex-end;
+}
+.moto-justify-content_space-between {
+    justify-content: space-between;
+}
+
+// Ugly fixes for flexboxes in IE versions < Edge
+.moto-widget-row, .moto-widget-image, .moto-widget-menu, .moto-widget-social-links {
+    flex: 0 0 auto;
+}

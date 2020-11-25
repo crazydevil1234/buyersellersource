@@ -1,0 +1,2 @@
+<?php
+namespace Moto\Application\Extra\InputFilter; use Moto\InputFilter\AbstractInputFilter; class Content extends AbstractInputFilter { protected $_name = 'extra.Content'; public function init() { $this->add(array( 'name' => 'url', 'required' => true, 'filters' => array( array('name' => 'StripTags'), array('name' => 'StringTrim'), array('name' => 'UriNormalize') ), 'validators' => array( array( 'name' => 'Uri', 'options' => array( 'allowAbsolute' => true, 'allowRelative' => false, ), ) ), )); } }

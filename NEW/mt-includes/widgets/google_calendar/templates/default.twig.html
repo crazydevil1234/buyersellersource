@@ -1,0 +1,16 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-google-calendar {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} {{ currentWidget.getAnimationClasses() }}" data-widget="google_calendar">
+    <div class="moto-widget-cover"></div>
+    {% if currentWidget.getUrl()|length == 0 %}
+        {% if isPreview %}<div class="moto-widget-empty"></div>{% endif %}
+    {% else %}
+        <iframe src="{{ currentWidget.getUrl() }}" class="moto-widget-google-calendar__iframe" width="100%" frameborder="0" scrolling="no"></iframe>
+        <style type="text/css">
+            {% set styles = currentWidget.properties.styles %}
+            {% set selector = '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-google-calendar__iframe' %}
+            {{ StyleHelper.generateLessFromArray(styles.desktop.base, selector) }}
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_tablet_max_width') }}) { {{ StyleHelper.generateLessFromArray(styles.tablet.base, selector) }} }
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-h_max_width') }}) { {{ StyleHelper.generateLessFromArray(styles['mobile-h'].base, selector) }} }
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-v_max_width') }}) { {{ StyleHelper.generateLessFromArray(styles['mobile-v'].base, selector) }} }
+        </style>
+    {% endif %}
+</div>

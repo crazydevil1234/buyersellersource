@@ -1,0 +1,42 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-radio_buttons moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.radio_buttons">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    {% if currentWidget.properties.options|length < 1 %}
+        <div class="moto-widget-empty"></div>
+    {% else %}
+    <div class="moto-form__element moto-form__element_radio" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field">
+            <div class="moto-form__field-options moto-form__field-options_{{ currentWidget.properties.optionsDirection }}">
+                {% for option in currentWidget.properties.options %}
+                    <span ng-class="{'moto-form__field-options-item_selected' : message['{{ currentWidget.getFieldName() }}'] == '{{ option.value }}'}" class="moto-form__field-options-item {% if option.selected %}moto-form__field-options-item_selected{% endif %}">
+                        <span class="moto-form__field-control-wrapper">
+                            <input class="moto-form__field-control moto-form__field-control_radio" type="radio" id="{{ currentWidget.getWidgetId() }}__{{ currentWidget.getFieldName() }}__{{ loop.index }}" name="{{ currentWidget.getFieldName() }}"
+                               ng-model="message['{{ currentWidget.getFieldName() }}']"
+                               ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')"
+                               {% if option.selected %} checked ng-init="message['{{ currentWidget.getFieldName() }}'] = '{{ option.value }}'" {% endif %}
+                               value="{{ option.value }}"
+                               {% if currentWidget.properties.validation.required %} required{% endif %}>
+                        </span>
+                        <label class="moto-form__field-label" for="{{ currentWidget.getWidgetId() }}__{{ currentWidget.getFieldName() }}__{{ loop.index }}">
+                            <span class="moto-form__field-icon fa fa-fw" aria-hidden="true"></span>
+                            {% if option.labelType == 'html' %}
+                                <span class="moto-form__field-text moto-widget-text">{% filter page_html_content(option.label, 'widget:form_elements.radio_buttons.option.label') %}{% include template_from_string(option.label) %}{% endfilter %}</span>
+                            {% else %}
+                                <span class="moto-form__field-text">{{ option.label }}</span>
+                            {% endif %}
+                        </label>
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first"
+                 data-field-name="{{ currentWidget.getFieldName() }}"
+                 data-form="$FORM"></div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

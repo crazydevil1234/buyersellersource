@@ -1,0 +1,2 @@
+<?php
+namespace Moto\Application\Updates\InputFilter; use Moto\InputFilter\AbstractInputFilter; use Moto; class CancelUpdate extends AbstractInputFilter { protected $_name = 'updates:cancelUpdate'; public function init() { $this->add(array( 'name' => 'update', 'required' => true, )); } } 

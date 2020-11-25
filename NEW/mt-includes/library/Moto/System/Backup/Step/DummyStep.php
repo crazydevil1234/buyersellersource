@@ -1,0 +1,2 @@
+<?php
+namespace Moto\System\Backup\Step; use Moto; use Carbon\Carbon; class DummyStep extends Moto\System\Backup\Step\AbstractStep { const NAME = null; public function handle($backup) { return $this->returnCompleted(); } } 

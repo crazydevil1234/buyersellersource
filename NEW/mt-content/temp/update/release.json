@@ -1,0 +1,21 @@
+{
+    "status": true,
+    "code": 200,
+    "body": {
+        "version": 1,
+        "informers": [],
+        "common": {
+            "availabilityUpdates": true
+        },
+        "subscription": {
+            "expirationDate": null,
+            "statusId": "FREE_LIFETIME",
+            "statusLabel": "Free Lifetime"
+        },
+        "updates": {
+            "engine": [],
+            "themes": [],
+            "plugins": []
+        }
+    }
+}

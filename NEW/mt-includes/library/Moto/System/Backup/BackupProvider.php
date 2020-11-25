@@ -1,0 +1,2 @@
+<?php
+namespace Moto\System\Backup; use Moto; class BackupProvider extends Moto\System\ServiceProvider { public function register() { if (Moto\System::isAdminEngine()) { Moto\Json\Server::getInstance()->assignClass(Moto\Application\Backup\Service::class, 'BackupService'); } } public function boot() { } } 

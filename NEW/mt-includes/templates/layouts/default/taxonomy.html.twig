@@ -1,0 +1,41 @@
+{%- extends 'base.html.twig' -%}
+
+{% block content %} {% autoescape false %}
+
+{% set CurrentTemplate = currentPage.getTemplate() %}
+{% set header = currentPage.getSection('header') %}
+{% set footer = currentPage.getSection('footer') %}
+
+    <div class="page">
+
+{% if header %}
+        <header id="section-header" class="header{% if not isPreview %} moto-section{% endif %} moto-section_inactive">
+            {{ ContentHelper.RenderPageSection(header, 'header') }}
+        </header>
+{% endif %}
+
+        {% if CurrentTemplate %}
+            <!-- With dynamic template -->
+            {{ ContentHelper.RenderPageSection(CurrentTemplate, CurrentTemplate.type) }}
+        {% else %}
+            <!-- Without template @TODO : update fallback template -->
+            <div class="moto-widget moto-widget-row row-fixed" off-data-widget="row">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="moto-cell col-sm-12" off-data-container="container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% if footer %}
+    <footer id="section-footer" class="footer{% if not isPreview %} moto-section{% endif %} moto-section_inactive" {% if footer.properties.sticky and (not isPreview) %} moto-sticky="{mode:'smallHeight', direction:'bottom', mobile: {{ footer.properties.stickyMobile * 1 }}}"{% endif %}>
+        {{ ContentHelper.RenderPageSection(footer, 'footer') }}
+    </footer>
+{% endif %}
+
+{% endautoescape %} {% endblock %}

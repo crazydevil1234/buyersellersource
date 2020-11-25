@@ -1,0 +1,151 @@
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-tabs', item.class_name) }} {
+
+    {{ StyleHelper.generateLessFromArray(properties.header_desktop.desktop, '.moto-widget-tabs__header_desktop') }}
+    {{ StyleHelper.generateLessFromArray(properties.header_mobile.desktop, '.moto-widget-tabs__header_mobile') }}
+    {{ StyleHelper.generateLessFromArray(properties.headers_wrapper.desktop, '.moto-widget-tabs__headers-wrapper') }}
+    {{ StyleHelper.generateLessFromArray(properties.items_wrapper.desktop, '.moto-widget-tabs__items-wrapper') }}
+    {{ StyleHelper.generateLessFromArray(properties.item.desktop, '.moto-widget-tabs__item') }}
+    {{ StyleHelper.generateLessFromArray(properties.content.desktop, '.moto-widget-tabs__content') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.header.desktop.base, '.moto-widget-tabs__header') }}
+    {{ StyleHelper.generateLessFromArray(properties.header_title.desktop.base, '.moto-widget-tabs__header-title') }}
+    {{ StyleHelper.generateLessFromArray(properties.header_icon.desktop.base, '.moto-widget-tabs__header-icon') }}
+
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop.tablet, '.moto-widget-tabs__header_desktop') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_mobile.tablet, '.moto-widget-tabs__header_mobile') }}
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper.tablet, '.moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.items_wrapper.tablet, '.moto-widget-tabs__items-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.item.tablet, '.moto-widget-tabs__item') }}
+        {{ StyleHelper.generateLessFromArray(properties.content.tablet, '.moto-widget-tabs__content') }}
+
+        {{ StyleHelper.generateLessFromArray(properties.header.tablet.base, '.moto-widget-tabs__header') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_title.tablet.base, '.moto-widget-tabs__header-title') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_icon.tablet.base, '.moto-widget-tabs__header-icon') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop['mobile-h'], '.moto-widget-tabs__header_desktop') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_mobile['mobile-h'], '.moto-widget-tabs__header_mobile') }}
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper['mobile-h'], '.moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.items_wrapper['mobile-h'], '.moto-widget-tabs__items-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.item['mobile-h'], '.moto-widget-tabs__item') }}
+        {{ StyleHelper.generateLessFromArray(properties.content['mobile-h'], '.moto-widget-tabs__content') }}
+
+        {{ StyleHelper.generateLessFromArray(properties.header['mobile-h'].base, '.moto-widget-tabs__header') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_title['mobile-h'].base, '.moto-widget-tabs__header-title') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_icon['mobile-h'].base, '.moto-widget-tabs__header-icon') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop['mobile-v'], '.moto-widget-tabs__header_desktop') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_mobile['mobile-v'], '.moto-widget-tabs__header_mobile') }}
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper['mobile-v'], '.moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.items_wrapper['mobile-v'], '.moto-widget-tabs__items-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.item['mobile-v'], '.moto-widget-tabs__item') }}
+        {{ StyleHelper.generateLessFromArray(properties.content['mobile-v'], '.moto-widget-tabs__content') }}
+
+        {{ StyleHelper.generateLessFromArray(properties.header['mobile-v'].base, '.moto-widget-tabs__header') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_title['mobile-v'].base, '.moto-widget-tabs__header-title') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_icon['mobile-v'].base, '.moto-widget-tabs__header-icon') }}
+    }
+
+    .moto-widget-tabs__header:hover {
+        {{ StyleHelper.generateLessFromArray(properties.header.desktop.hover) }}
+        {{ StyleHelper.generateLessFromArray(properties.header_title.desktop.hover, '.moto-widget-tabs__header-title') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_icon.desktop.hover, '.moto-widget-tabs__header-icon') }}
+    }
+
+    .moto-widget-tabs__header.moto-widget-tabs__header_opened {
+        {{ StyleHelper.generateLessFromArray(properties.header_opened.desktop.base) }}
+        {{ StyleHelper.generateLessFromArray(properties.header_title_opened.desktop.base, '.moto-widget-tabs__header-title') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_icon_opened.desktop.base, '.moto-widget-tabs__header-icon') }}
+        @media screen and (max-width: @const_media_tablet_max_width) {
+            {{ StyleHelper.generateLessFromArray(properties.header_opened.tablet.base) }}
+            {{ StyleHelper.generateLessFromArray(properties.header_title_opened.tablet.base, '.moto-widget-tabs__header-title') }}
+            {{ StyleHelper.generateLessFromArray(properties.header_icon_opened.tablet.base, '.moto-widget-tabs__header-icon') }}
+        }
+        @media screen and (max-width: @const_media_mobile-h_max_width) {
+            {{ StyleHelper.generateLessFromArray(properties.header_opened['mobile-h'].base) }}
+            {{ StyleHelper.generateLessFromArray(properties.header_title_opened['mobile-h'].base, '.moto-widget-tabs__header-title') }}
+            {{ StyleHelper.generateLessFromArray(properties.header_icon_opened['mobile-h'].base, '.moto-widget-tabs__header-icon') }}
+        }
+        @media screen and (max-width: @const_media_mobile-v_max_width) {
+            {{ StyleHelper.generateLessFromArray(properties.header_opened['mobile-v'].base) }}
+            {{ StyleHelper.generateLessFromArray(properties.header_title_opened['mobile-v'].base, '.moto-widget-tabs__header-title') }}
+            {{ StyleHelper.generateLessFromArray(properties.header_icon_opened['mobile-v'].base, '.moto-widget-tabs__header-icon') }}
+        }
+        &:hover {
+            {{ StyleHelper.generateLessFromArray(properties.header_opened.desktop.hover) }}
+            {{ StyleHelper.generateLessFromArray(properties.header_title_opened.desktop.hover, '.moto-widget-tabs__header-title') }}
+            {{ StyleHelper.generateLessFromArray(properties.header_icon_opened.desktop.hover, '.moto-widget-tabs__header-icon') }}
+        }
+    }
+
+    {{ StyleHelper.generateLessFromArray(properties.headers_wrapper_vertical.desktop.base, '&.moto-widget-tabs_type-vertical .moto-widget-tabs__headers-wrapper') }}
+    {{ StyleHelper.generateLessFromArray(properties.header_desktop_vertical.desktop.base, '&.moto-widget-tabs_type-vertical .moto-widget-tabs__header_desktop') }}
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper_vertical.tablet.base, '.moto-widget-tabs__header-title .moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop_vertical.tablet.base, '.moto-widget-tabs__header-title .moto-widget-tabs__header_desktop') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper_vertical['mobile-h'].base, '.moto-widget-tabs__header-title .moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop_vertical['mobile-h'].base, '.moto-widget-tabs__header-title .moto-widget-tabs__header_desktop') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.headers_wrapper_vertical['mobile-v'].base, '.moto-widget-tabs__header-title .moto-widget-tabs__headers-wrapper') }}
+        {{ StyleHelper.generateLessFromArray(properties.header_desktop_vertical['mobile-v'].base, '.moto-widget-tabs__header-title .moto-widget-tabs__header_desktop') }}
+    }
+
+    .moto-widget-tabs__header_desktop:last-child,
+    .moto-widget-tabs__header-icon:last-child,
+    .moto-widget-tabs__headers-wrapper_icon-right .moto-widget-tabs__header-icon,
+    .moto-widget-tabs__headers-wrapper_icon-right + .moto-widget-tabs__items-wrapper .moto-widget-tabs__header-icon,
+    &.moto-widget-tabs_type-vertical .moto-widget-tabs__header_desktop,
+    &.moto-widget-tabs_type-vertical_right .moto-widget-tabs__headers-wrapper {
+        margin-right: 0;
+    }
+
+    .moto-widget-tabs__headers-wrapper_icon-left .moto-widget-tabs__header-icon,
+    .moto-widget-tabs__headers-wrapper_icon-left + .moto-widget-tabs__items-wrapper .moto-widget-tabs__header-icon,
+    &.moto-widget-tabs_type-vertical_left .moto-widget-tabs__headers-wrapper {
+        margin-left: 0;
+    }
+
+    .moto-widget-tabs__item:last-child,
+    &.moto-widget-tabs_type-vertical .moto-widget-tabs__headers-wrapper,
+    &.moto-widget-tabs_type-vertical .moto-widget-tabs__header_desktop:last-child {
+        margin-bottom: 0;
+    }
+
+    {% if properties.extra.stickyHeaders %}
+    &.moto-widget-tabs_type-horizontal {
+        .moto-widget-tabs__headers-wrapper {
+            margin-bottom: -{{ properties.content.desktop.base['border-top-width'] }};
+        }
+    }
+    &.moto-widget-tabs_type-vertical_left {
+        .moto-widget-tabs__headers-wrapper {
+            margin-right: -{{ properties.content.desktop.base['border-left-width'] }};
+        }
+    }
+    &.moto-widget-tabs_type-vertical_right {
+        .moto-widget-tabs__headers-wrapper {
+            margin-left: -{{ properties.content.desktop.base['border-right-width'] }};
+        }
+    }
+    .moto-widget-tabs__header.moto-widget-tabs__header_opened {
+        @media screen and (max-width: @const_media_mobile-h_max_width) {
+            margin-bottom: -{{ properties.content.desktop.base['border-top-width'] }};
+        }
+    }
+    {% elseif isPreview %}
+    /* very very very bad fix of MOTOCMS-6931 */
+    /* created improvement MOTOCMS-6960 */
+    &.moto-widget-tabs_type-horizontal {
+        .moto-widget-tabs__headers-wrapper {
+            margin-bottom: {{ properties.headers_wrapper.desktop.base['margin-bottom'] }};
+        }
+    }
+    {% endif %}
+}

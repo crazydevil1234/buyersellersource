@@ -1,0 +1,41 @@
+{% macro renderThumbnail(name) %}
+    {% if MotoCallback.getThumbnailType(name)  == 'icon' %}
+        <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon{% if not MotoCallback.getThumbnailValue(name) == null %} fa fa-fw fa-{{ MotoCallback.getThumbnailValue(name) }}{% else %} moto-widget-callback__thumbnail_empty{% endif %}"></div>
+    {% else %}
+        <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_image{% if not MotoCallback.getThumbnailValue(name) == '' %}" style="background-image: url({{ MotoCallback.getThumbnailValue(name) }});{% else %} moto-widget-callback__thumbnail_empty{% endif %}"></div>
+    {% endif %}
+{% endmacro %}
+
+<div data-moto-widget-callback class="moto-widget-callback moto-widget-callback_closed moto-preset-default">
+    <div class="moto-widget-callback__wrapper">
+        <div class="moto-widget-callback__open-button moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_{{ MotoCallback.getThumbnailType('openButton') }}">
+            <div class="moto-widget-callback__overlay moto-widget-callback__overlay_open-button"></div>
+            {{ _self.renderThumbnail('openButton') }}
+        </div>
+        <div class="moto-widget-callback__body{% if MotoCallback.getMoreDetailsProperties().enabled %} moto-widget-callback__body_more-details-enabled{% if MotoCallback.getMoreDetailsProperties().displayByDefault %} moto-widget-callback__body_more-details-opened{% endif %}{% endif %}" style="display: none;">
+            <div class="moto-widget-callback__agent moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_{{ MotoCallback.getThumbnailType('agent') }}">
+                {{ _self.renderThumbnail('agent') }}
+            </div>
+            <div class="moto-widget-callback__description moto-widget-text">
+                {% filter page_html_content(item, 'widget:moto_callback.description') %}{% include template_from_string(MotoCallback.getDescription()) %}{% endfilter %}
+            </div>
+            {% if MotoCallback.getMoreDetailsProperties().enabled %}
+                <div class="moto-widget-callback__more-details-wrapper"{% if MotoCallback.getMoreDetailsProperties().displayByDefault %} style="display: block;"{% endif %}>
+                    <hr class="moto-widget-callback__more-details-divider">
+                    <div class="moto-widget-callback__more-details">
+                    {% for item in MotoCallback.getMoreDetailsItems() %}
+                        {% if not item.value == '' %}
+                        <div class="moto-widget-callback__more-details-item">
+                            <div class="moto-widget-callback__overlay moto-widget-callback__overlay_link"></div>
+                            <a href="{{ MotoCallback.getMoreDetailsItemHref(item) }}" class="moto-widget-callback__link moto-widget-callback__link-{{ item.name }}" title="{{ item.title }}" target="_blank"></a>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="moto-widget-callback__more-details-button-wrapper"><i class="moto-widget-callback__more-details-button fa fa-angle-down"></i></div>
+            {% endif %}
+            <div class="moto-widget-callback__close-button">×</div>
+        </div>
+    </div>
+</div>

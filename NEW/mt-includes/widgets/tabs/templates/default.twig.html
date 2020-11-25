@@ -1,0 +1,22 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget_interactive moto-widget-tabs {{ currentWidget.getCssClasses() }} moto-disabling_row-fixed set-row-gutter-0" data-widget="tabs" data-preset="{{ currentWidget.properties.preset }}">
+    <div class="moto-widget-tabs__wrapper">
+        <div class="moto-widget-tabs__headers-wrapper {{ currentWidget.getWrapperClasses() }}" style="width: {{ currentWidget.getWrapperWidth() }};">
+            {% for item in currentWidget.children %}
+            <div class="moto-widget-tabs__header moto-widget-tabs__header_desktop{% if item.isOpenedByDefault() %} moto-widget-tabs__header_opened{% endif %}" data-tab="{{ item.getWidgetId() }}">
+                {% if item.properties.header.icon.id %}<span class="moto-widget-tabs__header-item moto-widget-tabs__header-icon"><span class="fa fa-fw fa-{{ item.properties.header.icon.id }}" aria-hidden="true"></span></span>{% endif %}
+                {% if not item.properties.header.content == '' %}<{{ currentWidget.properties.headingTag|default('span', true) }} class="moto-widget-tabs__header-item moto-widget-tabs__header-title">{{ item.properties.header.content }}</{{ currentWidget.properties.headingTag|default('span', true) }}>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div id="{{ currentWidget.getWidgetId() }}__content" class="moto-widget-tabs__items-wrapper">
+            {% for item in currentWidget.children %}
+                {% if isServer %}
+                    {{ widget(item) }}
+                {% else %}
+                    {% widget item %}{% endWidget %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% if isPreview %}<div class="moto-widget-empty"></div>{% endif %}
+</div>

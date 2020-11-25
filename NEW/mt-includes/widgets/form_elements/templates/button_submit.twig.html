@@ -1,0 +1,6 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-button moto-widget-form_elements-button_submit moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.button_submit" data-preset="{{ currentWidget.getCurrentPreset() }}">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <button type="submit" class="moto-widget-button-link moto-size-{{ currentWidget.properties.size }}" data-ng-disabled="$FORM._$sending"><span class="fa moto-widget-theme-icon"></span><span{% if currentWidget.properties.waitingText %} data-ng-hide="$FORM._$sending"{% endif %} class="moto-widget-button-label">{{ currentWidget.properties.label }}</span>{% if currentWidget.properties.waitingText %}<span data-ng-show="$FORM._$sending" data-ng-cloak class="moto-widget-button-label">{{ currentWidget.properties.waitingText }}</span>{% endif %}</button>
+</div>

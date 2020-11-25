@@ -1,0 +1,25 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-checkbox moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.checkbox">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <div class="moto-form__element moto-form__element_checkbox" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field">
+            <label class="moto-form__field-label moto-form__field-label_type-{{ currentWidget.properties.labelType }}" for="{{ currentWidget.getWidgetId() }}__{{ currentWidget.getFieldName() }}">
+                <input id="{{ currentWidget.getWidgetId() }}__{{ currentWidget.getFieldName() }}" class="moto-form__field-control moto-form__field-control_checkbox"
+                        type="checkbox"
+                        name="{{ currentWidget.getFieldName() }}"
+                        ng-model="message['{{ currentWidget.getFieldName() }}']"
+                        ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')"
+                        {% if currentWidget.properties.checked %} ng-init="message['{{ currentWidget.getFieldName() }}'] = true" checked{% endif %}
+                        {% if currentWidget.properties.validation.required %} required{% endif %}>
+                <span class="moto-form__field-icon fa fa-fw" aria-hidden="true"></span>
+                <span class="moto-form__field-text {% if currentWidget.properties.labelType == 'html' %}moto-widget-text{% endif %}">{% filter page_html_content(item, 'widget:checkbox.label') %}{% include template_from_string(currentWidget.properties.label) %}{% endfilter %}</span>
+            </label>
+        </div>
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first" data-field-name="{{ currentWidget.getFieldName() }}" data-form="$FORM"></div>
+        {% endif %}
+    </div>
+</div>

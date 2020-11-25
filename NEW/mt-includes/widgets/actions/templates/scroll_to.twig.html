@@ -1,0 +1,22 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-actions-scroll-to {% if currentWidget.properties.content.selectedType == 'icon' %}moto-widget-actions-scroll-to_icon-content{% if currentWidget.properties.content.icon.animateOn %} moto-widget-actions-scroll-to_bouncing moto-widget-actions-scroll-to_bounce-{{ currentWidget.properties.content.icon.animateOn }}{% endif %}{% else %}moto-widget-actions-scroll-to_text-content{% endif %} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} {{ currentWidget.getAnimationClasses() }}" data-widget="actions.scroll_to" data-anchor="{{ currentWidget.properties.target.value }}" data-time="{{ currentWidget.properties.scrollTime }}">
+    <div class="moto-widget-actions-scroll-to__wrapper">
+        {% if currentWidget.properties.content.selectedType == 'icon' %}
+            <div class="moto-widget-actions-scroll-to__icon fa fa-{{ currentWidget.properties.content.icon.value.id }}"></div>
+            <style type="text/css">
+                {% set styles = currentWidget.properties.content.icon.styles %}
+                {{ StyleHelper.generateLessFromArray(styles.desktop.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-actions-scroll-to__wrapper') }}
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_tablet_max_width') }}) {
+                    {{ StyleHelper.generateLessFromArray(styles.tablet.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-actions-scroll-to__wrapper') }}
+                }
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-h_max_width') }}) {
+                    {{ StyleHelper.generateLessFromArray(styles['mobile-h'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-actions-scroll-to__wrapper') }}
+                }
+                @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-v_max_width') }}) {
+                    {{ StyleHelper.generateLessFromArray(styles['mobile-v'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-widget-actions-scroll-to__wrapper') }}
+                }
+            </style>
+        {% else %}
+            <div class="moto-widget-text {{ currentWidget.properties.content.text.style }}">{{ currentWidget.properties.content.text.value }}</div>
+        {% endif %}
+    </div>
+</div>

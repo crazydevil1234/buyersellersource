@@ -1,0 +1,2 @@
+<?php
+namespace Moto\Website\Providers; use Moto; class HomePageServiceProvider extends Moto\System\ServiceProvider { public function register() { $app = Moto\System::app(); $app->singleton(Moto\Website\HomePageService::class); $app->alias(Moto\Website\HomePageService::class, 'HomePageProvider'); } public function boot() { if (Moto\System::isAdminEngine()) { Moto\Website\SettingsProvider::getInstance()->addValueProvider('home_page_provider', 'name', Moto\Website\HomePageService::class . '@getPossibleValues'); } } } 

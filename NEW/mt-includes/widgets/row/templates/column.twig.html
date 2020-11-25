@@ -1,0 +1,21 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-row__column moto-cell {{ currentWidget.getCssClasses() }}" style="{{ StyleHelper.generateWidgetInlineStyles(currentWidget.getStylesValue()) }}" {{ arrayToAttributes(currentWidget.getCustomAttributes()) }} data-widget="row.column" data-container="container" data-spacing="{{ currentWidget.getSpacing('short') }}">
+    {% if currentWidget.isBackgroundVideoSet() %}
+    <div class="moto-background-video-container moto-absolute-position__container" data-moto-background-video="">
+        <video class="{{ currentWidget._getBackgroundVideoCssClass() }}" muted playsinline preload="{{ currentWidget.properties.bgVideo.preload }}"{% if currentWidget.properties.bgVideo.loop %} loop{% endif %}>
+            {% if currentWidget.properties.bgVideo.track.webm.path %}
+            <source type="video/webm" src="{{ Linker.file(currentWidget.properties.bgVideo.track.webm.path) }}">
+            {% endif %}
+            {% if currentWidget.properties.bgVideo.track.mp4.path %}
+            <source type="video/mp4" src="{{ Linker.file(currentWidget.properties.bgVideo.track.mp4.path) }}">
+            {% endif %}
+        </video>
+    </div>
+    {% endif %}
+    {% for item in currentWidget.children %}
+        {% if isServer %}
+            {{ widget(item) }}
+        {% else %}
+            {% widget item %}{% endWidget %}
+        {% endif %}
+    {% endfor %}
+</div>

@@ -1,0 +1,16 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-google-search-box moto-preset-{{ currentWidget.properties.preset }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} {{ currentWidget.getAnimationClasses() }}" data-widget="{{ currentWidget.getName() }}">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <form class="moto-widget-google-search-box__form"{% if not isPreview %} action="{{ Linker.href(currentWidget.properties.openResults) }}" method="post" target="{{ currentWidget.properties.openResults.properties.target|default('_self') }}"{% endif %}>
+        <div class="moto-form__element moto-form__element_input moto-form__element_field-with-button">
+            <div class="moto-form__field {% if currentWidget.properties.icon.id %} moto-form__field_with-icon{% endif %}">
+                <input class="moto-form__field-control moto-form__field-control_input moto-form__field-control_attachment" name="searchQuery" type="text" {% if currentWidget.properties.placeholder %}placeholder="{{ currentWidget.properties.placeholder }}"{% endif %}{% if not isPreview %} value="{{ currentWidget.getCurrentQuery() }}" required{% endif %}>
+                {% if currentWidget.properties.icon.id %}<span class="moto-form__field-icon"><span class="fa fa-fw fa-{{ currentWidget.properties.icon.id }}" aria-hidden="true"></span></span>{% endif %}
+                <div class="moto-widget moto-widget-button moto-preset-{{ currentWidget.properties.buttons.search.preset|default('default') }} moto-spacing-left-{{ currentWidget.properties.spaceBetweenControls }}" data-preset="{{ currentWidget.properties.buttons.search.preset }}">
+                    <button type="submit" class="moto-widget-button-link moto-size-{{ currentWidget.properties.buttons.search.size }}" data-size="{{ currentWidget.properties.buttons.search.size }}"><span class="fa moto-widget-theme-icon"></span><span class="moto-widget-button-label">{{ currentWidget.properties.buttons.search.label }}</span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

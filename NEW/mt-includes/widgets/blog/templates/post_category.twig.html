@@ -1,0 +1,10 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-blog-post_category {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getVisibleOn('classes') }}" data-widget="blog.post_category">
+    {% set PostCategory = currentWidget.getCategory(currentPage) %}
+    {% if PostCategory %}
+    <div class="{{ currentWidget.properties.font_style }}">
+        <a {% if isPreview %}href{% else %}href="{{ PostCategory.getRelativeUrl() }}"{% endif %}>
+            <span class="fa fa-folder moto-widget-blog-post_category-icon" aria-hidden="true"></span><span class="moto-widget-blog-post_category-text">{{ PostCategory.name }}</span>
+        </a>
+    </div>
+    {% endif %}
+</div>

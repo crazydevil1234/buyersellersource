@@ -1,0 +1,37 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-paypal_button moto-preset-{{ currentWidget.properties.preset }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-widget="paypal_button" data-preset="{{ currentWidget.properties.preset }}">
+    {% if currentWidget.properties.buttonConfig.displayType == 'customImage' and currentWidget.properties.customImageData.src | length == 0 %}
+        <div class="moto-widget-empty"></div>
+    {% else %}
+        {% if isPreview %}
+            <div class="moto-widget-cover"></div>
+        {% endif %}
+        <form action="https://www.paypal.com/cgi-bin/webscr" target="{{ currentWidget.properties.buttonConfig.linkTarget }}" class="moto-widget-paypal_button__form">
+            <input type="hidden" name="charset" value="utf-8">
+            {% if currentWidget.properties.buttonConfig.payPalButtonType == 'buynow' %}
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="amount" value="{{ currentWidget.properties.buttonConfig.buynow.amount }}">
+            {% else %}
+                <input type="hidden" name="cmd" value="_donations">
+                {% if currentWidget.properties.buttonConfig.donate.contributionAmountType == 'fixed' %}<input type="hidden" name="amount" value="{{ currentWidget.properties.buttonConfig.donate.contributionAmount }}">{% endif %}
+            {% endif %}
+            <input type="hidden" name="business" value="{{ currentWidget.properties.buttonConfig.businessID }}">
+            <input type="hidden" name="item_name" value="{{ currentWidget.properties.buttonConfig.itemName }}">
+            <input type="hidden" name="currency_code" value="{{ currentWidget.properties.buttonConfig.currency }}">
+            {% if currentWidget.properties.buttonConfig.itemID %}<input type="hidden" name="item_number" value="{{ currentWidget.properties.buttonConfig.itemID }}">{% endif %}
+            {% if currentWidget.properties.buttonConfig.buynow.taxAmount and currentWidget.properties.buttonConfig.payPalButtonType != 'donate' %}<input type="hidden" name="tax" value="{{ currentWidget.properties.buttonConfig.buynow.taxAmount }}">{% endif %}
+            {% if currentWidget.properties.buttonConfig.buynow.shippingRate and currentWidget.properties.buttonConfig.payPalButtonType != 'donate' %}<input type="hidden" name="shipping" value="{{ currentWidget.properties.buttonConfig.buynow.shippingRate }}">{% endif %}
+            {% if currentWidget.properties.buttonConfig.displayType == 'customImage' and currentWidget.properties.customImageData.src | length > 0 %}
+                <input type="image" {{ Linker.lazyImageSrcAttribute(currentWidget.properties.customImageData.src) }} border="0" name="submit" class="moto-widget-paypal_button__form-image {{ currentWidget.getLazyLoadingCssClass() }}" title="{{ currentWidget.properties.customImageData.title }}" alt="{{ currentWidget.properties.customImageData.alt }}">
+            {% elseif currentWidget.properties.buttonConfig.displayType == 'themeButton' %}
+                <div class="moto-widget moto-widget-button moto-preset-{{ currentWidget.properties.themeButtonData.preset }}">
+                    <button name="submit" class="moto-widget-button-link moto-size-{{ currentWidget.properties.themeButtonData.size }}">
+                        <span class="fa moto-widget-theme-icon"></span>
+                        <span class="moto-widget-button-label">{{ currentWidget.properties.themeButtonData.label }}</span>
+                    </button>
+                </div>
+            {% else %}
+                <input type="image" {{ Linker.lazyImageSrcAttribute(currentWidget.getImageUrl()) }} border="0" name="submit" alt="" class="moto-widget-paypal_button__form-image {{ currentWidget.getLazyLoadingCssClass() }}">
+            {% endif %}
+        </form>
+    {% endif %}
+</div>

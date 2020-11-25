@@ -1,0 +1,2 @@
+<?php
+namespace Website\Widgets\Iframe; use Moto; class Widget extends Moto\System\Widgets\AbstractWidget { protected $_name = 'iframe'; protected static $_defaultProperties = array( 'height' => 120, 'animation' => '', 'visible_on' => 'mobile-v', 'spacing' => array( 'top' => 'auto', 'right' => 'auto', 'bottom' => 'auto', 'left' => 'auto', ), 'url' => '', ); protected $_templateType = 'templates'; protected $_widgetId = true; } 

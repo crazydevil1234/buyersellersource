@@ -1,0 +1,2 @@
+<?php
+namespace Moto\System\Backup\Step; use Moto; use Carbon\Carbon; class MaintenanceStep extends Moto\System\Backup\Step\AbstractStep { public function handle($backup) { if ($this->name === 'maintenance:enable') { Moto\Website\MaintenanceMode::turnOn(); } elseif ($this->name === 'maintenance:disable') { Moto\Website\MaintenanceMode::turnOff(); } return $this->returnCompleted(); } } 

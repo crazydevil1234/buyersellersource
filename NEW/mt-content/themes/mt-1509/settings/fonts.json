@@ -1,0 +1,158 @@
+[
+    {
+        "name": "Arial",
+        "family": "arial, helvetica, sans-serif",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Courier New",
+        "family": "courier new, courier",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Georgia",
+        "family": "georgia, palatino",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Helvetica",
+        "family": "helvetica",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Tahoma",
+        "family": "tahoma, arial, helvetica, sans-serif",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Times New Roman",
+        "family": "times new roman, times",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Trebuchet MS",
+        "family": "trebuchet ms, geneva",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Verdana",
+        "family": "verdana, geneva",
+        "active": true,
+        "provider": "system"
+    },
+    {
+        "name": "Montserrat",
+        "family": "'Montserrat', sans-serif",
+        "category": "sans-serif",
+        "variants": [
+            "100",
+            "100italic",
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic",
+            "900",
+            "900italic"
+        ],
+        "subsets": [
+            "latin-ext",
+            "latin",
+            "cyrillic-ext",
+            "vietnamese",
+            "cyrillic"
+        ],
+        "version": "v12",
+        "last_modified": "2017-11-07",
+        "active_variants": [
+            "100",
+            "100italic",
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic",
+            "900",
+            "900italic"
+        ],
+        "active_subsets": [
+            "latin"
+        ],
+        "provider": "google",
+        "active": true
+    },
+    {
+        "name": "Roboto",
+        "family": "'Roboto', sans-serif",
+        "category": "sans-serif",
+        "variants": [
+            "100",
+            "100italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "700",
+            "700italic",
+            "900",
+            "900italic"
+        ],
+        "subsets": [
+            "latin-ext",
+            "greek-ext",
+            "latin",
+            "greek",
+            "cyrillic-ext",
+            "vietnamese",
+            "cyrillic"
+        ],
+        "version": "v18",
+        "last_modified": "2017-10-16",
+        "active_variants": [
+            "100",
+            "100italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "700",
+            "700italic",
+            "900",
+            "900italic"
+        ],
+        "active_subsets": [
+            "latin"
+        ],
+        "provider": "google",
+        "active": true
+    }
+]

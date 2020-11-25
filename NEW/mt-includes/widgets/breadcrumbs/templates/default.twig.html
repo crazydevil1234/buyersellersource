@@ -1,0 +1,22 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-{{ currentWidget.getName() }} {{ currentWidget.getCssClasses() }}" data-widget="{{ currentWidget.getName() }}" data-preset="{{ currentWidget.properties.preset }}">
+    <div class="moto-widget-breadcrumbs__wrapper">
+        <ul class="moto-widget-breadcrumbs__list">
+            {% for page in currentWidget.getPageList() %}
+                <li class="moto-widget-breadcrumbs__item">
+                    {% if not loop.first and currentWidget.properties.delimiter|length > 0 %}
+                        <span class="moto-widget-breadcrumbs__item-delimiter">{{ currentWidget.properties.delimiter }}</span>
+                    {% endif %}
+                    {% if loop.last and currentWidget.properties.currentPageDisplay != 'none' %}
+                        <span class="moto-widget-breadcrumbs__item-content moto-widget-breadcrumbs__item-content_current">{%
+                            if currentWidget.isVisibleItemIcon(page) %}<span class="moto-widget-breadcrumbs__item-icon fa fa-{{ currentWidget.getVisibleIconId(page) }}"></span>{% endif %}{%
+                            if currentWidget.isVisibleItemName(page) %}<span class="moto-widget-breadcrumbs__item-text">{{ currentWidget.getVisibleName(page) }}</span>{% endif %}</span>
+                    {% else %}
+                        <a {% if isPreview %}href{% else %}href="{{ currentWidget.getItemRelativeUrl(page) }}"{% endif %} class="moto-widget-breadcrumbs__item-content moto-widget-breadcrumbs__item-content_link">{%
+                            if currentWidget.isVisibleItemIcon(page) %}<span class="moto-widget-breadcrumbs__item-icon fa fa-{{ currentWidget.getVisibleIconId(page) }}"></span>{% endif %}{%
+                            if currentWidget.isVisibleItemName(page) %}<span class="moto-widget-breadcrumbs__item-text">{{ currentWidget.getVisibleName(page) }}</span>{% endif %}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

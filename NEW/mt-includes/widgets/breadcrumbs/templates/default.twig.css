@@ -1,0 +1,49 @@
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-breadcrumbs', item.class_name) }} {
+
+    {{ StyleHelper.generateLessFromArray(properties.list.desktop, '.moto-widget-breadcrumbs__list') }}
+    {{ StyleHelper.generateLessFromArray(properties.item_content.desktop, '.moto-widget-breadcrumbs__item-content') }}
+    {{ StyleHelper.generateLessFromArray(properties.item_link.desktop, '.moto-widget-breadcrumbs__item-content_link') }}
+    {{ StyleHelper.generateLessFromArray(properties.item_current.desktop, '.moto-widget-breadcrumbs__item-content_current') }}
+    {{ StyleHelper.generateLessFromArray(properties.delimiter.desktop, '.moto-widget-breadcrumbs__item-delimiter') }}
+    {{ StyleHelper.generateLessFromArray(properties.icon.desktop.base, '.moto-widget-breadcrumbs__item-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.icon.desktop.hover, '.moto-widget-breadcrumbs__item:hover .moto-widget-breadcrumbs__item-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.spacing.desktop, '.moto-widget-breadcrumbs__item-delimiter, .moto-widget-breadcrumbs__item:not(:last-child)') }}
+
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.list.tablet, '.moto-widget-breadcrumbs__list') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_content.tablet, '.moto-widget-breadcrumbs__item-content') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_link.tablet, '.moto-widget-breadcrumbs__item-content_link') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_current.tablet, '.moto-widget-breadcrumbs__item-content_current') }}
+        {{ StyleHelper.generateLessFromArray(properties.delimiter.tablet, '.moto-widget-breadcrumbs__item-delimiter') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon.tablet.base, '.moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon.tablet.hover, '.moto-widget-breadcrumbs__item:hover .moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.spacing.tablet, '.moto-widget-breadcrumbs__item-delimiter, .moto-widget-breadcrumbs__item:not(:last-child)') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.list['mobile-h'], '.moto-widget-breadcrumbs__list') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_content['mobile-h'], '.moto-widget-breadcrumbs__item-content') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_link['mobile-h'], '.moto-widget-breadcrumbs__item-content_link') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_current['mobile-h'], '.moto-widget-breadcrumbs__item-content_current') }}
+        {{ StyleHelper.generateLessFromArray(properties.delimiter['mobile-h'], '.moto-widget-breadcrumbs__item-delimiter') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon['mobile-h'].base, '.moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon['mobile-h'].hover, '.moto-widget-breadcrumbs__item:hover .moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.spacing['mobile-h'], '.moto-widget-breadcrumbs__item-delimiter, .moto-widget-breadcrumbs__item:not(:last-child)') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.list['mobile-v'], '.moto-widget-breadcrumbs__list') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_content['mobile-v'], '.moto-widget-breadcrumbs__item-content') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_link['mobile-v'], '.moto-widget-breadcrumbs__item-content_link') }}
+        {{ StyleHelper.generateLessFromArray(properties.item_current['mobile-v'], '.moto-widget-breadcrumbs__item-content_current') }}
+        {{ StyleHelper.generateLessFromArray(properties.delimiter['mobile-v'], '.moto-widget-breadcrumbs__item-delimiter') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon['mobile-v'].base, '.moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.icon['mobile-v'].hover, '.moto-widget-breadcrumbs__item:hover .moto-widget-breadcrumbs__item-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.spacing['mobile-v'], '.moto-widget-breadcrumbs__item-delimiter, .moto-widget-breadcrumbs__item:not(:last-child)') }}
+    }
+
+    .moto-widget-breadcrumbs__item-icon:last-child {
+        margin-right: 0;
+    }
+
+}

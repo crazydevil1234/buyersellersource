@@ -1,0 +1,68 @@
+{% set properties = item.properties %}
+
+.{{ item.class_name }} {
+
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.base, '.moto-form__field-control') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.focus, '.moto-form__field-control:focus') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.error, '.moto-form__element_invalid .moto-form__field-control') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.field_controls_input_select.desktop.base, '.moto-form__field-control_input, .moto-form__field-control_select') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_control_textarea.desktop.base, '.moto-form__field-control_textarea') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_with_icon.desktop.base, '.moto-form__field_with-icon .moto-form__field-control_input') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.field_icon.desktop.base, '.moto-form__element_input .moto-form__field-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_icon.desktop.focus, '.moto-form__element_input .moto-form__field-control:focus + .moto-form__field-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_icon.desktop.error, '.moto-form__element.moto-form__element_invalid .moto-form__field-icon') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.error_item.desktop.base, '.moto-form__error-item') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.radio_text.desktop, '.moto-form__element_radio .moto-form__field-text') }}
+    {{ StyleHelper.generateLessFromArray(properties.radio_label_text.desktop, '.moto-form__element_radio .moto-form__field-label') }}
+    {{ StyleHelper.generateLessFromArray(properties.checkbox_text.desktop, '.moto-form__element_checkbox .moto-form__field-text') }}
+    {{ StyleHelper.generateLessFromArray(properties.checkbox_label_text.desktop, '.moto-form__element_checkbox .moto-form__field-label_type-text') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.checkbox_icon.desktop, '.moto-form__element_checkbox .moto-form__field-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.checkbox_icon_checked.desktop, '.moto-form__field-control_checkbox:checked + .moto-form__field-icon') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.radio_icon.desktop, '.moto-form__element_radio .moto-form__field-icon') }}
+    {{ StyleHelper.generateLessFromArray(properties.radio_icon_checked.desktop, '.moto-form__element_radio .moto-form__field-options-item_selected .moto-form__field-icon') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.radio_option_vertical.desktop, '.moto-form__element_radio .moto-form__field-options_vertical .moto-form__field-options-item') }}
+    {{ StyleHelper.generateLessFromArray(properties.radio_option_horizontal.desktop, '.moto-form__element_radio .moto-form__field-options_horizontal .moto-form__field-options-item') }}
+
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.base, '.moto-form__attachments-item') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.focus, '.moto-form__attachments-item:hover') }}
+    {{ StyleHelper.generateLessFromArray(properties.field_control.desktop.error, '.moto-form__attachments-item.moto-form__attachments-item_error') }}
+
+    .moto-form__attachments-item_button {
+        color: {{ properties.field_icon.desktop.base.color }};
+        {% if properties.field_icon.desktop.focus.color %}
+            &:hover {
+                color: {{ properties.field_icon.desktop.focus.color }};
+            }
+        {% endif %}
+    }
+
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.field_control.tablet.base, '.moto-form__field-control') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_controls_input_select.tablet.base, '.moto-form__field-control_input, .moto-form__field-control_select') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_icon.tablet.base, '.moto-form__element_input .moto-form__field-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.error_item.tablet.base, '.moto-form__error-item') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_with_icon.tablet.base, '.moto-form__field_with-icon .moto-form__field-control_input') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.field_control['mobile-h'].base, '.moto-form__field-control') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_controls_input_select['mobile-h'].base, '.moto-form__field-control_input, .moto-form__field-control_select') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_icon['mobile-h'].base, '.moto-form__element_input .moto-form__field-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.error_item['mobile-h'].base, '.moto-form__error-item') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_with_icon['mobile-h'].base, '.moto-form__field_with-icon .moto-form__field-control_input') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.field_control['mobile-v'].base, '.moto-form__field-control') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_controls_input_select['mobile-v'].base, '.moto-form__field-control_input, .moto-form__field-control_select') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_icon['mobile-v'].base, '.moto-form__element_input .moto-form__field-icon') }}
+        {{ StyleHelper.generateLessFromArray(properties.error_item['mobile-v'].base, '.moto-form__error-item') }}
+        {{ StyleHelper.generateLessFromArray(properties.field_with_icon['mobile-v'].base, '.moto-form__field_with-icon .moto-form__field-control_input') }}
+    }
+
+}

@@ -1,0 +1,77 @@
+2019-11-16T13:58:28-05:00 INFO (6): @INSTALL : Start
+2019-11-16T13:58:28-05:00 INFO (6): @INSTALL : Database Data Importing
+2019-11-16T13:58:28-05:00 INFO (6): @INSTALL : Basic Database Imported
+2019-11-16T13:58:28-05:00 INFO (6): @INSTALL : Update product information
+2019-11-16T13:58:28-05:00 INFO (6): @INSTALL : Init Settings
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Load Extra Info
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Creating Admin User
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Admin User Created
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Saving Website Settings
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Website Settings Saved
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Saving File Settings
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : File Settings Saved
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Installing Content Taxonomy
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Creating table `content_taxonomies`
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Table was created
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Creating table `content_taxonomy_relations`
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Table was created
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Activating Theme
+2019-11-16T18:58:28+00:00 INFO (6): Audio player preset already exist.
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 1 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 1 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 2 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 2 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 1 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 1 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 2 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 2 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 3 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 3 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 4 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Created 4 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Theme Activated
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Installing Extra Content
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : CONTENT_SECTION : Start Check or Install [ Blog ]
+2019-11-16T18:58:28+00:00 INFO (6): @CONTENT_SECTION : Blog : Check or Install
+2019-11-16T18:58:28+00:00 NOTICE (5): @CONTENT_SECTION : Blog : Main Page Exists [ id = 3 ]
+2019-11-16T18:58:28+00:00 NOTICE (5): @CONTENT_SECTION : Blog : Post Template Exists [ id = 4 ]
+2019-11-16T18:58:28+00:00 NOTICE (5): @CONTENT_SECTION : Blog : Tag Template Exists [ id = 8 ]
+2019-11-16T18:58:28+00:00 NOTICE (5): @CONTENT_SECTION : Blog : Category Template Exists [ id = 9 ]
+2019-11-16T18:58:28+00:00 NOTICE (5): @CONTENT_SECTION : Blog : Pagination Preset Exists [ id = 149464 ]
+2019-11-16T18:58:28+00:00 INFO (6): @CONTENT_SECTION : Blog : Settings Saved
+2019-11-16T18:58:28+00:00 INFO (6): @CONTENT_SECTION : Blog : Done
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : CONTENT_SECTION : Done [ Blog ]
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Extra Content Installed
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Start Install [ NotFoundPopup ]
+2019-11-16T18:58:28+00:00 INFO (6): @CONTENT_SECTION : NotFoundPopup : Checking...
+2019-11-16T18:58:28+00:00 INFO (6): @CONTENT_SECTION : NotFoundPopup : Already exists
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Done [ NotFoundPopup ]
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Not Found Popup Installed
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create audio player preset
+2019-11-16T18:58:28+00:00 INFO (6): Audio player preset already exist.
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create Social Links Extended preset
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check `Back To Top` button settings
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check `Tabs` preset
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check `Cookie Notification` preset
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Add system.engine
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create password protected page
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create under construction page
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and upgrade tabs presets for vertical mode
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create tile_gallery presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create post_tags presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create category_list presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create moto_callback presets
+2019-11-16T18:58:28+00:00 NOTICE (5): @INSTALL : rename Blog to Blog Main Page successfully
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create content_slider presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create breadcrumbs presets
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 1 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 2 preset for breadcrumbs
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Upgrade breadcrumbs presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Check and create form_elements presets
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 1 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 2 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 3 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @checkAndCreateWidgetPreset: Start creating 4 preset for form_elements
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Upgrade content_slider presets
+2019-11-16T18:58:28+00:00 INFO (6): @INSTALL : Upgrade blog.category_list presets
+2019-11-16T18:58:29+00:00 INFO (6): @INSTALL : Done

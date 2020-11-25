@@ -1,0 +1,29 @@
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-blog-post_tags', item.class_name) }} {
+    {{ StyleHelper.generateLessFromArray(properties.general.desktop, '.moto-widget-blog-post_tags__item-link') }}
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.general.tablet, '.moto-widget-blog-post_tags__item-link') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.general['mobile-h'], '.moto-widget-blog-post_tags__item-link') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.general['mobile-v'], '.moto-widget-blog-post_tags__item-link') }}
+    }
+
+    {{ StyleHelper.generateLessFromArray(properties.indents.desktop, '.moto-widget-blog-post_tags__item') }}
+    @media screen and (max-width: @const_media_tablet_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.indents.tablet, '.moto-widget-blog-post_tags__item') }}
+    }
+    @media screen and (max-width: @const_media_mobile-h_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.indents['mobile-h'], '.moto-widget-blog-post_tags__item') }}
+    }
+    @media screen and (max-width: @const_media_mobile-v_max_width) {
+        {{ StyleHelper.generateLessFromArray(properties.indents['mobile-v'], '.moto-widget-blog-post_tags__item') }}
+    }
+    .moto-widget-blog-post_tags__title {
+        margin-right: {{ properties.title_indents.desktop.base['margin-right'] }};
+        margin-bottom: {{ properties.indents.desktop.base['margin-bottom'] }};
+    }
+}

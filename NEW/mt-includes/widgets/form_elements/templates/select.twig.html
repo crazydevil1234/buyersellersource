@@ -1,0 +1,25 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-select moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.select">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <div class="moto-form__element moto-form__element_select" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field">
+            <select class="moto-form__field-control moto-form__field-control_select" name="{{ currentWidget.getFieldName() }}" ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')" ng-model="message['{{ currentWidget.getFieldName() }}']"{% if not isPreview %} ng-init="message['{{ currentWidget.getFieldName() }}'] = '{{ currentWidget.getSelectedOptionValue() }}'"{% endif %}{% if currentWidget.properties.validation.required %} required{% endif %}>
+                {% if isPreview %}
+                <option value="">{{ currentWidget.getPreviewOptionLabel() }}</option>
+                {% else %}
+                {% for option in currentWidget.properties.options %}
+                <option value="{{ option.value }}"{% if option.selected %} selected{% endif %}>{{ option.label }}</option>
+                {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first"
+                 data-field-name="{{ currentWidget.getFieldName() }}"
+                 data-form="$FORM"></div>
+        {% endif %}
+    </div>
+</div>

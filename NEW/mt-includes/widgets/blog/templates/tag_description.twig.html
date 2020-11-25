@@ -1,0 +1,13 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-blog-tag_description moto-preset-{{ currentWidget.properties.preset|default('default') }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-preset="{{ currentWidget.properties.preset|default('default') }}" data-widget="blog.tag_description">
+    {% if currentPage.isTemplate() %}
+        <div class="moto-widget-empty"></div>
+    {% elseif (CurrentTaxonomy and currentWidget.shouldBeRendered()) %}
+        <div class="moto-widget-text">
+            <div class="moto-widget-text-content">
+                {% filter page_html_content(CurrentTaxonomy, CurrentTaxonomy.type ~ ':' ~ currentWidget.properties.source) %}
+                    {% include template_from_string(CurrentTaxonomy.getAttribute(currentWidget.properties.source)) %}
+                {% endfilter %}
+            </div>
+        </div>
+    {% endif %}
+</div>

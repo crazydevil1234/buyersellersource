@@ -1,0 +1,10 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-instagram_post {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} moto-widget_flex-alignment" data-widget="instagram.post">
+    {% if isPreview %}<div class="moto-widget-cover"></div>{% endif %}
+    {% if currentWidget.properties.encodedHtml %}
+        <div class="moto-widget-instagram_post__wrapper moto-widget__flex-alignment-element">
+            {{ currentWidget.getDecodedHtml() }}
+        </div>
+    {% else %}
+        {% if isPreview %}<div class="moto-widget-empty"></div>{% endif %}
+    {% endif %}
+</div>

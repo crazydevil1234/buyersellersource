@@ -1,0 +1,16 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-blog-category_list {{ currentWidget.getCssClasses() }} moto-widget_flex-alignment" data-widget="blog.category_list" data-preset="{{ currentWidget.properties.preset }}">
+    {% if (currentWidget.getCategories()|length > 0) %}
+        <div class="moto-widget-blog-category_list__content-wrapper">
+            {% if (currentWidget.properties.title.content|length > 0) %}
+                <div class="moto-widget-blog-category_list__title {{ currentWidget.properties.title.textStyle }} moto-spacing-bottom-{{ currentWidget.properties.title.bottomSpacing }}">{{ currentWidget.properties.title.content }}</div>
+            {% endif %}
+            <ul class="moto-widget-blog-category_list__items">
+                {% for category in currentWidget.getCategories() %}
+                    <li class="moto-widget-blog-category_list__item"><a {% if isPreview %}href{% else %}href="{{ category.getRelativeUrl() }}"{% endif %} class="moto-widget-blog-category_list__item-link moto-widget__flex-alignment-element">{% if currentWidget.properties.icon.id %}<span class="moto-widget-blog-category_list__item-icon fa fa-{{ currentWidget.properties.icon.id }}" aria-hidden="true"></span>{% endif %}<span class="moto-widget-blog-category_list__item-text">{{ category.name }}</span>{% if currentWidget.properties.postsCount.visible %}<span class="moto-widget-blog-category_list__item-count">({{ category.published_blog_posts_count }})</span>{% endif %}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="moto-widget-empty"></div>
+    {% endif %}
+</div>

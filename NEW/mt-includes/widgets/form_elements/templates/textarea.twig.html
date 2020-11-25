@@ -1,0 +1,40 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-textarea moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.textarea">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <div class="moto-form__element moto-form__element_textarea" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field">
+            <textarea class="moto-form__field-control moto-form__field-control_textarea"
+                      name="{{ currentWidget.getFieldName() }}"
+                      ng-model="message['{{ currentWidget.getFieldName() }}']"
+                      ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')"
+                      placeholder="{{ currentWidget.properties.placeholder }}"
+                      {% if currentWidget.properties.validation.stringLength.allowMin %} ng-minlength="{{ currentWidget.properties.validation.stringLength.minValue }}"{% endif %}
+                      {% if currentWidget.properties.validation.stringLength.allowMax %} ng-maxlength="{{ currentWidget.properties.validation.stringLength.maxValue }}"{% endif %}
+                      {% if currentWidget.properties.validation.required %} required{% endif %}></textarea>
+        </div>
+        {% if currentWidget.properties.description.text %}<div class="moto-form__field-description {{ currentWidget.properties.description.style }} {{ currentWidget.getAlignClass('moto-align-', 'description.align') }}">{{ currentWidget.properties.description.text }}</div>{% endif %}
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first"
+                 data-field-name="{{ currentWidget.getFieldName() }}"
+                 data-field-type="{{ currentWidget.getFieldType() }}"
+                 data-rules="{{ currentWidget.getValidationRules()|json_encode }}"
+                 data-form="$FORM"></div>
+        {% endif %}
+        <style type="text/css">
+            {% set styles = currentWidget.properties.styles %}
+            {{ StyleHelper.generateLessFromArray(styles.desktop.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-form__field-control_textarea') }}
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_tablet_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles.tablet.base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-form__field-control_textarea') }}
+            }
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-h_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles['mobile-h'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-form__field-control_textarea') }}
+            }
+            @media screen and (max-width: {{ StyleHelper.getConstant('const_media_mobile-v_max_width') }}) {
+                {{ StyleHelper.generateLessFromArray(styles['mobile-v'].base, '#' ~ currentWidget.getWidgetId() ~ ' .moto-form__field-control_textarea') }}
+            }
+        </style>
+    </div>
+</div>

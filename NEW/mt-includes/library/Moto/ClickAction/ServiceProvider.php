@@ -1,0 +1,2 @@
+<?php
+namespace Moto\ClickAction; use Moto; class ServiceProvider extends Moto\System\ServiceProvider { public function register() { } public function boot() { Moto\ClickAction\AbstractClickAction::setUsingPermalinks(Moto\Website\Settings::get('permalinks')); Moto\ClickAction\AbstractClickAction::setUsingHtmlSuffix(Moto\Website\Settings::get('suffix')); } } 

@@ -1,0 +1,2 @@
+<?php
+namespace Website\Widgets\Breadcrumbs; use Moto; use Website; class MainPage { public function isMainPage() { return true; } public function getName() { return 'Home'; } public function getRelativeUrl() { return Moto\System::getRelativeUrl('@website'); } } 

@@ -1,0 +1,7 @@
+<?php return array (
+  'product_id' => '7180861cbdd647d1de7593132286fe27',
+  'template' => '67967',
+  'token' => 'S@oOxycDChG6LDXRxCyKLWdAOgYJDVhak2d3pvMjicTkWI7XMnXX2vwNXU9IoQ2gRg0JGXJhlGtbvpIgiNwXAwrt31FT17JlEo6gs/WOjz05mW89qis+XgseY6p5ahHMOMEqzQ8ADfA1lCXUPlgNm9wlGmCxXY/NDyIDk6qUfABKQ9j1YHEODORGM4F+AERW05KKL023eA+OBVH+goYK4tPu1hDFl7sGKIe9GSYGtHHK5IDmk64RSwtCFRLdKRYXIT+zeTXdhatxXIryaR3EP1eamwBxJUNs5PLtugjW0R0hVO7Dd8r82Nt2vS7x567ozIVeRBdBJV/RmLvjNCSfeFVPufpMuKbBmGNmXhUdXy786o3ZwxaenzHF2eouuXz87/N6KdTtIMaykM0TMMleoYt6ggSOBSxjiQGvY6K3xKYCAS+vALryOgEUc=',
+  'synced_at' => 1574052776,
+  'request_sign' => 'c275f51aadf22544b628864c7c1e44ecadb14216',
+);

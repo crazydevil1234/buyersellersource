@@ -1,0 +1,2 @@
+<?php
+namespace Moto\System\Providers; use Moto; class StyleHelperProvider extends Moto\System\ServiceProvider { public function register() { $app = Moto\System::app(); $app->singleton(Moto\Twig\Extension\StyleHelperExtension::class); $app->alias(Moto\Twig\Extension\StyleHelperExtension::class, 'StyleHelper'); } public function boot() { } } 

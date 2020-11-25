@@ -1,0 +1,6 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-label moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.label">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <label class="moto-widget-form_elements-label_text {{ currentWidget.properties.textStyle }}">{{ currentWidget.properties.text }}</label>
+</div>

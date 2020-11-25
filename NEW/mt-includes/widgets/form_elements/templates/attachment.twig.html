@@ -1,0 +1,53 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-attachment moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.attachment">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+    {% endif %}
+    <div moto-form-attachment-field class="moto-form__element moto-form__element_input moto-form__element_attachment moto-form__element_field-with-button" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div class="moto-form__field">
+            <input class="moto-form__field-control moto-form__field-control_input moto-form__field-control_attachment"
+                   type="text"
+                   readonly
+                    {% if currentWidget.properties.placeholder %}placeholder="{{ currentWidget.properties.placeholder }}"{% endif %}
+                    {% if currentWidget.properties.multiple %}
+                       ng-value=""
+                   {% else %}
+                       ng-value="message['{{ currentWidget.getFieldName() }}'] ? message['{{ currentWidget.getFieldName() }}'].name : ''"
+                   {% endif %}
+            >
+            <div class="moto-widget moto-widget-button moto-preset-{{ currentWidget.properties.buttons.attachment.preset|default('default') }} moto-spacing-left-{{ currentWidget.properties.spaceBetweenControls }}" data-preset="{{ currentWidget.properties.buttons.attachment.preset }}">
+                <button type="button"
+                        moto-form-attachment-button
+                        ngf-select
+                        ngf-model-options="{allowInvalid: true}"
+                        {% if currentWidget.properties.multiple %} ngf-multiple="true" ngf-keep="'distinct'" {% endif %}
+                        name="{{ currentWidget.getFieldName() }}"
+                        {% if currentWidget.properties.validation.required %} required{% endif %}
+                        {% if currentWidget.properties.validation.fileExtension.allowed and currentWidget.properties.validation.fileExtension.value != '' %}
+                            ngf-pattern="'{{ currentWidget.properties.validation.fileExtension.value|replace({' ': ''}) }}'"
+                        {% endif %}
+                        {% if currentWidget.properties.validation.fileSize.allowMax and currentWidget.properties.validation.fileSize.maxValue != null %}
+                            ngf-max-size="{{ currentWidget.properties.validation.fileSize.maxValue }}"
+                        {% endif %}
+                        ng-model="message['{{ currentWidget.getFieldName() }}']"
+                        class="moto-widget-button-link moto-size-{{ currentWidget.properties.buttons.attachment.size }}"
+                        data-size="{{ currentWidget.properties.buttons.attachment.size }}"><span class="fa moto-widget-theme-icon"></span><span class="moto-widget-button-label">{{ currentWidget.properties.buttons.attachment.label }}</span></button>
+            </div>
+        </div>
+        {% if currentWidget.properties.description.text %}<div class="moto-form__field-description {{ currentWidget.properties.description.style }} {{ currentWidget.getAlignClass('moto-align-', 'description.align') }}">{{ currentWidget.properties.description.text }}</div>{% endif %}
+        {% if isPreview %}
+            <div class="moto-form__errors moto-form__errors_only-first"></div>
+        {% else %}
+            <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first" data-field-name="{{ currentWidget.getFieldName() }}" data-field-type="{{ currentWidget.getFieldType() }}" data-rules="{{ currentWidget.getValidationRules()|json_encode }}" data-form="$FORM"></div>
+        {% endif %}
+        {% if currentWidget.properties.multiple %}
+            <div class="ng-cloak" ng-if="message['{{ currentWidget.getFieldName() }}'].length > 0">
+                <ul class="moto-form__attachments">
+                    <li ng-repeat="file in message['{{ currentWidget.getFieldName() }}']" class="moto-form__attachments-item" ng-class="{'moto-form__attachments-item_error': file.$error}">
+                        <span class="moto-form__attachments-item_label">{{ '{{ file.name }}' }}</span>
+                        <a href class="moto-form__attachments-item_button" ng-click="removeAttachedFile(file);">&times;</a>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>

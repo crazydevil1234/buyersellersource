@@ -1,0 +1,35 @@
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-blog-category_list', item.class_name) }} {
+
+    {{ StyleHelper.generateLessFromArray(properties.item.desktop, '.moto-widget-blog-category_list__item') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.item.tablet, '.moto-widget-blog-category_list__item') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.item['mobile-h'], '.moto-widget-blog-category_list__item') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.item['mobile-v'], '.moto-widget-blog-category_list__item') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.link.desktop, '.moto-widget-blog-category_list__item-link') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.link.tablet, '.moto-widget-blog-category_list__item-link') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.link['mobile-h'], '.moto-widget-blog-category_list__item-link') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.link['mobile-v'], '.moto-widget-blog-category_list__item-link') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.text.desktop, '.moto-widget-blog-category_list__item-text') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.text.tablet, '.moto-widget-blog-category_list__item-text') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.text['mobile-h'], '.moto-widget-blog-category_list__item-text') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.text['mobile-v'], '.moto-widget-blog-category_list__item-text') }} }
+
+    .moto-widget-blog-category_list__item-link:hover {
+        {{ StyleHelper.generateLessFromArray(properties.icon.desktop.hover, '.moto-widget-blog-category_list__item-icon') }}
+    }
+    .moto-widget-blog-category_list__item-icon {
+        {{ StyleHelper.generateLessFromArray(properties.icon.desktop.base) }}
+        @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.icon.tablet.base) }} }
+        @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.icon['mobile-h'].base) }} }
+        @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.icon['mobile-v'].base) }} }
+    }
+    .moto-widget-blog-category_list__item-count {
+        {{ StyleHelper.generateLessFromArray(properties.posts_count.desktop) }}
+        @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.posts_count.tablet) }} }
+        @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.posts_count['mobile-h']) }} }
+        @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.posts_count['mobile-v']) }} }
+    }
+}

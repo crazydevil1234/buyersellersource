@@ -1,0 +1,2 @@
+<?php
+namespace Website\Widgets\Text; use Moto; class Widget extends Moto\System\Widgets\AbstractWidget { protected $_name = 'text'; protected static $_defaultProperties = array( 'content' => '<p>Text...</p>', 'preset' => 'default', 'animation' => '', 'visible_on' => 'mobile-v', 'spacing' => array( 'top' => 'auto', 'right' => 'auto', 'bottom' => 'auto', 'left' => 'auto', ), ); protected $_templateType = 'templates'; protected $_widgetId = true; } 

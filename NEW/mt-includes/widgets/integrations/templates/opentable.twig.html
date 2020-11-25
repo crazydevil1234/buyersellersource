@@ -1,0 +1,7 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-integrations-opentable {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-widget="integrations.opentable">
+    {% if isPreview %}
+        <div class="moto-widget-empty"></div>
+    {% elseif currentWidget.properties.restaurants|length > 0 %}
+        <div class="moto-widget-integrations-opentable-loader" data-src="{{ currentWidget.getUrl() | raw }}"></div>
+    {% endif %}
+</div>

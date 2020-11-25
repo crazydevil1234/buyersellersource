@@ -1,0 +1,2 @@
+<?php
+namespace Moto\Database; use Moto; use Illuminate; use ArrayObject; class BaseModel extends Illuminate\Database\Eloquent\Model { public function toArrayExcept($keys = null) { return Moto\Util::arrayExcept($this->toArray(), (array) $keys); } public function toArrayOnly($keys = null) { return Moto\Util::arrayOnly($this->toArray(), (array) $keys); } public function toArrayObject() { return new ArrayObject($this->attributesToArray(), ArrayObject::ARRAY_AS_PROPS); } } 

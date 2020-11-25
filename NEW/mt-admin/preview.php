@@ -1,0 +1,2 @@
+<?php
+error_reporting(E_ALL); @ini_set('display_errors', 'off'); @ini_set('log_errors', 'on'); if (!defined('MOTO_SYSTEM_REQUEST_AUTO_REDIRECT')) { define('MOTO_SYSTEM_REQUEST_AUTO_REDIRECT', false); } header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); header('Cache-Control: no-store, no-cache, must-revalidate'); header('Cache-Control: post-check=0, pre-check=0', false); header('Pragma: no-cache'); return require_once __DIR__ . '/../index.php'; 

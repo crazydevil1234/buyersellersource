@@ -1,0 +1,69 @@
+{% set properties = item.properties|json_decode %}
+
+{{ StyleHelper.generatePresetSelector('.moto-widget-content_slider', item.class_name) }} {
+    {{ StyleHelper.generateLessFromArray(properties.arrows.desktop.base, '.bx-prev, .bx-next') }}
+    .bx-prev:hover, .bx-next:hover {
+        {{ StyleHelper.generateLessFromArray(properties.arrows.desktop.hover) }}
+    }
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrows.tablet.base, '.bx-prev, .bx-next') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrows['mobile-h'].base, '.bx-prev, .bx-next') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrows['mobile-v'].base, '.bx-prev, .bx-next') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.pagination.desktop.base, '.bx-pager-link') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination.tablet.base, '.bx-pager-link') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination['mobile-h'].base, '.bx-pager-link') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination['mobile-v'].base, '.bx-pager-link') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.pagination_wrapper.desktop, '.bx-pager') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_wrapper.tablet, '.bx-pager') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_wrapper['mobile-h'], '.bx-pager') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_wrapper['mobile-v'], '.bx-pager') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.pagination_spacings.desktop, '.bx-pager-item:not(:last-child)') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_spacings.tablet, '.bx-pager-item:not(:last-child)') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_spacings['mobile-h'], '.bx-pager-item:not(:last-child)') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination_spacings['mobile-v'], '.bx-pager-item:not(:last-child)') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.pagination.desktop, '.bx-pager-link') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination.tablet, '.bx-pager-link') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination['mobile-h'], '.bx-pager-link') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.pagination['mobile-v'], '.bx-pager-link') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.pagination_selected.desktop, '.bx-pager-link.active') }}
+    {{ StyleHelper.generateLessFromArray(properties.arrow_prev.desktop, '.bx-prev') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_prev.tablet, '.bx-prev') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_prev['mobile-h'], '.bx-prev') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_prev['mobile-v'], '.bx-prev') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.arrow_next.desktop, '.bx-next') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_next.tablet, '.bx-next') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_next['mobile-h'], '.bx-next') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.arrow_next['mobile-v'], '.bx-next') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.auto_wrapper.desktop, '.bx-controls-auto') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_wrapper.tablet, '.bx-controls-auto') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_wrapper['mobile-h'], '.bx-controls-auto') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_wrapper['mobile-v'], '.bx-controls-auto') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.auto.desktop, '.bx-start, .bx-stop') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto.tablet, '.bx-start, .bx-stop') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto['mobile-h'], '.bx-start, .bx-stop') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto['mobile-v'], '.bx-start, .bx-stop') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.auto_start.desktop, '.bx-start') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_start.tablet, '.bx-start') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_start['mobile-h'], '.bx-start') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_start['mobile-v'], '.bx-start') }} }
+
+    {{ StyleHelper.generateLessFromArray(properties.auto_stop.desktop, '.bx-stop') }}
+    @media screen and (max-width: @const_media_tablet_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_stop.tablet, '.bx-stop') }} }
+    @media screen and (max-width: @const_media_mobile-h_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_stop['mobile-h'], '.bx-stop') }} }
+    @media screen and (max-width: @const_media_mobile-v_max_width) { {{ StyleHelper.generateLessFromArray(properties.auto_stop['mobile-v'], '.bx-stop') }} }
+
+    .moto-widget-loader__indicator {
+        border-top-color: fade({{ properties.preloader.desktop.base.color }}, 20%);
+        border-right-color: fade({{ properties.preloader.desktop.base.color }}, 20%);
+        border-bottom-color: fade({{ properties.preloader.desktop.base.color }}, 20%);
+        border-left-color: {{ properties.preloader.desktop.base.color }};
+    }
+}

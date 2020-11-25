@@ -1,0 +1,11 @@
+{% set properties = item.properties|json_decode %}
+.moto-cookie-notification {
+    background-color: {{ properties.general.desktop.base['background-color'] }}
+}
+
+.moto-cookie-notification__button_close {
+    color: {{properties.general.desktop.base.color}};
+    &:hover {
+         color: {{properties.general.desktop.hover.color}};
+    }
+}

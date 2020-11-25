@@ -1,0 +1,32 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-status_message moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }}" data-widget="form_elements.status_message">
+    {% if isPreview %}
+        <div class="moto-widget-cover"></div>
+        {% if currentWidget.__showMessageName %}
+            <div class="moto-widget-form_elements-status_message__message">
+            {% if currentWidget.__showMessageName == 'statusSending' %}
+                <label class="moto-widget-form_elements-status_message__message-sending {{ currentWidget.properties.messages.statusSendingStyle }}">{{ currentWidget.properties.messages.statusSendingText }}</label>
+            {% endif %}
+            {% if currentWidget.__showMessageName == 'sendingSuccess' %}
+                <label class="moto-widget-form_elements-status_message__message-sending-success {{ currentWidget.properties.messages.sendingSuccessStyle }}">{{ currentWidget.properties.messages.sendingSuccessText }}</label>
+            {% endif %}
+            {% if currentWidget.__showMessageName == 'sendingError' %}
+                <label class="moto-widget-form_elements-status_message__message-sending-error {{ currentWidget.properties.messages.sendingErrorStyle }}">{{ currentWidget.properties.messages.sendingErrorText }}</label>
+            {% endif %}
+            </div>
+            {% else %}
+                <div class="moto-widget-empty"></div>
+        {% endif %}
+    {% else %}
+        <div ng-switch="$FORM._$state" class="moto-widget-form_elements-status_message__message" data-ng-cloak>
+            {% if currentWidget.properties.messages.statusSendingText %}
+            <label ng-switch-when="SENDING" class="moto-widget-form_elements-status_message__message-sending {{ currentWidget.properties.messages.statusSendingStyle }}">{{ currentWidget.properties.messages.statusSendingText }}</label>
+            {% endif %}
+            {% if currentWidget.properties.messages.sendingSuccessText %}
+            <label ng-switch-when="SENDING_SUCCESS" class="moto-widget-form_elements-status_message__message-sending-success {{ currentWidget.properties.messages.sendingSuccessStyle }}">{{ currentWidget.properties.messages.sendingSuccessText }}</label>
+            {% endif %}
+            {% if currentWidget.properties.messages.sendingErrorText %}
+            <label ng-switch-when="SENDING_ERROR" class="moto-widget-form_elements-status_message__message-sending-error {{ currentWidget.properties.messages.sendingErrorStyle }}">{{ currentWidget.properties.messages.sendingErrorText }}</label>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

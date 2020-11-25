@@ -1,0 +1,8 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-google-map-pro {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-widget="google_map_pro">
+    {% if isPreview %}<div class="moto-widget-cover"></div>{% endif %}
+    {% if not currentWidget.isSetApiKey() %}
+    <div class="moto-widget-empty"></div>
+    {% else %}
+    <div class="moto-widget-google-map-pro-wrapper" data-map-properties="{{ currentWidget.properties.params | json_encode }}" {% if not isPreview %} data-map-markers="{{ currentWidget.exportFrontendMarkersData() }}"{% endif %} style="height: {{ currentWidget.properties.height }}px"></div>
+    {% endif %}
+</div>

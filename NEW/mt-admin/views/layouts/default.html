@@ -1,0 +1,76 @@
+{%- extends 'base.html' -%}
+
+{% block head %}
+    <meta charset="utf-8">
+
+    <title ng-bind-template="{{ '{{' }}pageTitle{{ '}}' }} - {{ '{{\'BRAND.CONTROL_PANEL.NAME\'|translate}}' }}">Control Panel</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" viewport-initial-scale content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="shortcut icon" href="{{ getFileUrl(BRAND.getMediaPath('favicon.ico'), true) }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ getFileUrl('@systemIncludes/css/font-awesome.min.css', true) }}" />
+{% endblock %}
+
+
+{% block css %}
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ getFileUrl('@systemAssets/assets.min.css', true) }}" />
+    <link rel="stylesheet" href="{{ getFileUrl('@adminStyles/style.css', true) }}" />
+<style>
+    .spinner-icon {
+        background-image: url({{ getFileUrl(BRAND.getMediaPath('loader.gif'), true) }});
+    }
+    #loading-bar-spinner {
+        {{ BRAND.getStyle('cp_loading_backdrop', 'background: rgba(0, 0, 0, .15);') }}
+    }
+    #loading-bar .bar {
+        {{ BRAND.getStyle('cp_loading_bar', 'background: #ff9000; height: 2px;') }}
+    }
+    .dashboard-block {
+        {{ BRAND.getStyle('cp_dashboard.background', 'background-image: url(' ~ getFileUrl("@adminImages/bg.jpg", true) ~ ')') }}
+    }
+    .dashboard-welcome {
+        {{ BRAND.getStyle('cp_dashboard.welcome_text', 'color: #fff') }}
+    }
+    .btn-brand__dashboard {
+        {{ BRAND.getStyle('cp_dashboard.buttons.normal') }}
+    }
+    .btn-brand__dashboard:hover, .btn-brand__dashboard:active, .btn-brand__dashboard:focus {
+        {{ BRAND.getStyle('cp_dashboard.buttons.hover', BRAND.getStyle('cp_dashboard.buttons.normal')) }}
+    }
+</style>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{{ getFileUrl('@systemAssets/assets.min.js', true) }}" type="text/javascript" data-cfasync="false"></script>
+{% endblock %}
+
+{% block content %}
+        <div ng-show="loader.status()">
+            <div class="loader"></div>
+            {{ loader.message() }}
+        </div>
+        <div class="moto-ui-notification-panel dark-ui moto-ui-notification-panel_ie-warning" ng-cloak>
+            <p class="moto-ui-notification-panel-message h6 text-center">{{ '{{::\'COMMON.TEXT.BROWSER_NOT_SUPPORTED_MESSAGE\'|translate}}' }}</p>
+        </div>
+        <div class="moto-ui-notification-panel dark-ui moto-ui-notification-panel_php-warning moto-ui-notification-panel_with-close-button" ng-if="showPHPVersionPanel" ng-cloak>
+            <p class="moto-ui-notification-panel-message h6">{{ '{{::\'COMMON.TEXT.PHP_5_5_SUPPORT_EXPIRY_MESSAGE\'|translate}}' }}</p>
+            <a href class="moto-ui-notification-panel-close-btn" ng-click="hidePHPExpiryPanel()">&times;</a>
+        </div>
+        <div class="moto-ui-notification-panel dark-ui moto-ui-notification-panel_utf8-warning moto-ui-notification-panel_with-close-button" ng-if="showDBEncodingPanel" ng-cloak>
+            <p class="moto-ui-notification-panel-message h6">{{ '{{::\'COMMON.TEXT.DB_UTF8_ENCODING_SUPPORT_EXPIRY_MESSAGE\'|translate}}' }}</p>
+            <a href class="moto-ui-notification-panel-close-btn" ng-click="hideDBEncodingPanel()">&times;</a>
+        </div>
+        <div class="moto-ui-notification-panel dark-ui moto-ui-notification-panel_collect-analytics-warning moto-ui-notification-panel_with-close-button moto-ui-notification-panel_with-buttons" ng-if="showCollectAnalyticsPanel" ng-cloak>
+            <p class="moto-ui-notification-panel-message h6" translate>COMMON.TEXT.COLLECT_ANALYTICS_MESSAGE</p>
+            <div class="form-control-buttons">
+                <button type="button" class="btn btn-success btn-xs" ng-click="hideCollectAnalyticsPanel(true)">{{ '{{::\'COMMON.BUTTON.AGREE\'|translate }}' }}</button>
+                <button type="button" class="btn btn-primary btn-xs" ng-click="hideCollectAnalyticsPanel(false)">{{ '{{::\'COMMON.BUTTON.DISAGREE\'|translate }}' }}</button>
+            </div>
+            <a href class="moto-ui-notification-panel-close-btn" ng-click="hideCollectAnalyticsPanel()">&times;</a>
+        </div>
+        {% block header %}{% endblock %}
+        {% block body %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,2 @@
+<?php
+namespace Moto\System\Plugins; use Moto; class BaseBackupProvider extends Moto\System\Backup\AbstractModel { protected $_attributes = [ 'tables' => null, ]; public function getTables() { return $this->getAttribute('tables'); } public function sanitizeExportedContent($code, $meta, $header) { return $code; } public function sanitizeExportedStructure($code, $meta) { return $code; } } 

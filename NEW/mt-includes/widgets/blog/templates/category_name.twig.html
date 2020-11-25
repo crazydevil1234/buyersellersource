@@ -1,0 +1,7 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-blog-category_name moto-preset-{{ currentWidget.properties.preset|default('default') }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }}" data-preset="{{ currentWidget.properties.preset|default('default') }}" data-widget="blog.category_name">
+    <div class="moto-widget-text">
+        <div class="moto-widget-text-content">
+            <{{ currentWidget.properties.htmlTag|default('h1') }} class="{{ currentWidget.properties.text_style }} moto-widget-blog-category_name__heading">{{ CurrentTaxonomy.name|default('Category Name') }}</{{ currentWidget.properties.htmlTag|default('h1') }}>
+        </div>
+    </div>
+</div>

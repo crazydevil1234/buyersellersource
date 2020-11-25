@@ -1,0 +1,12 @@
+<div data-widget-id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-form_elements-recaptcha moto-preset-{{ currentWidget.getCurrentPreset() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getAlignClass() }}" data-widget="form_elements.recaptcha" data-field-name="{{ currentWidget.getFieldName() }}">
+    {% if isPreview %}
+    <div class="moto-widget-cover"></div>
+    <div class="moto-widget-empty"></div>
+    {% else %}
+    <div class="moto-form__element moto-form__element_recaptcha" ng-class="{'moto-form__element_invalid' : ($FORM.$submitted || $FORM['{{ currentWidget.getFieldName() }}'].$touched) && $FORM['{{ currentWidget.getFieldName() }}'].$invalid}">
+        <div vc-recaptcha on-create="setWidgetId(widgetId)" ng-model="message['{{ currentWidget.getFieldName() }}']" data-key="'{{ currentWidget.getIntegrationSiteKey() | default('EMPTY') }}'" data-theme="{{ currentWidget.properties.theme }}" data-size="{{ currentWidget.properties.size }}"></div>
+        <input type="hidden" name="{{ currentWidget.getFieldName() }}" ng-change="onFieldChanged('{{ currentWidget.getFieldName() }}')" ng-model="message['{{ currentWidget.getFieldName() }}']" required>
+        <div data-moto-form-errors class="moto-form__errors moto-form__errors_only-first" data-field-name="{{ currentWidget.getFieldName() }}" data-form="$FORM"></div>
+    </div>
+    {% endif %}
+</div>

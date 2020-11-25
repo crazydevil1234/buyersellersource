@@ -1,0 +1,5 @@
+<div id="{{ currentWidget.getWidgetId() }}" class="moto-widget moto-widget-counter moto-preset-{{ currentWidget.properties.preset }} {{ currentWidget.getAlignClass() }} {{ currentWidget.getSpacing('classes') }} {{ currentWidget.getVisibleOn('classes') }} {{ currentWidget.getAnimationClasses() }}" data-widget="counter"{% if not isPreview %} data-moto-counter-options='{{ currentWidget.exportFrontendSettings() }}'{% endif %}>
+    <div class="moto-widget-counter__value {{ currentWidget.properties.textStyle }}">
+        {{ currentWidget.properties.options['countTo'] }}
+    </div>
+</div>

@@ -1,0 +1,57 @@
+[30-Oct-2018 14:42:28 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[30-Oct-2018 14:42:33 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[30-Oct-2018 15:19:17 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php:774
+Stack trace:
+#0 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(774): ReflectionClass->__construct('config')
+#1 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\Container->build('config')
+#2 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(608): Illuminate\Container\Container->resolve('config', Array)
+#3 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(733): Illuminate\Container\Container->make('config', Array)
+#4 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(1217): Illuminate\Foundation\Application->make('config')
+#5 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminat in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 774
+[30-Oct-2018 15:19:26 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php:774
+Stack trace:
+#0 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(774): ReflectionClass->__construct('config')
+#1 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\Container->build('config')
+#2 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(608): Illuminate\Container\Container->resolve('config', Array)
+#3 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(733): Illuminate\Container\Container->make('config', Array)
+#4 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(1217): Illuminate\Foundation\Application->make('config')
+#5 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminat in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 774
+[30-Oct-2018 15:19:29 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php:774
+Stack trace:
+#0 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(774): ReflectionClass->__construct('config')
+#1 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\Container->build('config')
+#2 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(608): Illuminate\Container\Container->resolve('config', Array)
+#3 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(733): Illuminate\Container\Container->make('config', Array)
+#4 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(1217): Illuminate\Foundation\Application->make('config')
+#5 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminat in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 774
+[30-Oct-2018 15:19:54 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php:774
+Stack trace:
+#0 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(774): ReflectionClass->__construct('config')
+#1 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\Container->build('config')
+#2 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(608): Illuminate\Container\Container->resolve('config', Array)
+#3 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(733): Illuminate\Container\Container->make('config', Array)
+#4 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(1217): Illuminate\Foundation\Application->make('config')
+#5 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminat in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 774
+[30-Oct-2018 15:19:54 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php:774
+Stack trace:
+#0 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(774): ReflectionClass->__construct('config')
+#1 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\Container->build('config')
+#2 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(608): Illuminate\Container\Container->resolve('config', Array)
+#3 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(733): Illuminate\Container\Container->make('config', Array)
+#4 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php(1217): Illuminate\Foundation\Application->make('config')
+#5 /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminat in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 774
+[30-Oct-2018 15:32:41 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[30-Oct-2018 15:32:49 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[30-Oct-2018 15:33:54 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:47 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:50 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:52 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:52 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:54 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:00:54 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:02:15 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:02:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:02:18 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:03:44 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:03:47 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+[31-Oct-2018 06:57:59 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/bdtdccom/buyerseller.info/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500

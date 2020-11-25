@@ -1,0 +1,27 @@
+<div id="{{ currentWidget.getWidgetId() }}" data-parent-id="{{ currentWidget.getParent().getWidgetId() }}" class="moto-widget moto-widget-content_slider__item moto-widget-row moto-widget_with-content-editor {{ currentWidget.getCssClasses() }} {{ Entertainment.getCssClass('playingDisabled') }} moto-before-in-viewport_content-invisible" style="{{ StyleHelper.generateWidgetInlineStyles(currentWidget.getStylesValue()) }}" data-widget="{{ currentWidget.getName() }}" data-preset="{{ currentWidget.properties.preset }}">
+    {% if currentWidget.isBackgroundVideoSet() %}
+        <div class="moto-background-video-container moto-absolute-position__container" data-moto-background-video="">
+            <video class="{{ currentWidget._getBackgroundVideoCssClass() }}" muted playsinline preload="{{ currentWidget.properties.bgVideo.preload }}"{% if currentWidget.properties.bgVideo.loop %} loop{% endif %}>
+                {% if currentWidget.properties.bgVideo.track.webm.path %}
+                    <source type="video/webm" src="{{ Linker.file(currentWidget.properties.bgVideo.track.webm.path) }}">
+                {% endif %}
+                {% if currentWidget.properties.bgVideo.track.mp4.path %}
+                    <source type="video/mp4" src="{{ Linker.file(currentWidget.properties.bgVideo.track.mp4.path) }}">
+                {% endif %}
+            </video>
+        </div>
+    {% endif %}
+    <div class="moto-widget__content-wrapper container-fluid">
+        <div class="moto-widget__content row">
+            <div id="{{ currentWidget.getWidgetId() }}__content" class="moto-cell col-sm-12 {{ Entertainment.getCssClass(['animationDisabled', 'animationIgnoring']) }}">
+                {% for item in currentWidget.children %}
+                    {% if isServer %}
+                        {{ widget(item) }}
+                    {% else %}
+                        {% widget item %}{% endWidget %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

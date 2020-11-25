@@ -1,0 +1,18 @@
+<div id="{{ currentWidget.getWidgetId() }}" data-parent-id="{{ currentWidget.getParent().getWidgetId() }}" class="moto-widget moto-widget-tabs__item {% if not currentWidget.isOpenedByDefault() %}{{ Entertainment.getCssClass('playingDisabled') }}{% endif %}" data-widget="tabs.item">
+    <div class="moto-widget-tabs__header moto-widget-tabs__header_mobile{% if currentWidget.isOpenedByDefault() %} moto-widget-tabs__header_opened{% endif %}" data-tab="{{ currentWidget.getWidgetId() }}">
+        {% if currentWidget.properties.header.icon.id %}<span class="moto-widget-tabs__header-item moto-widget-tabs__header-icon"><span class="fa fa-fw fa-{{ currentWidget.properties.header.icon.id }}" aria-hidden="true"></span></span>{% endif %}
+        {% if not currentWidget.properties.header.content == '' %}<{{ currentWidget.getParent().properties.headingTag|default('span', true) }} class="moto-widget-tabs__header-item moto-widget-tabs__header-title">{{ currentWidget.properties.header.content }}</{{ currentWidget.getParent().properties.headingTag|default('span', true) }}>{% endif %}
+    </div>
+    <div class="moto-widget__content-wrapper moto-widget-tabs__content-wrapper" style="display: {% if currentWidget.isOpenedByDefault() %}block{% else %}none{% endif %};">
+        <div id="{{ currentWidget.getWidgetId() }}__content" class="moto-widget__content moto-widget-tabs__content">
+            {% for item in currentWidget.children %}
+                {% if isServer %}
+                    {{ widget(item) }}
+                {% else %}
+                    {% widget item %}{% endWidget %}
+                {% endif %}
+            {% endfor %}
+            {% if isPreview %}<div class="moto-widget-cover"></div>{% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+<?php
+namespace Moto\ClickAction; class ScrollToAnchor extends AbstractClickAction { protected $_defaultData = array( 'anchor' => '', 'time' => '', ); public function getUrl() { return '#'; } public function getTarget() { return ''; } public function getAdditionalAttributes() { return 'data-anchor="' . $this->get('anchor') . '" data-time="' . $this->get('time') . '" data-moto-widget-actions-scroll-to'; } } 
