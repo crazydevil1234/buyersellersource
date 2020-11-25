@@ -18,7 +18,6 @@ You are done! You can now login in your application using the following credenti
 
 	/*	
 	 *  Buyer Seller
-	 *	Developed by: Sumon Hossain Sk
 	 *	Date: 1 Sept, 2018
 	 *	BuyerSeller.Asia
 	 *	https://buyerseller.asia/
