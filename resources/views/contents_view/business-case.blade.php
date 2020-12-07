@@ -21,7 +21,7 @@
 						</div>
 						<div class="mm" style="border-bottom:10%;">
 						<div class="contact">
-							<a itemprop="url"  href="#">
+							<a itemprop="url"  href="{{ URL::to('contact',null)}}" target="_black">
 									<p class="contact-p">Question ? Comments?<br> we want to your facedback !</p>
 									<h3 class="contact-h3">Contacts</h3>
 							</a>

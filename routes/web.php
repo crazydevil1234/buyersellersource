@@ -569,7 +569,7 @@ Route::get('business/matching',['as'=>'business.matching','uses'=>'Front\Aboutus
 Route::get('media/room',['as'=>'media.room','uses'=>'Front\AboutusController@bdtdcmediaroom']);
 Route::get('media-news',['as'=>'media.news','uses'=>'Front\AboutusController@bdtdcmedianews']);
 Route::get('sme-center',['as'=>'bdtdc.smecenter','uses'=>'Front\AboutusController@smecenter']);
-// Route::get('bangladesh/business',['as'=>'business.bangladesh','uses'=>'Front\AboutusController@bangladeshbusiness']);
+Route::get('bangladesh/business',['as'=>'business.bangladesh','uses'=>'Front\AboutusController@bangladeshbusiness']);
 Route::get('portal/support-program',['as'=>'portal.program','uses'=>'Front\AboutusController@support_portal_program']);
 Route::get('marketing/executive',['as'=>'marketing.executive','uses'=>'Front\AboutusController@marketing_executive']);
 Route::get('web-developer/laravel',['as'=>'webdeveloper.laravel','uses'=>'Front\AboutusController@web_developer']);

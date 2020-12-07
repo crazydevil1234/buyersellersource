@@ -118,7 +118,7 @@
    <div class="col-md-12" style="padding:0;">
       @foreach($products as $p)
       @if($p->bdtdcProduct)
-      <div class="col-sm-2 padding_0 " style="">
+      <div class="five_items_line padding_0 " style="">
          <div class="product-container" style="">
             <div class="con-pro-img"> 
                @if($p->bdtdcProduct)
@@ -153,7 +153,7 @@
                $rand=rand(20,50)
                @endphp
                {{ $rand }}+ 
-               </span>views 
+               </span>views {{ $p->product_id }}
             </div>
             <div class="offer-action">
                <a itemprop="url" href="{{ URL::to('product-details/'.preg_replace('/[^A-Za-z0-9\.-]/','-',$p->bdtdcProduct->product_name->name).'='.mt_rand(100000000, 999999999).$p->product_id,null) }}" class="offer-action-btn contact_supplier" data-product_id="{{ $p->product_id }}" data-supplier_id="{{ $p->supp_pro_company?$p->supp_pro_company->user_id:0 }}"> Contact Supplier</a>

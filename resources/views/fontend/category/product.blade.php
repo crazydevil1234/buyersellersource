@@ -511,7 +511,7 @@
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 25px 0;background: white; margin-bottom: 2px">
             <div class="bdpro-hovereffect2">
                <a href="{{ URL::to('product-details/Ladies-Blank-Tank-Top=3586698671034') }}">
-                  <img itemprop="image" title="Ladies Blank Tank Top" style="width:100%;height: 232px;;min-height: 232px;padding: 0" class="img-thumbnail pro-imges" src="{!! asset('bdtdc-product-image/apparel-textile/ladies-blouses-tops/Ladies-Blank-Tank-Top_1_247_8GAuTblgOM.jpg') !!}" alt="Ladies Blank Tank Top">
+                  <img itemprop="image" title="Ladies Blank Tank Top" style="width:100%;height: auto;min-height:auto;padding: 0" class="img-thumbnail pro-imges" src="{!! asset('bdtdc-product-image/apparel-textile/ladies-blouses-tops/Ladies-Blank-Tank-Top_1_247_8GAuTblgOM.jpg') !!}" alt="Ladies Blank Tank Top">
                </a><a href="{{ URL::to('product-details/Ladies-Blank-Tank-Top=3586698671034') }}">
                </a>
             </div>

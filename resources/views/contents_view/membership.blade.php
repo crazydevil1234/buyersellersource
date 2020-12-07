@@ -6,15 +6,15 @@
 	@section('content')
     <div class="row"  style="margin-bottom: 8px">
         <div class="col-md-12 padding_0">
-               <ul class="" style="margin-left: -2%;float: left;padding-top: 1.5%;" itemscope itemtype="http://schema.org/BreadcrumbList">>
-                        <li class="top-path-li" style="float: left;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="{{ URL::to('/',null) }}" style="color: #000"> Home &nbsp;</a></li>
-                         <li class="top-path-li" style="float: left" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="" style="color: #000"> <i class="fa fa-angle-right"></i> Supplier Membership</a></li>
+               <ul class="" style="margin-left: -2%;float: left;padding-top: 1.5%;" itemscope itemtype="http://schema.org/BreadcrumbList"><i class="fa fa-angle-right"></i>
+                        <li class="top-path-li" style="float: left;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="{{ URL::to('/',null) }}" style="color: #000"> Home</a></li>
+                         <li class="top-path-li" style="float: left" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="" style="color: #000"> <i class="fa fa-angle-right"></i> Supplier Memberships</a></li>
                        
                        
           </ul>
-          <div style="float:right;margin-left: -2%;padding-top: 1%;" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          {{-- <div style="float:right;margin-left: -2%;padding-top: 1%;" itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <button class="goBack" onclick="goBack()"><span>Go Back</span></button>
-      </div>
+      </div> --}}
         </div>
     </div>
 		<div class="row padding_0" style="background-color: #fff; margin-top: 1px; padding-top: 5px;">

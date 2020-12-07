@@ -47,8 +47,8 @@
       <div class="product-details" style="margin-bottom:0;">
          <!--product-details-->
          <div class="col-sm-5 col-md-4 col-lg-4 col-xs-12">
-            <ul id="etalage">
-               <li>
+            <ul id="etalage" style="width: 100%!important;">
+               <li style="width: 100%!important;">
                   <a itemprop="url" href="#">
                   @if($products->product_image_new)
                   <img itemprop="image"  class="etalage_thumb_image" src="{{ URL::to(''.$products->product_image_new->image,null)}}" alt="{{$products->product_name->name  }}" />
@@ -115,10 +115,10 @@
                </strong> days</span></div>
                <div itemscope itemtype="http://schema.org/PaymentMethod" class="summary"><span style="margin-bottom: 0px;margin-top: 0px;" itemprop="name"> Small Order:</span><span style="padding-left: 72px;" class="pro_details_pad" >  Ask Supplier </span></div>
                <ul style="padding:4% 0px 0%;display: inline-block;">
-                  <li style="float:left;width:42%">
+                  <li style="float:left;margin:0px 15px 5px 0px;">
                      <div data-product_id="{{ $products->id  }}" data-supplier_id="{{ $products->supplier_product->supplier_id  }}" class="btn btn-primary btn-join contact_supplier"><i class="fa fa-envelope-o"> </i> Contact Supplier</div>
                   </li>
-                  <li style="float:left;width:42%; margin-left: 15px;">
+                  <li style="float:left;margin:0px 15px 5px 0px;">
                      <a href="{{URL::to('mysource/online-order/new',mt_rand(100000000, 999999999).'0'.mt_rand(100000000, 999999999))}}?r=true&s={{mt_rand(100000000, 999999999).$products->supplier_product->supplier_id.mt_rand(100000000, 999999999)}}&product_id={{$products->id}}"><div class="btn btn-primary btn-join"><i class="fa fa-shopping-cart"></i> Buy Now </div></a>
                   </li>
                   @php
@@ -139,15 +139,15 @@
                   $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                   $buy_title = 'Buy '.$products->product_name->name.' '.($products->bdtdcProductToCategory->bdtdcCategory?$products->bdtdcProductToCategory->bdtdcCategory->name:"").' on buyerseller.asia';
                   @endphp
-                  <li style="float:left; padding-top: 9px;padding-left: 0px">
-                     Share to: 
-                     <a style="display: inline-block; padding-left: 7px;" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{$actual_link}}" ><i class="fa fa-facebook"></i></a>
-                     <a href="https://twitter.com/intent/tweet?source={{$actual_link}}&text={{$buy_title}}:{{$actual_link}}" target="_blank" title="Tweet"><i class="fa fa-twitter"></i></a>
-                     <a href="https://plus.google.com/share?url={{$actual_link}}" target="_blank" title="Share on Google+"><i class="fa fa-google-plus"></i></a>
-                     <a href="http://pinterest.com/pin/create/button/?url={{$actual_link}}&media={{ URL::to(($products->product_image_new?$products->product_image_new->image:'uploads/no_image.jpg'),null)}}&description={{$buy_title}}" target="_blank" title="Pin it"><i class="fa fa-pinterest"></i></a>
-                     <!-- &media={PAGEIMAGEURL}&description={PAGEDESCRIPTION}" -->
-                  </li>
                </ul>
+               <div style="padding-top: 9px;padding-left: 0px">
+                  Share to: 
+                  <a style="display: inline-block; padding-left: 7px;" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{$actual_link}}" ><i class="fa fa-facebook"></i></a>
+                  <a href="https://twitter.com/intent/tweet?source={{$actual_link}}&text={{$buy_title}}:{{$actual_link}}" target="_blank" title="Tweet"><i class="fa fa-twitter"></i></a>
+                  <a href="https://plus.google.com/share?url={{$actual_link}}" target="_blank" title="Share on Google+"><i class="fa fa-google-plus"></i></a>
+                  <a href="http://pinterest.com/pin/create/button/?url={{$actual_link}}&media={{ URL::to(($products->product_image_new?$products->product_image_new->image:'uploads/no_image.jpg'),null)}}&description={{$buy_title}}" target="_blank" title="Pin it"><i class="fa fa-pinterest"></i></a>
+                  <!-- &media={PAGEIMAGEURL}&description={PAGEDESCRIPTION}" -->
+               </div>
                @if($user_active)
                <div style="margin: 0px; margin-left:10px;">
                   <h4 class="heading"><a href="javascript:$zopim.livechat.window.show();" onclick=""  style="padding-left:10px; font-size: 14px;color: green;" class="chat_single"><i class="fa fa-comment fa-3x"></i>Chat with me</a></h4>
@@ -1328,9 +1328,9 @@
 
       $('#etalage').etalage({
 
-         thumb_image_width: 350,
+         // thumb_image_width: 350,
 
-         thumb_image_height: 350,
+         // thumb_image_height: 350,
 
 
 

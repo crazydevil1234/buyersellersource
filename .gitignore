@@ -7,3 +7,4 @@
 ./bdtdc-product-image/*
 /public/bdtdc-product-image/*
 ./public/bdtdc-product-image/*
+node_modules

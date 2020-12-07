@@ -507,7 +507,7 @@ class CategoriesController extends Controller
                             ->where('cat.parent_id',$parent_id)
                             ->where('is_active',1)
                             ->orderBy('product_id','desc')
-                             ->paginate(16);
+                             ->paginate(15);
 
                 $most_views=BdtdcMostViewCategory::with(['parent_cat','cat_name','cat_name.category_name','most_product','product_image','proimages','product_image_new','proimages_new'])
                           ->where('parent_id',$parent_id)

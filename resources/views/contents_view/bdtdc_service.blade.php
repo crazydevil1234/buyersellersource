@@ -8,7 +8,7 @@
                         <li class="top-path-li" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{URL::to('ServiceChannel/pages/for_buyer',35)}}" class="top-path-li-a"> <span itemprop="name" style="color: #333;">Help Center</span><i class="fa fa-angle-right top-path-icon"></i></a></li>
         
                          <li class="top-path-li" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                         <a itemprop="item" href="" class="top-path-li-a"> <span itemprop="name" style="color: #333;">Service</span></a></li>
+                         <a itemprop="item" href="" class="top-path-li-a"> <span itemprop="name" style="color: #333;">BuyerSeller Services</span></a></li>
                         
                     </ul>
             </div>
