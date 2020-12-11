@@ -14,6 +14,7 @@
 //    return true;
 //}
 //app/Http/routes.php
+// dd("check session");
 
 if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
 // Ignores notices and reports all other kinds... and warnings
@@ -28,6 +29,7 @@ Route::get('login', ['as' => 'login', 'middleware' => 'guest', 'uses' => 'Sessio
 Route::get('ServiceLogin', ['as' => 'ServiceLogin', 'middleware' => 'guest', 'uses' => 'SessionsController@ServiceLogin']);
 Route::post('ServiceLogin', ['as' => 'ServiceLoginPost', 'uses' => 'SessionsController@ServiceStore']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
+
 Route::resource('sessions', 'SessionsController' , ['only' => ['create','store','destroy']]);
 # Forgotten Password
 Route::get('verified/suppliers/info',['as'=>'verified.suppliers.info','uses'=>'Front\ServiceChannel\ServiceChannelController@verified_suppliers_info']);
@@ -69,7 +71,7 @@ Route::group(['middleware' => 'guest'], function()
         'uses' => 'RegistrationController@confirm'
     ]);
 
-    Route::post('check_captcha','StandardUser\UsersController@check_captcha');
+    Route::get('check_captcha','StandardUser\UsersController@check_captcha');
 });
 
 # E-mail change route

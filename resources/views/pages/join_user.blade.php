@@ -67,7 +67,7 @@
                                     @endif
                                                                     
                                 <input type="email" name="prev_email" ca_varifyed="{{ $ca_varifyed }}" class="form-control" validation="{{ $validation }}" autocomplete="off" placeholder="Email Address" value="{{ $value }}">
-                                <form method="post" action="{{ URL::to('check_captcha',null) }}" class="captcha_form">
+                                <form method="get" action="{{ URL::to('check_captcha',null) }}" class="captcha_form">
                                     {!! csrf_field() !!}
                                     <div id="captcha_area" style="position:relative;margin-top:20px;">
                                         <label style="position:absolute;top:63%;left: -145px;color: #5B9BD1;"><span style="color: red">*</span> Verification Code </label>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="row margin-bottom2 login_link">
+                        <div class="row margin-bottom2 login_link" id="user_already_exist">
                             <div class="col-xs-12 text-center">
                                 <h4 class="text-primary">This user already exists</h4>
                                 <a href="{!! URL::to('login') !!}" class="btn btn-primary login_link_btn">Click here to login</a>
@@ -333,7 +333,7 @@
                     <!--------------TAB CONTENT FOR CONFIRMATION STEP FOUR------------------>
     
                     <div style="padding: 1%;padding-left:37.5%" class="col-xs-8">
-                        <button href="" style="width:180px;background:#1A4570" class="btn btn-primary btn-join form_slider_btn disabled_btn">Next</button>
+                        <button id="login_next_btn" href="" style="width:180px;background:#1A4570" class="btn btn-primary btn-join form_slider_btn disabled_btn">Next</button>
                     </div>
                     <div class="col-xs-3 have_already_ac" style="padding-top: 17px;padding-left: 0px"> Already have an account? <a href="{{ URL::to('login',null) }}">Sign in</a></div>
 
@@ -658,14 +658,16 @@
                     relative_row.find('.validation_message').html('').show(500);
                     $(this).attr('style',"border:1px solid #e5e5e5");
                     url = $('[name="base_url"]').val()+"/check_existing_user/"+email;
-
+                    
                     $.get(url,function(r){
-                        if(typeof r.id !== typeof undefined){
-                            $('.form_slider_btn').hide();
-                            $('.login_link').show();
+                        if(r){
+                            console.log("email_exist")
+                            $('#login_next_btn').hide();
+                            $('#user_already_exist').show();
                         }else{
-                            $('.form_slider_btn').show();
-                            $('.login_link').hide();
+                            console.log("non email_exist")
+                            $('#login_next_btn').show();
+                            $('#user_already_exist').hide();
                         }
                     });
                     check_validation();
@@ -726,7 +728,7 @@
         $(document).on({'submit':function(e){
           e.preventDefault();
           var _this = $(this);
-          $.post(_this.attr('action'),_this.serialize(),function(r){
+          $.get(_this.attr('action'),_this.serialize(),function(r){
                 if(parseInt(r) == 1){
                     $('#defaultReal').attr('validated_check','validated');
                     $('#captcha_invalid').hide();

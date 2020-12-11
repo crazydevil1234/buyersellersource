@@ -127,26 +127,26 @@ class RegistrationController extends Controller
         }
         
         $input = $request->only('email', 'password', 'first_name', 'last_name','front_end_registration');
-        $df=\Hash::make($request->input('password'));;
-
+        $df=\Hash::make($request->input('password'));
         $user = Sentinel::registerAndActivate($input);
+
+        // dd($user, $df, $input);
         // Find the role using the role name
         // $usersRole = Sentinel::findRoleByName('Suppliers');
 
             // Assign the role to the users
             // $usersRole->users()->attach($user->id);
-
-        sendAdminNotification(4, 'New Account Created', $user->id, $user->id);
+        // sendAdminNotification(4, 'New Account Created', $user->id, $user->id);   check this line of code
         // $device = User::find($user->id);
         //         $device->password=$df;
         //         $device->save();
         // dd($device);
-        if(isset($_POST['front_end_registration'])){
+        if(empty($request->front_end_registration)){
 
             $input_arr = ['user_id'=>$user->id,'step_id'=>'#company_information'];
-            
 
             BdtdcUserregistrationStep::create($input_arr);
+
             return $user;
         }
         return  redirect('login')->withFlashMessage('User Successfully Created!');
@@ -246,6 +246,8 @@ class RegistrationController extends Controller
                     header( "Location: $key" );
                     exit;
                 }
+            dd($request->all(), $temp_user,"1 ve", $key);
+
             }else{
                 Sentinel::logout();
                 return  redirect('login')->withFlashMessage('Please sign in.');
@@ -253,11 +255,13 @@ class RegistrationController extends Controller
         }
         else{
             $temp_user = TempUser::where('rand_key',$key)->first();
+            // $temp_user = TempUser::orderBy('id', 'desc')->first();
             $user = User::where('email',$temp_user->email)->first();
+            // dd($temp_user->delete(), $user->delete());
             $step_location = '';
-            // dd($temp_user);
             if($user){
                 $step = BdtdcUserregistrationStep::where('user_id',$user->id)->orderBy('id','desc')->first();
+                // dd($user->delete());
                 if($step->step_id == '#company_information'){
                     $step_location = $step->step_id;
                 }else{
@@ -339,7 +343,6 @@ class RegistrationController extends Controller
         }
         else{
             $temp_user = TempUser::where('rand_key',$rand_key)->first();
-            dd($temp_user);
 
             return view('emails.mobile_verify',compact('rand_key'));
         }

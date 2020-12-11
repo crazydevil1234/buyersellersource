@@ -1,5 +1,5 @@
 <?php
-ini_set('allow_url_fopen',1);
+    ini_set('allow_url_fopen',1);
 ?>
 @extends('fontend.master-login')
 @section('page_css')
@@ -17,8 +17,8 @@ ini_set('allow_url_fopen',1);
             <img itemprop="image" class="img-responsive"  src="{{ asset('assets/service/login.jpg')}}" alt="login">
         </div>
             <div  style="margin-top:5%;padding-bottom: 5.2%;" id="shodow" class="col-md-4 padding_0" >
-                {!! Form::open(['route' => 'sessions.store']) !!}
-               @csrf
+                <form method="POST" action="{{route('sessions.store')}}" enctype="multipart/form-data">
+                    @csrf
                     @if (session()->has('flash_message'))
                         <div class="alert alert-success">
                             {{ session()->get('flash_message') }}
@@ -80,7 +80,7 @@ ini_set('allow_url_fopen',1);
 
                         </div>
                         </div>
-                {!! Form::close() !!}
+                </form>
 
             </div>
 

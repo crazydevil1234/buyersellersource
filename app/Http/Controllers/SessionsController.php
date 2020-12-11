@@ -31,9 +31,9 @@ class SessionsController extends Controller
      *
      * @return Response
      */
+    
     public function create($return_url=null)
     {
-
         if(Sentinel::check()){
             return redirect('/');
         }
@@ -65,7 +65,6 @@ class SessionsController extends Controller
                return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
         }
         else{
-          
              return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
         }
 
