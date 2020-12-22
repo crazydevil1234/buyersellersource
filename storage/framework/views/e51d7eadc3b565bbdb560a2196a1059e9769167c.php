@@ -34,8 +34,12 @@ Quick Start</a>The basic steps you should start with,while you newly join Gold S
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
-            <p class="p-learn" style="width: 100%;"><a itemprop="url"  href="<?php echo e(URL::to('multi-language-posting')); ?>" target="_blank">How to use BdSource <img itemprop="image" src="<?php echo asset('assets/fontend/bdtdc-images/l-new.gif'); ?>" alt=""></a><br>
-            What are Multi-language sites</p>
+            <p class="p-learn" style="width: 100%;"><a itemprop="url"  href="<?php echo e(route('buyer.guide-bdsource')); ?>" target="_blank">How to use BdSource <img itemprop="image" src="<?php echo asset('assets/fontend/bdtdc-images/l-new.gif'); ?>" alt=""></a><br>
+            How to source manufacturers and suppliers at BuyerSeller
+            at BuyerSeller. We connect wholesale buyers and sellers of all manufacturing products and commodities around the world.
+            Post a RFQ (Request for Quotation), you are searching to thousands of manufacturers and suppliers at BuyerSeller.
+
+            </p>
              <div class="videoclick" data-video_id="uq7thJX_bKE"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
             
         </div>
@@ -45,8 +49,12 @@ Quick Start</a>The basic steps you should start with,while you newly join Gold S
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
-            <p class="p-learn" style="text-align:left;"><a itemprop="url"  href="<?php echo e(URL::to('Quality/posting-for-grab')); ?>" target="_blank">How to Send RFQ</a><br></p>
-           <p class="cont-right">Product information quality is one of the factors influencing product ranking. Making high quality products can help you get more exposure from potential buyers.</p>
+            <p class="p-learn" style="text-align:left;"><a itemprop="url"  href="<?php echo e(route('get.qutations')); ?>" target="_blank">How to Send RFQ</a><br></p>
+           <p class="cont-right">
+            Tell us more about your buying requirement with product name, sourcing type, quantity, port of delivery, payment terms and any special instructions for the suppliers.
+            Please see the zip file which has 9 pages. Please improve and create our current “http://buyerseller.asia/get-quotations" page similar to https://www.go4worldbusiness.com/buylead/new
+            With verification.
+           </p>
             <div class="videoclick" data-video_id="nua9YhBMlyA"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
             
 </div>
@@ -64,15 +72,22 @@ Quick Start</a>The basic steps you should start with,while you newly join Gold S
              <div class="videoclick" data-video_id="L8ye44GKnp0"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
            
          </div>
-                <div class="col-sm-2 col-xs-4">
-                    <div class="learn-image">
-                     <img itemprop="image" src="<?php echo asset('assets/fontend/bdtdc-images/user-join-bdtdc.jpg'); ?>" alt="">
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-2 col-xs-4">
+            <div class="learn-image">
+                    <img itemprop="image" src="<?php echo asset('assets/fontend/bdtdc-images/user-join-bdtdc.jpg'); ?>" alt="">
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-6">
             <p class="p-learn" style="text-align:left;"><a itemprop="url"  href="<?php echo e(URL::to('how-to-join')); ?>" target="_blank">How to join BuyerSeller</a><br></p>
-           <p class="cont-right">Product information quality is one of the factors influencing product ranking. Making high quality products can help you get more exposure from potential buyers.</p>
-            <div class="videoclick" data-video_id="RrOLf58R2lA"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
+           <p class="cont-right">
+                1. Simply go to buyerseller.asia and click on “Join Free”. <br/>
+                2: Enter your Email address and verify that you own it. <br/>
+                3: Fill out your basic information. <br/>
+                4. Password, location, first name, last name, and telephone number<br/>
+                5. Confirm your personal information and complete the opening of your new BuyerSeller account.<br/>
+
+           </p>
+        <div class="videoclick" data-video_id="RrOLf58R2lA"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
            
 </div>
             
@@ -97,7 +112,9 @@ Quick Start</a>The basic steps you should start with,while you newly join Gold S
                 </div>
                 <div class="col-sm-4 col-xs-6">
             <p class="p-learn" style="text-align:left;"><a itemprop="url"  href="<?php echo e(URL::to('buying-request')); ?>">How to Send Inquiry </a><br></p>
-           <p class="cont-right">Make use of the Buying Requests to look for buyers and their sourcing needs and get in touch with buyers directly. </p>
+           <p class="cont-right">
+           There are three ways to contact every supplier on BuyerSeller. You can click “Contact Supplier,” “Contact us,” or “Chat Now.” Choosing “Contact Supplier” is a quick and easy option, also you can chat with “BuyerSeller” or “Suppliers”.
+           </p>
             
             <div class="videoclick" data-video_id="6qajiu4Ezpc"><img style="cursor: pointer;" itemprop="image" src="<?php echo asset('assets/fontend/aboutus-images/Video-ICON.png'); ?>" alt=""><span><i class="fa fa-play" style="font-size: 14px;color: #fff; padding-left: 6px;"></i></span></div>
 </div>

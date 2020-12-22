@@ -37,6 +37,7 @@ class SessionsController extends Controller
         if(Sentinel::check()){
             return redirect('/');
         }
+     
         $header=BdtdcPageSeo::where('page_id',147)->first();
         $data['title']=$header->title;
         $data['keyword']=$header->meta_keyword;
@@ -46,18 +47,18 @@ class SessionsController extends Controller
         if($return_url==null){
         $page_content_title='Login';
 
-                 $agent = new Agent();
+        $agent = new Agent();
         $device = $agent->device();
 
           //return View::make('mobile-view.admin-panel.login',$data,['page_content_title'=>$page_content_title]);
-             if($agent->isPhone())
+            if($agent->isPhone())
         {
             return View::make('mobile-view.admin-panel.login',$data,['page_content_title'=>$page_content_title]);
            
         }
         if($agent->isDestop())
         {
-               return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
+        return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
         }
 
         if($agent->isTab())
@@ -65,7 +66,7 @@ class SessionsController extends Controller
                return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
         }
         else{
-             return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
+            return view('sessions.create',$data,['page_content_title'=>$page_content_title]);
         }
 
     }

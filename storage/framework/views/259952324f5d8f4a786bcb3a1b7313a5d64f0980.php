@@ -27,7 +27,6 @@
                          </div>
             
                 
-                    
         </div>
 
         <div class="col-sm-12" style="border: 1px solid #e7e7e7;padding-right:20px;margin-bottom:3%;">
@@ -100,7 +99,7 @@
                 <img itemprop="image" style="height:50px;width:50px;" src="<?php echo asset('assets/service/live-chat.png'); ?>" alt="live chat" />
             </div>
             <div class="col-sm-10" style="padding-bottom:6%;">
-                <a href="javascript:$zopim.livechat.window.show();" class="btn btn-default chat_single" data-target-id="2<?php echo e(mt_rand(100000000, 999999999)); ?>" style="margin-top: 5%; margin-left: 10%;color: #8F8F91;" >Live chat</a>
+                <a href="javascript:void(Tawk_API.toggle());" class="btn btn-default chat_single" data-target-id="2<?php echo e(mt_rand(100000000, 999999999)); ?>" style="margin-top: 5%; margin-left: 10%;color: #8F8F91;" >Live chat</a>
                 
             </div>
             <div class="col-sm-10" style="padding-left:0px;padding-top:32px;">

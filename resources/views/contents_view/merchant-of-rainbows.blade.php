@@ -1,4 +1,8 @@
 @extends('fontend.master_dynamic')
+@section('page_css')
+<link property='stylesheet' href="{!! asset('assets/fontend/bdtdccss/media-room-style.css') !!}" rel="stylesheet">
+<link property='stylesheet' href="{!! asset('assets/fontend/bdtdccss/product-wholesale.css') !!}" rel="stylesheet">
+@endsection
 	@section('content')
 
 
@@ -17,39 +21,10 @@
 	
 </div>
 <div class="row padding_0" style="background-color: #fff;">
-	<div class="col-sm-2">
-		<div class="side-bdtdc-menu">
-				<ul style="padding-left: 0;">
-					<li><a itemprop="url"   href="{{URL::to('tradeshow')}}" class="frIco event" target="_blank"><p>Events</p></a></li>
-					<li><a itemprop="url"   href="{{URL::to('prease-release/the-daily-star')}}" class="frIco press"><p>Press Release</p></a></li>
-					
-					<li style="height: 50px;"><a itemprop="url"    href="{{URL::to('bangladesh/business')}}" class="frIco bangla"><p>Bangladesh Means Business</p></a></li>
-					<li><a itemprop="url"    href="https://www.youtube.com/c/Bdtdc" class="frIco video-i"><p>Video</p></a></li>
-					
-					<li><a itemprop="url"    href="https://www.facebook.com/bdtdc/" target="_blank" class="frIco sosial-con"><p>Social Media</p></a></li>
-					
-					<li><a itemprop="url"    href="{{URL::to('FooterPage/pages/Contact_Us',20)}}" target="_blank" class="frIco contac-con"><p>Contact Us</p></a></li>
-				</ul>
-		</div>
-		<div class="promo-img">
-		  	
-		</div>
-		<div class="sideSocial">
-            <ul style="padding: 0; display: block; overflow: hidden;">
-                <li><a href="#" class="frIco icoSF" target="_blank"></a></li>
-                <li><a href="#" class="frIco icoST" target="_blank"></a></li>
-                <li><a href="#" class="frIco icoSG" target="_blank"></a></li>
-                <li><a href="#" class="frIco icoSY" target="_blank"></a></li>
-                <li><a href="#" class="frIco icoSL" target="_blank"></a></li>
-                <li><a href="#" class="frIco icoSS st_sharethis_custom" st_processed="yes"></a></li>
-                <li><a href="#" class="frIco icoSR" target="_blank"></a></li>
-            </ul>
-        </div>
-		
-	</div>
+	@include('contents_view.about-media-menu')
 	<div class="col-sm-7" style="margin-top: 15px;">
 				<div class="col-sm-12 col-md-12 col-lg-12 padding_0">
-						<img style="height:300px" width="100%" src="{!! asset('assets/fontend/bdtdc-images/rainbow-02[1].jpg') !!}" class="girl img-responsive" alt="">
+						<img width="100%" src="{!! asset('assets/fontend/bdtdc-images/rainbow-02[1].jpg') !!}" class="girl img-responsive" alt="">
 				</div>
 			<div class="col-sm-12 col-md-12 col-lg-12 padding_0">
 

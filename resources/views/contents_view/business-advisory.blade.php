@@ -10,7 +10,7 @@
                         <li class="top-path-li" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{URL::to('/',null)}}" class="top-path-li-a"><span itemprop="name">Home</span> <i class="fa fa-angle-right top-path-icon"></i></a></li>
                         <li class="top-path-li" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{URL::to('about-us',null)}}" class="top-path-li-a"><span itemprop="name">About BuyerSeller</span> <i class="fa fa-angle-right top-path-icon"></i></a></li>
                          
-                        <li class="top-path-li" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="" class="top-path-li-a"><span itemprop="name">Business Advisory</span> <i class="fa fa-angle-right top-path-icon"></i></a></li>
+                        <li class="top-path-li" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="" class="top-path-li-a"><span itemprop="name">BuyerSeller SME Center</span> <i class="fa fa-angle-right top-path-icon"></i></a></li>
                     </ul>
             </div>
     

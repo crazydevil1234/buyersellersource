@@ -6,6 +6,7 @@
     <title>@yield('title') - Basic Auth Sentinel</title>
     <meta name="description" content="Basic Authentication with Sentinel and Laravel">
     <meta name="author" content="Andre Madarang">
+    <meta name="msvalidate.01" content="DDF38283B5A260AB75183D68A51B6A57" />
 
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

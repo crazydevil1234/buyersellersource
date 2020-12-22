@@ -23,9 +23,8 @@
 						<div class="contact">
 							<a itemprop="url"  href="{{ URL::to('contact',null)}}" target="_black">
 									<p class="contact-p">Question ? Comments?<br> we want to your facedback !</p>
-									<h3 class="contact-h3">Contacts</h3>
+									<h3 class="contact-h3"><a href="{{route('contact')}}">Contact Us</a></h3>
 							</a>
-						
 						</div>
 						<div class="cont-mess">
 								<i class="fa fa-envelope-o" style="margin-top:70%;font-size:30px; margin-left:22%; color:#fff;font-weight:bolder; text-align:center;"></i>

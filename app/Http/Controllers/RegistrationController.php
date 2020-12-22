@@ -25,7 +25,7 @@ use App\Model\BdtdcCompany;
 use App\Model\BdtdcCompanyDescription;
 use App\Model\BdtdcCustomer;
 use App\Model\BdtdcSupplier;
-
+use Carbon\Carbon;
 use Jenssegers\Agent\Agent;
 
 
@@ -54,6 +54,7 @@ class RegistrationController extends Controller
     
     
     public function send_mail($email){
+
         $email = trim($email);
         $rules = ['email'=>'required|email|max:100'];
         $email_array = ['email'=>$email];
@@ -66,8 +67,8 @@ class RegistrationController extends Controller
         if($user_found){
             return "User already exists. Please login";
         }
-        $rand_key = str_random(30);
-        TempUser::create(['rand_key'=>$rand_key,'email'=>$email]);
+        $rand_key = str_random(30).'-'.strtotime(Carbon::now()->addMinute(24*60)->toString());
+        TempUser::create(['rand_key'=>$rand_key, 'email'=>$email]);
         $ww=Mail::send('emails.varified', ['rand_key'=>$rand_key], function($message) {
             $message->to(Route::current()->parameters()['email'])
                 ->subject('Please verify your Email address to finish your account registration');
@@ -165,7 +166,7 @@ class RegistrationController extends Controller
             'customer_type'=>'required|max:100',
             'company_name'=>'required|max:200|min:5',
             'phone_country'=>'required|integer|max:99999',
-            'phone_number'=>'required|integer|max:99999999999',
+            'phone_number'=>'required|max:99999999999',
             'btype'=>'required|integer|max:100|not_in:0',
             'p1'=>'required|max:100',
             'p2'=>'max:100',
@@ -246,7 +247,7 @@ class RegistrationController extends Controller
                     header( "Location: $key" );
                     exit;
                 }
-            dd($request->all(), $temp_user,"1 ve", $key);
+            // dd($request->all(), $temp_user,"1 ve", $key);
 
             }else{
                 Sentinel::logout();
@@ -254,10 +255,34 @@ class RegistrationController extends Controller
             }
         }
         else{
+            $key_object = explode('-', $key);
+            // $temp_user = TempUser::where('email', 'vladkaryaviy2@gmail.com')->first();
+            // $user = User::where('email', 'vladkaryaviy2@gmail.com')->first();
+            // dd($temp_user->delete(), $user->delete());
+            if(count($key_object) == 2) {
+                $expire_time = intval($key_object[1]);
+                $current_time = strtotime(Carbon::now());
+                $diff_time = $expire_time - $current_time;
+                if($expire_time == 0 || $diff_time < 0) {
+                    return redirect('join')->withFlashMessage('Verification link is expired!');
+                }
+            }else {
+                return redirect('join')->withFlashMessage('Please check the verification link is correct!');
+            }
+            
             $temp_user = TempUser::where('rand_key',$key)->first();
             // $temp_user = TempUser::orderBy('id', 'desc')->first();
+            // dd($temp_user, "plpl", $key_object[0]);
+            
+            if(empty($temp_user->id)){
+                return redirect('join')->withFlashMessage('Please check the verification link is correct!');
+            }
+            // $temp_user = TempUser::orderBy('id', 'desc')->first();
             $user = User::where('email',$temp_user->email)->first();
+            // dd($temp_user)
             // dd($temp_user->delete(), $user->delete());
+            // dd($temp_user, $user,"plpl");
+
             $step_location = '';
             if($user){
                 $step = BdtdcUserregistrationStep::where('user_id',$user->id)->orderBy('id','desc')->first();
@@ -269,6 +294,7 @@ class RegistrationController extends Controller
                 }
             }
             $varified_email = ($temp_user) ? $temp_user->email : "";
+            
             $status = ($temp_user) ? "<span class='text-success' style='font-size:15px;font-weight:bold'>Email is verified!!!! Go to next</span>" : "Varification email will be sent to this email.";
             $page_content_title=" ";
             return view('pages.join_user',compact('varified_email','page_content_title','status','step_location','user'));

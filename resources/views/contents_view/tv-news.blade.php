@@ -29,7 +29,7 @@
 					<li><a itemprop="url"  href="{{URL::to('prease-release/the-daily-star')}}" class="frIco press"><p>Press Release</p></a></li>
 					<!-- <li><a itemprop="url"  href="#" class="frIco procost"><p>Podcast</p></a></li> -->
 					<li style="height: 50px;"><a itemprop="url"  href="{{URL::to('bangladesh/business')}}" class="frIco bangla"><p>Bangladesh Means Business</p></a></li>
-					<li><a itemprop="url"  href="https://www.youtube.com/c/Bdtdc" class="frIco video-i"><p>Video</p></a></li>
+					<li><a itemprop="url" target="_blank" href="https://www.youtube.com/c/Bdtdc" class="frIco video-i"><p>Video</p></a></li>
 					<li><a itemprop="url"  href="https://www.facebook.com/bdtdc/" target="_blank" class="frIco sosial-con"><p>Social Media</p></a></li>
 					<!-- <li style="height: 50px;"><a itemprop="url"  href="#" class="frIco meida-res"><p>Media Photos and Registration</p></a></li> -->
 					<li><a itemprop="url"  href="{{URL::to('contact')}}" target="_blank" class="frIco contac-con"><p>Contact Us</p></a></li>

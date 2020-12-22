@@ -118,9 +118,9 @@
                   <li style="float:left;margin:0px 15px 5px 0px;">
                      <div data-product_id="{{ $products->id  }}" data-supplier_id="{{ $products->supplier_product->supplier_id  }}" class="btn btn-primary btn-join contact_supplier"><i class="fa fa-envelope-o"> </i> Contact Supplier</div>
                   </li>
-                  <li style="float:left;margin:0px 15px 5px 0px;">
+                  {{-- <li style="float:left;margin:0px 15px 5px 0px;">
                      <a href="{{URL::to('mysource/online-order/new',mt_rand(100000000, 999999999).'0'.mt_rand(100000000, 999999999))}}?r=true&s={{mt_rand(100000000, 999999999).$products->supplier_product->supplier_id.mt_rand(100000000, 999999999)}}&product_id={{$products->id}}"><div class="btn btn-primary btn-join"><i class="fa fa-shopping-cart"></i> Buy Now </div></a>
-                  </li>
+                  </li> --}}
                   @php
                   $user_active = false
                   @endphp
@@ -150,7 +150,7 @@
                </div>
                @if($user_active)
                <div style="margin: 0px; margin-left:10px;">
-                  <h4 class="heading"><a href="javascript:$zopim.livechat.window.show();" onclick=""  style="padding-left:10px; font-size: 14px;color: green;" class="chat_single"><i class="fa fa-comment fa-3x"></i>Chat with me</a></h4>
+                  <h4 class="heading"><a href="javascript:void(Tawk_API.toggle());" onclick=""  style="padding-left:10px; font-size: 14px;color: green;" class="chat_single"><i class="fa fa-comment fa-3x"></i>Chat with me</a></h4>
                </div>
                @else
                <div style="margin: 0px; margin-left:10px;">
@@ -236,7 +236,7 @@
                         @if($products->bdtdcProductToCategory->supp_pro_company_name)
                         <span >
                         <a itemprop="url" target="_blank" href="{{ URL::to('Home/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$products->bdtdcProductToCategory->supp_pro_company_name->name).'/'.$products->bdtdcProductToCategory->company_id) }}">
-                        Visit E-store
+                        Visit E-store &nbsp
                         </a> 
                         </span>
                         @else
@@ -248,7 +248,7 @@
                         @endif
                         @else
                         @endif
-                        |<a  itemprop="url" target="_blank" href="@if($products->bdtdcProductToCategory)
+                        <a style="white-space: nowrap;" itemprop="url" target="_blank" href="@if($products->bdtdcProductToCategory)
                            @if($products->bdtdcProductToCategory->supp_pro_company_name)
                            {{ URL::to('contact/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$products->bdtdcProductToCategory->supp_pro_company_name->name),$products->bdtdcProductToCategory->company_id) }}
                            @else
@@ -265,7 +265,7 @@
                         Buyer Assurance: NA<br>
                      </div>
                      <div  class="summary">
-                        Verified Information: <span> <a target="_blank" href="@if($products->bdtdcProductToCategory)
+                        Verified Information: <span> <a style="white-space: nowrap;" target="_blank" href="@if($products->bdtdcProductToCategory)
                            @if($products->bdtdcProductToCategory->supp_pro_company_name)
                            {{ URL::to('industrial-certification/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$products->bdtdcProductToCategory->supp_pro_company_name->name),$products->bdtdcProductToCategory->company_id) }}
                            @else
@@ -927,7 +927,7 @@
          </a>
       </li>
       <li class="has-subnav">
-         <a  href="javascript:$zopim.livechat.window.show();" >
+         <a  href="javascript:void(Tawk_API.toggle())" >
          <i class="fa fa-comments fa-2x"></i>
          <span class="nav-text">
          Chat Now

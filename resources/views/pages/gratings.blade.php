@@ -13,7 +13,7 @@
 
                 	<button type="submit" class="btn btn-primary join" style="border-radius: 5px !important; padding: 12px 19px;"><a href="{{URL::to('login')}}" style="color:#fff!important;">Login</a></button>
                 	</p>
-                <p class="summery" style="text-align: left;padding-left: 70px;line-height: 20px;font-size: 13px;padding-right: 35px; padding-top: 20px;">BuyerSeller.Asia is a leading Eco-minded b2b marketplace and a primary facilitator of trade within Greater Bangladesh and south Asia. Explore new markets and create global business opportunities for Bangladesh SMEs</p>
+                <p class="summery" style="text-align: left;padding-left: 70px;line-height: 20px;font-size: 13px;padding-right: 35px; padding-top: 20px;">BuyerSeller.Asia is a leading Eco-minded b2b marketplace and a primary facilitator of trade within South Asia and with the world. Explore new markets and create global business opportunities for Bangladesh SMEs</p>
 	            </div>
 	           </div>
 	           <div class="col-sm-3">
@@ -24,7 +24,7 @@
 	    </div>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-12" style="    padding: 30px 0 30px 3%;">
-    		<div class="col-sm-3 col-md-3 col-lg-3 " style="padding-left: 0;">
+    		<div class="col-sm-3 col-md-3 col-lg-3 ">
     		  <span style="margin-right: 8px;"><img src="{{asset('assets/gold/Convenient.png')}}" alt="Convenient"></span><span>Convenient</span>
     			
     		</div>
@@ -44,7 +44,7 @@
 									<div style="padding-left: 30px; display: block;width: 100%; min-height: 45px; padding-top: 18px;"><span><img style="height: 25px; width: 25px; float: left;margin-right: 10px;" src="{{asset('assets/gold/customer-service.png')}}"></span><div style="text-align: left;font-size: 13px; font-weight: 600;">We are here to help!
 									 </div>
 									 </div>
-									 <div class="contg">
+									 <div class="contg" style="padding-left: 55px;">
 
 									 			<div class="contg2" style="display: block;">
 									 			<div><a style="line-height: 20px;" href="{{URL::to('ServiceChannel/pages/for_buyer',35)}}">Help Center</a> </div>
@@ -64,7 +64,7 @@
 									 <div style="padding-left: 30px; display: block;width: 100%; min-height: 45px; padding-top: 18px;"><span><img style="height: 25px; width: 25px; float: left;margin-right: 10px;" src="{{asset('bdtdc-product-image/home-page/Buyer-protection-home.png')}}"></span><div style="text-align: left;font-size: 13px; font-weight: 600;">Buyers Protection
 									 </div>
 									 </div>
-									 <ul style="padding-left: 30px;" class="bdtdc-sc-list">
+									 <ul style="padding-left: 55px;" class="bdtdc-sc-list">
 									 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span> Product Quality Protection</li>
 									 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>On Time Shipment Protection</li>
 									 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Payment Protection Service</li>
@@ -77,7 +77,7 @@
 				<div>
 				<a href="{{URL::to('buyer/guide-bdsource',null)}}">
 					  <div style="padding-left: 30px; display: block;width: 100%;min-height: 45px; padding-top: 18px;"><span><img style="height: 25px; width: 25px; float: left;margin-right: 10px;" src="{{asset('assets/bdsource/32-32/fit/BD-Source.png')}}"></span><div style="text-align: left;font-size: 13px; font-weight: 600;">BdSource</div></div>
-					 <ul style="padding-left: 30px;" class="bdtdc-sc-list">
+					 <ul style="padding-left: 55px;" class="bdtdc-sc-list">
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Easy and Faster Sourcing  </li>
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Find Verified Suppliers  </li>
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Single Request Many Quotes </li>
@@ -91,7 +91,7 @@
 					<div>
 					<a href="{{URL::to('SupplierChannel/pages/suppliers_memebership/23')}}">
 					<div style="padding-left: 30px; display: block;width: 100%;min-height: 45px; padding-top: 18px;"><span><img style="height: 25px; width: 25px; float: left;margin-right: 10px;" src="{{asset('bdtdc-product-image/home-page/Gold-membership.png')}}"></span><div style="text-align: left;font-size: 13px; font-weight: 600;">Gold Membership</div></div>
-					 <ul style="padding-left: 30px;" class="bdtdc-sc-list">
+					 <ul style="padding-left: 55px;" class="bdtdc-sc-list">
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Greater Exposure </li>
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Latest Buying Requests </li>
 					 		<li><span><i class="fa fa-check" style="color:#068076;" aria-hidden="true"></i></span>Real Verified Buyers</li>

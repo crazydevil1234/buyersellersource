@@ -109,8 +109,8 @@ body {
     /*float: left;*/
     width: 100%;
     clear: both;
-    /* height: 225px;
-    width: 225px; */
+    height: 225px;
+    width: 225px;
 }
 .btdc-main-name {
     background: rgba(0, 0, 0, 0.39);
@@ -785,32 +785,36 @@ a:hover {
     .category-bdt a {
     font-size: 12px;
     }
-}
-@media screen and (max-width: 994px){
     .five_items_line{
         width:25%;
         float:left;
     }
 }
-@media screen and (max-width: 768px){
+/* @media screen and (max-width: 994px){
+    .five_items_line{
+        width:25%;
+        float:left;
+    }
+} */
+@media screen and (max-width: 991px){
     .five_items_line{
         width:33.33%;
         float:left;
     }
 }
-@media screen and (max-width: 768px){
+/* @media screen and (max-width: 768px){
     .five_items_line{
         width:33.33%;
         float:left;
     }
-}
-@media screen and (max-width: 600px){
+} */
+@media screen and (max-width: 693px){
     .five_items_line{
         width:50%;
         float:left;
     }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 475px){
     .five_items_line{
         width:100%;
     }

@@ -1,0 +1,3 @@
+<h4 class="text-center"><?php echo e($user->first_name); ?> <?php echo e($user->last_name); ?></h4>
+<h5 class="text-center"><a itemprop="url" target="_blank" href="<?php echo e(URL::to('Home/'.str_slug(($company->name_string?$company->name_string->name:'Company not available'),'-').'/'.$company->id)); ?>"><?php echo e($company->name_string?$company->name_string->name:'Company not available'); ?></a></h5>
+<p class="text-center"><a href="<?php echo e(URL::to('mysource/online-order/new',mt_rand(100000000, 999999999).'0'.mt_rand(100000000, 999999999))); ?>?r=true&s=<?php echo e(mt_rand(100000000, 999999999).$user->id.mt_rand(100000000, 999999999)); ?>" type="button" class="btn btn-primary">start order</a></p>

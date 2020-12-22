@@ -1,5 +1,12 @@
 @extends('fontend.master_dynamic')
-	@section('content')
+@section('content')
+<style>
+    #warningBox {
+        background: white !important;
+        padding: 10px !important;
+    }
+</style>
+
 <div class="row padding_0">
 		<div class="col-sm-12" style="padding: 0; min-height: 60px; padding-top: 15px;">
 			<!--	<ul class="media-ul">
@@ -30,7 +37,7 @@
 					<li><a itemprop="url"   href="{{URL::to('prease-release/the-daily-star')}}" class="frIco press"><p>Press Release</p></a></li>
 					
 					<li style="height: 50px;"><a itemprop="url"    href="{{URL::to('bangladesh/business')}}" class="frIco bangla"><p>Bangladesh Means Business</p></a></li>
-					<li><a itemprop="url"    href="https://www.youtube.com/c/Bdtdc" class="frIco video-i"><p>Video</p></a></li>
+					<li><a itemprop="url" href="https://www.youtube.com/c/Bdtdc" class="frIco video-i"><p>Video</p></a></li>
 					
 					<li><a itemprop="url"    href="https://www.facebook.com/bdtdc/" target="_blank" class="frIco sosial-con"><p>Social Media</p></a></li>
 					
@@ -79,29 +86,26 @@ Frequent travel on business means that he has to be away from his family and has
 		</div>
 				
 
-
-
 			
 					<!-- end slider -->	
-				@include('contents_view.media-room-top-stories')
-		
+		@include('contents_view.media-room-top-stories')
 	</div>
 	<div class="col-sm-3">
 		<div class="frMainTit">Events</div>
 		<div class="frMainRtTitBrd"></div>
-   			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=280&amp;wkst=1&amp;bgcolor=%23666666&amp;src=8uuedea58r8ddbhnhc9v4nacl4%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=Asia%2FDhaka" style="border:solid 1px #777" width="280" height="280" frameborder="0" scrolling="no"></iframe>
-		
+   			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=280&amp;wkst=1&amp;bgcolor=%23666666&amp;src=8uuedea58r8ddbhnhc9v4nacl4%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=Asia%2FDhaka" style="border:solid 1px #777;background:white;" width="280" height="280" frameborder="0" scrolling="no"></iframe>
 	</div>
-	
 </div>
 <br>
 
-	@stop
+@stop
 @section('scripts')
 <script type="text/javascript">
 	$(document).ready(function(){
-   				$("p").addClass("portal-content-p");
-   	});		 
-
+		$("p").addClass("portal-content-p");
+		var warningbox = $("#warningBox")
+		warningbox.parent().attr('background-color', 'white')
+		console.log(warningbox.parent().length,"warning")
+	});
 </script>
-	
+@stop	

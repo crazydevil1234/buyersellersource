@@ -10,11 +10,8 @@
                         <li class="top-path-li" style="float: left;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="{{ URL::to('/',null) }}" style="color: #000"> Home</a></li>
                          <li class="top-path-li" style="float: left" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="url" href="" style="color: #000"> <i class="fa fa-angle-right"></i> Supplier Memberships</a></li>
                        
-                       
           </ul>
-          {{-- <div style="float:right;margin-left: -2%;padding-top: 1%;" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-        <button class="goBack" onclick="goBack()"><span>Go Back</span></button>
-      </div> --}}
+          
         </div>
     </div>
 		<div class="row padding_0" style="background-color: #fff; margin-top: 1px; padding-top: 5px;">
@@ -254,9 +251,8 @@
 									<p style="padding-bottom: 5px;padding-top: 4px; box-shadow: none;color: #333 !important; text-shadow: none;font-size: 15px">Choose other package</p>
 									@endif
 								@else
-									<a itemprop="url"  class="applay-now" style="background: #eeeeee;box-shadow: none;color: #333 !important;border: 1px solid #ddd; text-shadow: none;"><?php if ($active_user == 0){echo 'Apply Now';}else{echo 'Apply Now';} ?></a>
+									<a itemprop="url"  class="applay-nows" href="{{ URL::to('login',null) }}" style="background: #eeeeee;box-shadow: none;color: #333 !important;border: 1px solid #ddd; text-shadow: none;"><?php if ($active_user == 0){echo 'Apply Now';}else{echo 'Apply Now';} ?></a>
 							
-								
 							@endif
 							</div>
 							</li>

@@ -3,8 +3,9 @@
     <link property='stylesheet' href="{!! asset('css/for-buyers/sustainable-manufacturing.css') !!}" rel="stylesheet">
     <style type="text/css">
     	.mid-list-circle {
-    padding: 20px 0 8px 7%;
-    margin-top: -7.5%;
+			padding: 20px 0 8px 7%;
+			margin-top: -7.5%;
+		}
     </style>
   	@endsection
 	@section('content')
@@ -27,7 +28,7 @@
 						<div class="contact">
 							<a href="{{ URL::to('contact') }}">
 									<p class="contact-p">Question ? Comments?<br> we want to your feedback !</p>
-									<h3 class="contact-h3">Contacts</h3>
+									<h3 class="contact-h3">Contact Us</h3>
 							</a>
 						
 						</div>
@@ -36,7 +37,7 @@
 						</div>
 					</div>
 						<div class="sus-business">
-							<a href="http://bdtdc.com/sustainable/business-case">
+							<a href="https://www.unglobalcompact.org/what-is-gc/our-work/supply-chain/business-case">
 								<p class="sus-busi-p" style="padding-top: 6%;">Business Case for
 						 		 <br style="margin-left:10%;">	Sustainable Manufacturing<br>
 							Presentation</p>

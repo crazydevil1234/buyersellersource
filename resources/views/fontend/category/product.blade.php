@@ -244,13 +244,15 @@
                      <div class="view-label text-right" style="padding: 8px; float: left;">Page no. @if(isset($products))
                         <strong>{{$products->currentPage()}}</strong> @if($products->lastPage() >0 )
                         of <strong>{{$products->lastPage()}}</strong>
-                        @endif |
+                        @endif &nbsp;
+                        <span style="white-space: nowrap;">
                         @if($products->currentPage()==1)
                         < prev @else <a href="{{$products->previousPageUrl()}}">
                            < prev</a> @endif | <a href="{{$products->nextPageUrl()}}">next ></a>
                               @else
                               <strong>0</strong>
                               @endif
+                        </span>
                      </div>
                   </div>
 
@@ -284,9 +286,9 @@
 
 
                                  @if($p->pro_images_new)
-                                 <img itemprop="image" title="{{ $pname }}" style="width:100%" class="img-thumbnail pro-imges" src="{!! asset(''.$p->pro_images_new->image) !!}" alt="{{ $pname }}" />
+                                 <img itemprop="image" title="{{ $pname }}" style="width:100%;min-height:auto!important;" class="img-thumbnail pro-imges" src="{!! asset(''.$p->pro_images_new->image) !!}" alt="{{ $pname }}" />
                                  @else
-                                 <img itemprop="image" title="{{ $pname }}" style="width:100%" class="img-thumbnail pro-imges" src="{!! asset('uploads/no-image.jpg') !!}" alt="{{ $pname }}" />
+                                 <img itemprop="image" title="{{ $pname }}" style="width:100%;min-height:auto!important;" class="img-thumbnail pro-imges" src="{!! asset('uploads/no-image.jpg') !!}" alt="{{ $pname }}" />
                                  @endif
                               </a>
                            </div>
@@ -302,8 +304,8 @@
                               </a>
 
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0;">
-                              <span style="width:50%; float:left;">
+                           <div style="line-height: 24px; padding-top: 10px;">
+                              <span style="width:50%; float:left;line-height:1!important;">
 
                                  @if($p->bdtdcProduct)
                                  @if ($p->bdtdcProduct->product_prices)
@@ -338,7 +340,7 @@
                                  price not available
                                  @endif
                               </span>
-                              <span style="width:50%; float:left;">
+                              <span style="width:50%; float:left;line-height:1!important;">
                                  @if ($p->bdtdcProduct)
                                  @if ($p->bdtdcProduct->product_prices)
                                  {{ $p->bdtdcProduct->product_prices->product_MOQ }}
@@ -351,15 +353,16 @@
                                  @endif
                                  (Min. Order)</span>
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0; clear:both;">
-                              <span style="margin:0 0 0px;display:block;width:50%; float:left; line-height: 24px;" class="summary_pro">Product Type:</span>
-                              <span style="display:block;width:50%; float:left;line-height: 24px; "> <a class="custom_click_search" data-id-type="category" data-tid="{{ $p->bdtdcCategory->id }}" href="{{ $p->bdtdcCategory->id }}">{{ $p->bdtdcCategory->name}}</a>
+                           <div style="line-height: 24px; padding-top: 10px; clear:both;">
+                              <span style="margin:0 0 0px;display:block;width:50%; float:left;line-height:1!important;" class="summary_pro">Product Type:</span>
+                              <span style="display:block;width:50%; float:left;line-height:1!important;"> <a style="line-height: 1!important;" class="custom_click_search" data-id-type="category" data-tid="{{ $p->bdtdcCategory->id }}" href="{{ $p->bdtdcCategory->id }}">{{ $p->bdtdcCategory->name}}</a>
                               </span>
                            </div>
 
-                           <div style="line-height: 24px; padding: 3px 0;clear:both;">
-                              <span class="summary_pro" style="width:50%; float:left; line-height: 24px;">Place of Origin:</span><span style="width:50%; line-height: 24px; ">
-                              	<a class="custom_click_search" data-id-type="country-origin" href="" data-tid="@if($p->bdtdcProduct) @if($p->bdtdcProduct->product_country) {{ $p->bdtdcProduct->product_country->id }} @else 0 @endif @else 0 @endif ">
+                           <div style="line-height: 24px; padding-top: 5px; clear:both;">
+                              <span class="summary_pro" style="width:50%; float:left;">Place of Origin:</span>
+                              <span style="width:50%;line-height:1!important;">
+                              	<a style="line-height: 1!important;" class="custom_click_search" data-id-type="country-origin" href="" data-tid="@if($p->bdtdcProduct) @if($p->bdtdcProduct->product_country) {{ $p->bdtdcProduct->product_country->id }} @else 0 @endif @else 0 @endif ">
                                     @if ($p->bdtdcProduct)
                                     @if ($p->bdtdcProduct->product_country)
                                     {{ $p->bdtdcProduct->product_country->name }}
@@ -373,8 +376,8 @@
                                  </a>
                               </span>
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0; clear:both;">
-                              <span class="summary_pro" style="width:50%; float:left; line-height: 24px;">Brand Name:</span><span style="width:48%; float:left; line-height: 24px; "> <a class="custom_click_search" data-id-type="brandname" href="" data-tid="{{ $p->bdtdcProduct->brandname }}">{{ $p->bdtdcProduct->brandname }}</a></span>
+                           <div style="line-height: 24px; padding-top: 5px; clear:both;">
+                              <span class="summary_pro" style="width:50%; float:left;line-height:1!important;">Brand Name:</span><span style="width:48%; float:left;line-height:1!important;"> <a style="line-height: 1!important;" class="custom_click_search" data-id-type="brandname" href="" data-tid="{{ $p->bdtdcProduct->brandname }}">{{ $p->bdtdcProduct->brandname }}</a></span>
                            </div>
                         </div>
                         <div class="col-xs-12 col-md-4 col-sm-4 padding_0" style="border-left: 1px solid #ddd;">
@@ -393,7 +396,7 @@
                                     @endif
                                  </a>
                               </div>
-                              <div class="summary" style="line-height:24px; padding:5px 0;">
+                              <div class="summary" style="padding:5px 0;">
                                  <a class="custom_click_search" data-id-type="country" href="" data-tid="@if ($p->cat_country) @if ($p->cat_country->name) {{ $p->cat_country->id}}	@else	0 @endif	@else	0 @endif	">
 
                                     @if ($p->cat_country)
@@ -408,7 +411,7 @@
                                  </a>
 
                                  |
-                                 <a itemprop="url" href="{{ URL::to('BuyerChannel/pages/trade_assurance',5) }}" target="_blank">
+                                 <a itemprop="url" style="white-space: nowrap;" href="{{ URL::to('BuyerChannel/pages/trade_assurance',5) }}" target="_blank">
                                     <!-- <i class="fa fa-pie-chart"></i> -->
                                     <span><img title="Buyer Protection" style="width: 20px;" src="{{asset('bdtdc-product-image/home-page/Buyer-protection-home.png')}}" alt="Buyer Protection"></span>
                                     Buyer Protection
@@ -423,7 +426,7 @@
                               <div class="summary">
                                  Verified Information: <span>
                                     @if ($p->supp_pro_company)
-                                    <a itemprop="url" target="_blank" href="{{ URL::to('industrial-certification/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$p->supp_pro_company_name->name)).'/'.$p->company_id}}">
+                                    <a itemprop="url" style="white-space: nowrap;" target="_blank" href="{{ URL::to('industrial-certification/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$p->supp_pro_company_name->name)).'/'.$p->company_id}}">
                                        @else
                                        company not available"
                                        @endif
@@ -448,10 +451,10 @@
                                  @if($p->bdtdcProduct)
                                  @if($p->bdtdcProduct->customer_activity)
                                  @if(count($p->bdtdcProduct->customer_activity)>0)
-                                 <a class="fa fa-minus-square  btn favorite" itemprop="url" data-key="{{$p->pro_to_cat_name->name ?? '' }}" data-id="{{$p->product_id}}" data-type="1"> Remove from favorite</a>
+                                 <a style="padding: 0px 7px 0px 0px;" class="fa fa-minus-square  btn favorite" itemprop="url" data-key="{{$p->pro_to_cat_name->name ?? '' }}" data-id="{{$p->product_id}}" data-type="1"> Remove from favorite</a>
                                  @else
 
-                                 <a class="fa fa-plus-square  btn favorite" itemprop="url" data-key="{{$p->pro_to_cat_name->name ?? '' }}" data-id="{{$p->product_id}}" data-type="1"> Add to favorite</a>
+                                 <a style="padding: 0px 7px 0px 0px;" class="fa fa-plus-square  btn favorite" itemprop="url" data-key="{{$p->pro_to_cat_name->name ?? '' }}" data-id="{{$p->product_id}}" data-type="1"> Add to favorite</a>
 
                                  @endif
                                  @else
@@ -462,7 +465,7 @@
 
                               </form>
                               @else
-                              <a href="{{ URL::to('ServiceLogin?continue='.$url)}}" class="fa fa-plus-square  btn" itemprop="url" style="line-height: 28px"> Add to favorite</a>
+                              <a href="{{ URL::to('ServiceLogin?continue='.$url)}}" class="fa fa-plus-square  btn" itemprop="url" style="line-height: 28px;padding: 0px 7px 0px 0px;"> Add to favorite</a>
 
                               @endif
                            </div>
@@ -505,8 +508,8 @@
          </div>
       </div>
       <div class="col-md-2 relate .d-none .d-md-block">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding: 25px 0;background: white; margin-bottom: 2px">
-	         <div class="title_home">Premium related products</div>
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding: 18px 0;background: white; margin-bottom: 2px">
+	         <div class="title_home" style="line-height: 1.2;">Premium related products</div>
 	      </div>
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 25px 0;background: white; margin-bottom: 2px">
             <div class="bdpro-hovereffect2">

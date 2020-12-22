@@ -26,25 +26,19 @@
                     <li class="triger_next"><a href="#personal_information" class=""><span class="inactive_progress_icon badge">2</span>Information</a></li>
                     <li class="triger_next"><a href="#company_information" style="padding-left: 0;"><span class="inactive_progress_icon badge">3</span>Company Information</a></li>
                     <li class="triger_next"><a href="" class=""><span class="inactive_progress_icon badge"><i style="padding-right: 4px;" class="fa fa-check-circle"></i></span>Complete</a></li>
-                    
                 </ul>
-
 
                 <div class="tab-content">
                     <input type="hidden" name="base_url" value="{{ URL::to('/',null) }}">
                     <!--------------TAB CONTENT FOR EMAIL REGISTRATION STEP ONE------------------>
-                    
-                    
                     <div id="email_registration" class="input_holder tab-pane fade in active col-xs-10 col-xs-offset-1">
                             
-
                         <div class="row margin-bottom2">
                             <div align="right" style="padding-top:5px" class="col-xs-3 text-right">
                                 <label for="Email"></label>
                             </div>
                             <div class="col-xs-5 send_mail_again" style="position:relative;">
-                                <label id="email_label" style="position:absolute;top: 5%;left: -50px;color: #5B9BD1;"><span style="color: red">*</span> Email </label>
-
+                            
                                 <p class="text-primary">
                                         @if(isset($status))
                                             {{ $status }}
@@ -65,8 +59,14 @@
                                             $ca_varifyed = "false";
                                         @endphp
                                     @endif
-                                                                    
+                                          
+                                <div id="email_part" class="col-md-12">
+                                <label id="email_label" style="position:absolute;top: 5%;left: -50px;color: #5B9BD1;"><span style="color: red">*</span> Email </label>
+                          
                                 <input type="email" name="prev_email" ca_varifyed="{{ $ca_varifyed }}" class="form-control" validation="{{ $validation }}" autocomplete="off" placeholder="Email Address" value="{{ $value }}">
+                                </div>
+
+                                <div id="capcha_part" class="col-md-12">
                                 <form method="get" action="{{ URL::to('check_captcha',null) }}" class="captcha_form">
                                     {!! csrf_field() !!}
                                     <div id="captcha_area" style="position:relative;margin-top:20px;">
@@ -84,10 +84,14 @@
                                     
                                     <div class="reg_aditional_text">
                                         <p class="text-primary" style="line-height:20px;color:black;"><input  type="checkbox" name="terms" checked="" style="margin-top:12%">&nbsp;By creating an account, you agree to:</p>
-                                        <p style="line-height:0px;margin-left:5%;padding-top: 4px; margin-right: 5px;" >- buyerseller.asia's <a href="{{ URL::to('FooterPage/pages/Policies_Rules',22) }}" style="position: absolute;"> Conditions of Use and Privacy.</a></p>
-                                        <p style="line-height:16px;margin-left:5%;padding-top: 4px;">- Receive e-mails from buyerseller.asia related to  &nbsp;&nbsp;membership and services. </p>
+                                        <p style="padding-top: 4px; " >- buyerseller.asia's 
+                                            <a href="{{ URL::to('FooterPage/pages/Policies_Rules',22) }}" target="_blank" style="white-space: nowrap;"> 
+                                        Conditions of Use and Privacy.
+                                        </a></p>
+                                        <p style="line-height:16px;padding-top: 4px;">- Receive e-mails from buyerseller.asia related to membership and services. </p>
                                     </div>
                                 </form>
+                                </div>
                             </div>
                             <div class="col-xs-4 validation_status email_registration_validation" style="position:relative;">
                                 <i class="fa fa-check-circle hidden_icon validated_true" style="color:green;font-size: 19px;margin-top:0px"></i>
@@ -121,7 +125,7 @@
                             </div>
                             <div class="col-xs-4">
                                 <input style="display: none;" type="email" name="email" validation="" class="form-control" value="" readonly>
-                                <p id="text_email" style="padding-left: 12px;"></p>
+                                <label id="text_email" style=""></label>
                             </div>
                             <div class="col-xs-4 validation_status">
                                 <i class="fa fa-check-circle hidden_icon validated_true" style="color:green;font-size:19px;margin-top:9px;"></i>
@@ -260,21 +264,21 @@
                                 </div>
                                 <div class="col-xs-4">
                                     <div style="padding:0" class="col-md-3">
-                                        {!! Form::text('phone_country','',array('class'=>'form-control','id'=>'phone_country','placeholder'=>'country','validation'=>'validated_false')) !!}
+                                        {!! Form::number('phone_country','',array('class'=>'form-control','id'=>'phone_country', 'placeholder'=>'country','validation'=>'validated_false')) !!}
                                     </div>
                                     <!-- <div class="col-md-3">
                                         {-!! Form::text('phone_area','',array('class'=>'form-control','id'=>'phone_area','placeholder'=>'area','validation'=>'validated_false')) !!-}
                                     </div> -->
                                     <div class="col-md-9" style="padding:0;padding-left: 15px;">
-                                        {!! Form::text('phone_number','',array('class'=>'form-control','id'=>'phone_number','placeholder'=>'phone...','validation'=>'validated_false')) !!}
+                                        {!! Form::number('phone_number','',array('class'=>'form-control','id'=>'phone_number','placeholder'=>'','validation'=>'validated_false')) !!}
                                         @if($errors->has('phone_number'))
                                             <p class="text-danger error_from_backend">{{ $errors->first('phone_number') }}</p>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-xs-4 validation_status">
-                                    <i class="fa fa-check-circle hidden_icon validated_true" style="color:green;font-size:19px;margin-top:9px;"></i>
-                                    <i class="fa fa-times-circle hidden_icon validated_false" style="color:red;font-size:19px;margin-top:9px;"></i>
+                                    <i class="fa fa-check-circle hidden_icon phone_validated_true" style="color:green;font-size:19px;margin-top:9px;"></i>
+                                    <i class="fa fa-times-circle hidden_icon phone_validated_false" style="color:red;font-size:19px;margin-top:9px;"></i>
                                     <span class="text-danger validation_message"></span>
                                 </div>
                             </div>
@@ -498,16 +502,14 @@
         var regExpAlphpNum = "^(?=.*[!@#\$%\^&\*/\\()^`.])";
 
         $('input[name="password"]').keyup( function() {
-          
            var len = passLen.val().length;
+           var str_len  = passLen.val().replace(/[0-9]/g, '');
 
            $(contn).find('.validation_status').show(500);
-
-            
-            
-            if(len >= 6){ 
+            console.log(str_len, str_len.length,"str_len")
+            if(str_len.length >= 6){ 
                 
-                if(len<12){
+                if(len < 13){
                     $(this).attr('validation','validated_true');
                     $('.vald-info > ul > li').eq(0).css('color','green');
                     $('.vald-info > ul > li').eq(0).addClass('vald');
@@ -560,21 +562,54 @@
            
         
          $(document).on({keyup:function(){
-                var relative_row = $(this).parent().parent();
-                var lent = $(this).val().length;
-                
-                if(lent>=8){
+                var relative_row = $(this).parent().parent().parent();
+                var lent = parseInt($(this).val()).length;
+                var phone_number = $(this).val()
+                var phone_country = $('#phone_country').val()
+                if(lent > 8){
                     // alert(relative_row);
-                    relative_row.find('.validated_true').hide(500);
-                    relative_row.find('.validated_false').show(500);
+                    invalid_phone(relative_row)
+                    return false;
                 }else{
-                     relative_row.find('.validated_true').show(500);
-                    relative_row.find('.validated_false').hide(500);
+                    if(phone_country > 0){
+                        $("#phone_country").attr('validation','validated_true');
+
+                        if(phonenumber(phone_number)) {
+                            $("#phone_number").attr('validation','validated_true');
+                            console.log("vlaide")
+                            $('.phone_validated_true').show(500);
+                            $('.phone_validated_false').hide(500);
+                        }else {
+                            invalid_phone(relative_row)
+                        }
+                    }else{
+                        $("#phone_country").attr('validation','validated_false');
+                    }
+
                 }
-                
+
             }},'[name="phone_number"]');
 
-        
+        function phonenumber(inputtxt)
+        {
+            var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            console.log(inputtxt.match(phoneno),"inputtxt")
+            if(inputtxt.match(phoneno))
+            {
+                return true;
+            }
+            else
+            {
+                $(this).attr('validation','validated_false');
+                return false;
+            }
+        }
+
+        function invalid_phone(relative_row) {
+            relative_row.find('.phone_validated_true').hide(500);
+            relative_row.find('.phone_validated_false').show(500);
+        }
+
         check_if_number = function($_this){
   
             
@@ -599,7 +634,8 @@
         }
         
         is_validated_user = function(){
-            if($('[name="prev_email"]').val().length>2){
+            let user_prev_email = $('[name="prev_email"]').val()
+            if(user_prev_email.length>2){
                 $('[name="email"]').val($('[name="prev_email"]').val());
                 $('#text_email').html($('[name="prev_email"]').val());
                 var active_area= $('a[href="#email_registration"]');
@@ -644,14 +680,14 @@
                 var url,email,relative_row;
                 var relative_row = $(this).parent().parent();
                 email = $(this).val();
-                // console.log(email+'email here');
+                console.log(email+'email here');
                 if(validateEmail(email)){
 
                     $('#captcha_area').show();
                     $('#hiddeninput').hide();
                     $('.disabled_btn').show();
 
-                    $('[name="prev_email"]').prev().html('<i class="fa fa-check-circle" style="font-size:16px;color:green;"></i><span style=" font-weight: bold;color: green;">Email valid</span>');
+                    $('#email_part').prev().html('<i class="fa fa-check-circle" style="font-size:16px;color:green;"></i><span style=" font-weight: bold;color: green;">Email valid</span>');
                     $(this).attr('validation','validated_true');
                     relative_row.find('.validated_false').hide(500);
                     relative_row.find('.validated_true').show(500);
@@ -672,18 +708,24 @@
                     });
                     check_validation();
 
+                }else if(email.length == 0){
+                    console.log(email.length+'email here again');
+
+                    relative_row.find('.validation_message').html('').show(500);
+                    $('#email_part').prev().html('');
                 }else{
                     $(this).attr('validation','validated_false');
                     relative_row.find('.validated_true').hide(500);
                     relative_row.find('.validated_false').show(500);
                     relative_row.find('.validation_message').html('<span class="text-danger" style="color:red;font-weight:bold;font-size:13px">Please enter a valid email address.</span>').show(500);
-                    $('[name="prev_email"]').prev().html('<i class="fa fa-spinner fa-pulse" style="font-size:33px"></i><span style="    font-weight: bold;color: red;">Please enter a valid email address ...</span>');
+                    $('#email_part').prev().html('<i class="fa fa-spinner fa-pulse" style="font-size:33px"></i><span style="    font-weight: bold;color: red;">Please enter a valid email address ...</span>');
 
                     $('#captcha_area').hide();
                     $('#hiddeninput').show();
                     $('.disabled_btn').hide();
                     check_validation();
                 }
+
             }},'[name="prev_email"]');
 
             // *****************CHECK CAPTCHA ENTRHY IS CORRECT OR NOT************************** /
@@ -702,7 +744,6 @@
                 $('.response_status').text(message);
 
               });
-
 
             }}, '#myForm');
             
@@ -758,13 +799,13 @@
             });
           
             $(document).on({keyup:function(){
-              check_if_number($(this))
+            //   check_if_number($(this))
             }},'[name="phone_country"]');
             $(document).on({keyup:function(){
               check_if_number($(this))
             }},'[name="phone_area"]');
              $(document).on({keyup:function(){
-              check_if_number($(this))
+            //   check_if_number($(this))
             }},'[name="phone_number"]');
              $(document).on({keyup:function(){
               check_if_number($(this))
@@ -785,7 +826,7 @@
                     var valid = emailReg.test(email);
                     var checksss = $('input[name="terms"]:checked').val();
                     if(valid == true && checksss == 'on' && defaultReal =='validated') {
-                        $('[name="prev_email"]').prev().html('<i class="fa fa-spinner fa-pulse" style="font-size:33px"></i><span style="    font-weight: bold;color: #666;">Please Wait ...</span>');
+                        $('#email_part').prev().html('<i class="fa fa-spinner fa-pulse" style="font-size:33px"></i><span style="    font-weight: bold;color: #666;">Please Wait ...</span>');
                         $('.disabled_btn').removeAttr('disabled');
                     }
                     else{
@@ -800,7 +841,7 @@
                             // alert (r);
                             //var email = $('[name="email"]').val(email);
                             if(parseInt(r) ==1){
-                                $('[name="prev_email"]').prev().html("\
+                                $('#email_part').prev().html("\
                                     <h3 class='confirm-msg' style='line-height:20px;font-weight:300'>A confirmation Email has been  sent to your\
                                     <br>\
                                      mailbox <span style='color: #19446F;font-weight:600'>"+email+"</span></h3>\
@@ -827,7 +868,7 @@
                                 $('.have_already_ac').hide();
                             }else{
                                 alert (r);
-                                $('[name="prev_email"]').prev().html("<span style='color:red;font-weight:bold;font-size:11px'>A verification email could not sent to this email...</span>");
+                                $('#email_part').prev().html("<span style='color:red;font-weight:bold;font-size:11px'>A verification email could not sent to this email...</span>");
                                 $('[name="prev_email"]').blur();
                                 $('.captcha_form').show();
                                 $('#email_label').show();
@@ -938,8 +979,6 @@
                 }
             }, 'input[name="country_suggession"]');
 
-            
-
         if($('[name="step_location"]').val() == '#company_information'){
             var step_data = {
                 first_name:'{{$user->first_name ?? ""}}',
@@ -955,11 +994,9 @@
 
         }
 
-
-
         function show_sidebar()
         {
-        document.getElementById('spam-msg-list').style.display="block";
+            document.getElementById('spam-msg-list').style.display="block";
         }
 
         function hide_sidebar()
@@ -972,7 +1009,7 @@
                 $.get(window.location.origin+'/registration/email/'+email,function(r){
                                 //var email = $('[name="email"]').val(email);
                                 if(parseInt(r) ==1){
-                                    $('.mouse-click').html('Email has been sent to your box successfully');
+                                    $('.mouse-click').html('Email has been sent to you successfully');
                                 }else{
                                     $('.mouse-click').html('resend email failed');
                                 }

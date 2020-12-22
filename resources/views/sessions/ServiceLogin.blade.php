@@ -15,8 +15,8 @@
         </div>
         </div>
             <div  style="margin-top:5%;padding-bottom:5%;"id="shodow" class="col-md-4 padding_0" >
-                {!! Form::open(['route' => 'ServiceLoginPost']) !!}
-                @csrf
+                <form method="POST" action="{{route('ServiceLoginPost')}}">
+                {{csrf_field()}}
     			<input type="hidden" name="continue" value="{{$return_url}}">
                     @if (session()->has('flash_message'))
                         <div class="alert alert-success">
@@ -29,7 +29,6 @@
                             {{ session()->get('error_message') }}
                         </div>
                     @endif
-
                     <!-- Email field -->
                     <div id="login_field" class="col-md-12">
                     <div class="form-group">
@@ -69,7 +68,7 @@
                     <div class="shad"></div>
                     
                         </div>
-                {!! Form::close() !!}
+                </form>
 
             </div>
         </div>       

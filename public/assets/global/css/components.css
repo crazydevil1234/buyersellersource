@@ -1253,6 +1253,14 @@ Responsive Utils
     display: none;
   }
 }
+@media (max-width: 600px) {
+  .hotproduct_menutitle {
+    float: none!important;
+  }
+  .hotproduct_menu{
+    margin-left: 0px!important;
+  }
+}
 @media (max-width: 480px) {
   .hidden-480 {
     display: none;

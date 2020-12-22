@@ -15,12 +15,28 @@
 //}
 //app/Http/routes.php
 // dd("check session");
+// Route::get('clear_cache', function () {
+//     \Artisan::call('route:clear');
+//     // shell_exec('composer dump-autoload');
+//     \Artisan::call('view:clear');
+//     \Artisan::call('key:generate');
+//     \Artisan::call('cache:clear');
+//     \Artisan::call('config:cache');
 
-if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-// Ignores notices and reports all other kinds... and warnings
-    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-// error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-}
+//     dd("Cache is cleared");
+// });
+Route::get('key_generate', function () {
+    // \Artisan::call('key:generate');
+    \Artisan::call('view:clear');
+    \Artisan::call('config:cache');
+    // shell_exec('composer require emotality/tawk-laravel');
+    dd("key_generate is cleared");
+});
+// if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+// // Ignores notices and reports all other kinds... and warnings
+//     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+// // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+// }
 
 Route::get('/', ['as' => 'home', 'uses' => 'Front\HomeController@getHome']);
 Route::get('/orderHistory/{id}', ['as' => 'orderHistory', 'uses' => 'StripePaymentController@orderHistory']);
@@ -56,7 +72,7 @@ Route::group(['middleware' => 'guest'], function()
 
     Route::get('login/{return_url}', ['as' => 'user.login', 'middleware' => 'guest', 'uses' => 'SessionsController@create']);
 
-    Route::get('join','StandardUser\UsersController@create');
+    Route::get('join','StandardUser\UsersController@create')->name('join_user');
     Route::get('registration/email/{email}', [
         'as' => 'registration.email',
         'uses' => 'RegistrationController@send_mail'
@@ -518,7 +534,7 @@ Route::get('how-to-deal','Front\FooterPage\FooterPageController@how_to_deal');
 Route::get('how-to-buy','Front\FooterPage\FooterPageController@buy_product');
 Route::get('how-to-join','Front\FooterPage\FooterPageController@how_to_join');
 
-Route::get('buyer/guide-bdsource','Front\FooterPage\FooterPageController@buyer_guide');
+Route::get('buyer/guide-bdsource','Front\FooterPage\FooterPageController@buyer_guide')->name('buyer.guide-bdsource');
 route::get('Intellectual','Front\FooterPage\FooterPageController@Intellectual');
 route::get('Policies_Rules','Front\FooterPage\FooterPageController@Policies_Rules_data');
 route::get('terms_use','Front\FooterPage\FooterPageController@terms_of_use');
@@ -582,7 +598,7 @@ Route::get('about-us',['as'=>'about.us','uses'=>'Front\AboutusController@about_b
 Route::get('about-us-demo',['as'=>'about.us.demo','uses'=>'Front\AboutusController@about_bdtdc_demo']);
 Route::get('entrepreneur/day',['as'=>'entrepreneur.day','uses'=>'Front\AboutusController@entrepreneur_day']);
 Route::get('world-sme/expo',['as'=>'worldsme.expo','uses'=>'Front\AboutusController@sme_expo']);
-Route::get('business/advisory',['as'=>'business.advisory','uses'=>'Front\AboutusController@business_advisory']);
+Route::get('business/sme-center',['as'=>'business.advisory','uses'=>'Front\AboutusController@business_advisory']);
 Route::get('start/programe',['as'=>'start.programe','uses'=>'Front\AboutusController@start_programe']);
 Route::get('database-listing',['as'=>'bdtdc.databaselisting','uses'=>'Front\AboutusController@database_listing']);
 Route::get('promoting/bangladesh',['as'=>'promoting.bangladesh','uses'=>'Front\AboutusController@promoting_bangladesh']);
@@ -599,8 +615,8 @@ Route::get('prease-release/the-daily-star',['as'=>'prease-release.the-daily-star
 Route::get('tv-news',['as'=>'bdtdc.ekattor-tv','uses'=>'Front\AboutusController@bdtdc_tv_news']);
 Route::get('media-news',['as'=>'bdtdc.media-news','uses'=>'Front\AboutusController@bdtdc_media_news_channel9']);
 Route::get('prease-release/proverty-&-pollution',['as'=>'prease-release.proverty-&-pollution','uses'=>'Front\AboutusController@poverty_pollution']);
-Route::get('Kazi-Ahamed/marchant-of-rainbows',['as'=>'Kazi-Ahamed.marchant-of-rainbows','uses'=>'Front\AboutusController@marchant_of_rainbows']);
-Route::get('A-TALE-OF-PATENTS-AND-PERSISTENCE',['as'=>'A-TALE-OF-PATENTS-AND-PERSISTENCE','uses'=>'Front\AboutusController@patents_persistance']);
+Route::get('Kazi-Ahamed/marchant-of-rainbows', 'Front\AboutusController@marchant_of_rainbows')->name('Kazi-Ahamed.marchant-of-rainbows');
+Route::get('a-tale-of-patents-and-persistence', 'Front\AboutusController@patents_persistance')->name('A-TALE-OF-PATENTS-AND-PERSISTENCE');
 Route::get('buyerseller-group',['as'=>'Bdtdc-group','uses'=>'Front\AboutusController@Bdtdc_Bangladesh_group']);
 Route::get('company-overview',['as'=>'Bdtdc-group','uses'=>'Front\AboutusController@company_overview']);
 Route::get('culture/values',['as'=>'Bdtdc-group','uses'=>'Front\AboutusController@culture_and_values']);
@@ -625,7 +641,7 @@ Route::get('help_center/suppliers_help/{id}','Front\ServiceChannel\ServiceChanne
 route::get('Intellectual','Front\FooterPage\FooterPageController@Intellectual');
 route::get('Policies_Rules','Front\FooterPage\FooterPageController@Policies_Rules_data');
 route::get('terms_use','Front\FooterPage\FooterPageController@terms_of_use');
-route::get('select/suppliers','Front\GoldSupplierController@buyer_supplier_info');
+route::get('select/suppliers','Front\GoldSupplierController@buyer_supplier_info')->name('select.suppliers');
 route::get('product_listing_policy','Front\FooterPage\FooterPageController@product_listing_policy');
 route::get('displaying-prohibited','Front\FooterPage\FooterPageController@displaying_prohibited');
 route::get('buying-request','Front\FooterPage\FooterPageController@buying_request');

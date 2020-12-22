@@ -252,13 +252,15 @@
                      <div class="view-label text-right" style="padding: 8px; float: left;">Page no. <?php if(isset($products)): ?>
                         <strong><?php echo e($products->currentPage()); ?></strong> <?php if($products->lastPage() >0 ): ?>
                         of <strong><?php echo e($products->lastPage()); ?></strong>
-                        <?php endif; ?> |
+                        <?php endif; ?> &nbsp;
+                        <span style="white-space: nowrap;">
                         <?php if($products->currentPage()==1): ?>
                         < prev <?php else: ?> <a href="<?php echo e($products->previousPageUrl()); ?>">
                            < prev</a> <?php endif; ?> | <a href="<?php echo e($products->nextPageUrl()); ?>">next ></a>
                               <?php else: ?>
                               <strong>0</strong>
                               <?php endif; ?>
+                        </span>
                      </div>
                   </div>
 
@@ -292,9 +294,9 @@
 
 
                                  <?php if($p->pro_images_new): ?>
-                                 <img itemprop="image" title="<?php echo e($pname); ?>" style="width:100%" class="img-thumbnail pro-imges" src="<?php echo asset(''.$p->pro_images_new->image); ?>" alt="<?php echo e($pname); ?>" />
+                                 <img itemprop="image" title="<?php echo e($pname); ?>" style="width:100%;min-height:auto!important;" class="img-thumbnail pro-imges" src="<?php echo asset(''.$p->pro_images_new->image); ?>" alt="<?php echo e($pname); ?>" />
                                  <?php else: ?>
-                                 <img itemprop="image" title="<?php echo e($pname); ?>" style="width:100%" class="img-thumbnail pro-imges" src="<?php echo asset('uploads/no-image.jpg'); ?>" alt="<?php echo e($pname); ?>" />
+                                 <img itemprop="image" title="<?php echo e($pname); ?>" style="width:100%;min-height:auto!important;" class="img-thumbnail pro-imges" src="<?php echo asset('uploads/no-image.jpg'); ?>" alt="<?php echo e($pname); ?>" />
                                  <?php endif; ?>
                               </a>
                            </div>
@@ -310,8 +312,8 @@
                               </a>
 
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0;">
-                              <span style="width:50%; float:left;">
+                           <div style="line-height: 24px; padding-top: 10px;">
+                              <span style="width:50%; float:left;line-height:1!important;">
 
                                  <?php if($p->bdtdcProduct): ?>
                                  <?php if($p->bdtdcProduct->product_prices): ?>
@@ -348,7 +350,7 @@
                                  price not available
                                  <?php endif; ?>
                               </span>
-                              <span style="width:50%; float:left;">
+                              <span style="width:50%; float:left;line-height:1!important;">
                                  <?php if($p->bdtdcProduct): ?>
                                  <?php if($p->bdtdcProduct->product_prices): ?>
                                  <?php echo e($p->bdtdcProduct->product_prices->product_MOQ); ?>
@@ -362,15 +364,16 @@
                                  <?php endif; ?>
                                  (Min. Order)</span>
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0; clear:both;">
-                              <span style="margin:0 0 0px;display:block;width:50%; float:left; line-height: 24px;" class="summary_pro">Product Type:</span>
-                              <span style="display:block;width:50%; float:left;line-height: 24px; "> <a class="custom_click_search" data-id-type="category" data-tid="<?php echo e($p->bdtdcCategory->id); ?>" href="<?php echo e($p->bdtdcCategory->id); ?>"><?php echo e($p->bdtdcCategory->name); ?></a>
+                           <div style="line-height: 24px; padding-top: 10px; clear:both;">
+                              <span style="margin:0 0 0px;display:block;width:50%; float:left;line-height:1!important;" class="summary_pro">Product Type:</span>
+                              <span style="display:block;width:50%; float:left;line-height:1!important;"> <a style="line-height: 1!important;" class="custom_click_search" data-id-type="category" data-tid="<?php echo e($p->bdtdcCategory->id); ?>" href="<?php echo e($p->bdtdcCategory->id); ?>"><?php echo e($p->bdtdcCategory->name); ?></a>
                               </span>
                            </div>
 
-                           <div style="line-height: 24px; padding: 3px 0;clear:both;">
-                              <span class="summary_pro" style="width:50%; float:left; line-height: 24px;">Place of Origin:</span><span style="width:50%; line-height: 24px; ">
-                              	<a class="custom_click_search" data-id-type="country-origin" href="" data-tid="<?php if($p->bdtdcProduct): ?> <?php if($p->bdtdcProduct->product_country): ?> <?php echo e($p->bdtdcProduct->product_country->id); ?> <?php else: ?> 0 <?php endif; ?> <?php else: ?> 0 <?php endif; ?> ">
+                           <div style="line-height: 24px; padding-top: 5px; clear:both;">
+                              <span class="summary_pro" style="width:50%; float:left;">Place of Origin:</span>
+                              <span style="width:50%;line-height:1!important;">
+                              	<a style="line-height: 1!important;" class="custom_click_search" data-id-type="country-origin" href="" data-tid="<?php if($p->bdtdcProduct): ?> <?php if($p->bdtdcProduct->product_country): ?> <?php echo e($p->bdtdcProduct->product_country->id); ?> <?php else: ?> 0 <?php endif; ?> <?php else: ?> 0 <?php endif; ?> ">
                                     <?php if($p->bdtdcProduct): ?>
                                     <?php if($p->bdtdcProduct->product_country): ?>
                                     <?php echo e($p->bdtdcProduct->product_country->name); ?>
@@ -385,8 +388,8 @@
                                  </a>
                               </span>
                            </div>
-                           <div style="line-height: 24px; padding: 3px 0; clear:both;">
-                              <span class="summary_pro" style="width:50%; float:left; line-height: 24px;">Brand Name:</span><span style="width:48%; float:left; line-height: 24px; "> <a class="custom_click_search" data-id-type="brandname" href="" data-tid="<?php echo e($p->bdtdcProduct->brandname); ?>"><?php echo e($p->bdtdcProduct->brandname); ?></a></span>
+                           <div style="line-height: 24px; padding-top: 5px; clear:both;">
+                              <span class="summary_pro" style="width:50%; float:left;line-height:1!important;">Brand Name:</span><span style="width:48%; float:left;line-height:1!important;"> <a style="line-height: 1!important;" class="custom_click_search" data-id-type="brandname" href="" data-tid="<?php echo e($p->bdtdcProduct->brandname); ?>"><?php echo e($p->bdtdcProduct->brandname); ?></a></span>
                            </div>
                         </div>
                         <div class="col-xs-12 col-md-4 col-sm-4 padding_0" style="border-left: 1px solid #ddd;">
@@ -406,7 +409,7 @@
                                     <?php endif; ?>
                                  </a>
                               </div>
-                              <div class="summary" style="line-height:24px; padding:5px 0;">
+                              <div class="summary" style="padding:5px 0;">
                                  <a class="custom_click_search" data-id-type="country" href="" data-tid="<?php if($p->cat_country): ?> <?php if($p->cat_country->name): ?> <?php echo e($p->cat_country->id); ?>	<?php else: ?>	0 <?php endif; ?>	<?php else: ?>	0 <?php endif; ?>	">
 
                                     <?php if($p->cat_country): ?>
@@ -422,7 +425,7 @@
                                  </a>
 
                                  |
-                                 <a itemprop="url" href="<?php echo e(URL::to('BuyerChannel/pages/trade_assurance',5)); ?>" target="_blank">
+                                 <a itemprop="url" style="white-space: nowrap;" href="<?php echo e(URL::to('BuyerChannel/pages/trade_assurance',5)); ?>" target="_blank">
                                     <!-- <i class="fa fa-pie-chart"></i> -->
                                     <span><img title="Buyer Protection" style="width: 20px;" src="<?php echo e(asset('bdtdc-product-image/home-page/Buyer-protection-home.png')); ?>" alt="Buyer Protection"></span>
                                     Buyer Protection
@@ -437,7 +440,7 @@
                               <div class="summary">
                                  Verified Information: <span>
                                     <?php if($p->supp_pro_company): ?>
-                                    <a itemprop="url" target="_blank" href="<?php echo e(URL::to('industrial-certification/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$p->supp_pro_company_name->name)).'/'.$p->company_id); ?>">
+                                    <a itemprop="url" style="white-space: nowrap;" target="_blank" href="<?php echo e(URL::to('industrial-certification/'.preg_replace('/[^A-Za-z0-9\-]/', '-',$p->supp_pro_company_name->name)).'/'.$p->company_id); ?>">
                                        <?php else: ?>
                                        company not available"
                                        <?php endif; ?>
@@ -463,10 +466,10 @@
                                  <?php if($p->bdtdcProduct): ?>
                                  <?php if($p->bdtdcProduct->customer_activity): ?>
                                  <?php if(count($p->bdtdcProduct->customer_activity)>0): ?>
-                                 <a class="fa fa-minus-square  btn favorite" itemprop="url" data-key="<?php echo e($p->pro_to_cat_name->name ?? ''); ?>" data-id="<?php echo e($p->product_id); ?>" data-type="1"> Remove from favorite</a>
+                                 <a style="padding: 0px 7px 0px 0px;" class="fa fa-minus-square  btn favorite" itemprop="url" data-key="<?php echo e($p->pro_to_cat_name->name ?? ''); ?>" data-id="<?php echo e($p->product_id); ?>" data-type="1"> Remove from favorite</a>
                                  <?php else: ?>
 
-                                 <a class="fa fa-plus-square  btn favorite" itemprop="url" data-key="<?php echo e($p->pro_to_cat_name->name ?? ''); ?>" data-id="<?php echo e($p->product_id); ?>" data-type="1"> Add to favorite</a>
+                                 <a style="padding: 0px 7px 0px 0px;" class="fa fa-plus-square  btn favorite" itemprop="url" data-key="<?php echo e($p->pro_to_cat_name->name ?? ''); ?>" data-id="<?php echo e($p->product_id); ?>" data-type="1"> Add to favorite</a>
 
                                  <?php endif; ?>
                                  <?php else: ?>
@@ -477,7 +480,7 @@
 
                               </form>
                               <?php else: ?>
-                              <a href="<?php echo e(URL::to('ServiceLogin?continue='.$url)); ?>" class="fa fa-plus-square  btn" itemprop="url" style="line-height: 28px"> Add to favorite</a>
+                              <a href="<?php echo e(URL::to('ServiceLogin?continue='.$url)); ?>" class="fa fa-plus-square  btn" itemprop="url" style="line-height: 28px;padding: 0px 7px 0px 0px;"> Add to favorite</a>
 
                               <?php endif; ?>
                            </div>
@@ -521,8 +524,8 @@
          </div>
       </div>
       <div class="col-md-2 relate .d-none .d-md-block">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding: 25px 0;background: white; margin-bottom: 2px">
-	         <div class="title_home">Premium related products</div>
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding: 18px 0;background: white; margin-bottom: 2px">
+	         <div class="title_home" style="line-height: 1.2;">Premium related products</div>
 	      </div>
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 25px 0;background: white; margin-bottom: 2px">
             <div class="bdpro-hovereffect2">
